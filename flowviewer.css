@@ -1,0 +1,80 @@
+body {
+    color: #040506;
+    background-color: #fefcfc
+}
+
+.group-text-label {
+    font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+.node-text-label {
+	font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	dominant-baseline: middle;
+}
+
+.flow-download-link {
+    font-size: 70%;
+}
+
+.flow-copy-to-clipboard-link {
+    font-size: 70%;
+}
+
+.link-highlight, .node-highlight {
+    stroke: rgb(255, 127, 14);
+}
+.node-highlight {
+    stroke-width: 3px;
+}
+
+.node-disabled {
+	stroke-dasharray: 8,3;
+	fill-opacity: 0.5;
+}
+
+.link-disabled {
+	stroke-dasharray: 10,8 !important;
+	stroke-width: 2 !important;
+	stroke: rgb(204, 204, 204);
+}
+
+.grid-line {
+    shape-rendering: crispedges;
+    stroke: rgb(238, 238, 238);
+    stroke-width: 1px;
+    fill: none;
+}
+.output-deco {
+    stroke-width: 2px; 
+    stroke-miterlimit: 4;
+}
+
+.input-deco {
+    stroke-width: 2px;
+    stroke-miterlimit: 4;
+}
+
+.flow-render-error {
+    background-color: rgb(54, 52, 52); 
+    color: rgb(196, 59, 59); 
+    width: 100%;
+}
+
+pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #f36d33;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+}
