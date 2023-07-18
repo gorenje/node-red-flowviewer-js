@@ -73,6 +73,27 @@
         "h": 159
     },
     {
+        "id": "f6dfc013ef04cbff",
+        "type": "group",
+        "z": "3b1289d7ccf9cb0f",
+        "name": "for each file, create blob at github",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "be932cbb0971d0e6",
+            "e275f899d947408c",
+            "84deaa8431cc6d1e",
+            "4e454286c4e6e746",
+            "e184b0fe543c835f",
+            "d77803b5de0f7dab"
+        ],
+        "x": 3154,
+        "y": 999,
+        "w": 252,
+        "h": 404
+    },
+    {
         "id": "c9469bc8f43477f8",
         "type": "link out",
         "z": "3b1289d7ccf9cb0f",
@@ -2003,23 +2024,6 @@
         ]
     },
     {
-        "id": "f6e63967176bcd24",
-        "type": "debug",
-        "z": "3b1289d7ccf9cb0f",
-        "name": "debug 30",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 3082,
-        "y": 1936,
-        "wires": []
-    },
-    {
         "id": "8c437e516c9dcd9e",
         "type": "switch",
         "z": "3b1289d7ccf9cb0f",
@@ -2228,15 +2232,15 @@
         "id": "83744d14d589d375",
         "type": "function",
         "z": "3b1289d7ccf9cb0f",
-        "name": "function 12",
+        "name": "prepare msg.payload with directory structure",
         "func": "msg.writermap.forEach( (txt) => {\n    msg.payload.push( {\n        payload: txt.text,\n        name: txt.name\n    })\n})\n\nfor ( var nme in msg ) {\n    if ( nme.startsWith(\"js\")) {\n        msg.payload.push({\n            payload: msg[nme],\n            name: \"src/\" + nme.replace(/^js(.)/, function (m) { return m[2].toLowerCase() }) + \".js\"\n        })\n        delete msg[nme];\n    }\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2528,
-        "y": 1111,
+        "x": 2813,
+        "y": 1040,
         "wires": [
             [
                 "be932cbb0971d0e6"
@@ -2298,6 +2302,7 @@
         "id": "be932cbb0971d0e6",
         "type": "split",
         "z": "3b1289d7ccf9cb0f",
+        "g": "f6dfc013ef04cbff",
         "name": "",
         "splt": "\\n",
         "spltType": "str",
@@ -2305,8 +2310,8 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 2680,
-        "y": 1196,
+        "x": 3266,
+        "y": 1040,
         "wires": [
             [
                 "84deaa8431cc6d1e"
@@ -2317,11 +2322,12 @@
         "id": "e275f899d947408c",
         "type": "base64",
         "z": "3b1289d7ccf9cb0f",
+        "g": "f6dfc013ef04cbff",
         "name": "",
         "action": "",
         "property": "payload",
-        "x": 3062,
-        "y": 1034,
+        "x": 3267,
+        "y": 1157,
         "wires": [
             [
                 "e184b0fe543c835f"
@@ -2332,6 +2338,7 @@
         "id": "84deaa8431cc6d1e",
         "type": "change",
         "z": "3b1289d7ccf9cb0f",
+        "g": "f6dfc013ef04cbff",
         "name": "",
         "rules": [
             {
@@ -2375,8 +2382,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2847,
-        "y": 1069,
+        "x": 3266,
+        "y": 1101,
         "wires": [
             [
                 "e275f899d947408c"
@@ -2387,6 +2394,7 @@
         "id": "4e454286c4e6e746",
         "type": "join",
         "z": "3b1289d7ccf9cb0f",
+        "g": "f6dfc013ef04cbff",
         "name": "",
         "mode": "auto",
         "build": "object",
@@ -2399,8 +2407,8 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 2914,
-        "y": 1323,
+        "x": 3285,
+        "y": 1362,
         "wires": [
             [
                 "538382528e212e10"
@@ -2411,14 +2419,15 @@
         "id": "e184b0fe543c835f",
         "type": "link call",
         "z": "3b1289d7ccf9cb0f",
+        "g": "f6dfc013ef04cbff",
         "name": "",
         "links": [
             "08d2d7135f31a878"
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3193,
-        "y": 1112,
+        "x": 3280,
+        "y": 1223,
         "wires": [
             [
                 "d77803b5de0f7dab"
@@ -2429,6 +2438,7 @@
         "id": "d77803b5de0f7dab",
         "type": "change",
         "z": "3b1289d7ccf9cb0f",
+        "g": "f6dfc013ef04cbff",
         "name": "",
         "rules": [
             {
@@ -2444,8 +2454,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3152,
-        "y": 1218,
+        "x": 3286,
+        "y": 1297,
         "wires": [
             [
                 "4e454286c4e6e746"
@@ -2472,8 +2482,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3298,
-        "y": 1404,
+        "x": 2809,
+        "y": 1439,
         "wires": [
             [
                 "dfeb191f16bef5df"
@@ -2490,8 +2500,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3320,
-        "y": 1482,
+        "x": 2831,
+        "y": 1517,
         "wires": [
             [
                 "ee00d35fee925bc7"
@@ -2539,8 +2549,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3202,
-        "y": 1572,
+        "x": 2835,
+        "y": 1598,
         "wires": [
             [
                 "9488d18457d0f1f7"
@@ -2557,8 +2567,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3223,
-        "y": 1650,
+        "x": 2818,
+        "y": 1683,
         "wires": [
             [
                 "8a12d8c3f7305d06"
@@ -2575,8 +2585,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3269,
-        "y": 1750,
+        "x": 2818,
+        "y": 1767,
         "wires": [
             [
                 "9d116acb86d60a6a"
@@ -2593,12 +2603,10 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3248,
-        "y": 1833,
+        "x": 2819,
+        "y": 1844,
         "wires": [
-            [
-                "f6e63967176bcd24"
-            ]
+            []
         ]
     }
 ]
