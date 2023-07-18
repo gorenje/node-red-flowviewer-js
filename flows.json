@@ -2606,7 +2606,26 @@
         "x": 2819,
         "y": 1844,
         "wires": [
-            []
+            [
+                "eada8fe6d904667d"
+            ]
         ]
+    },
+    {
+        "id": "eada8fe6d904667d",
+        "type": "debug",
+        "z": "3b1289d7ccf9cb0f",
+        "name": "debug 30",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3121,
+        "y": 1844,
+        "wires": []
     }
 ]
