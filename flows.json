@@ -88,8 +88,8 @@
             "e184b0fe543c835f",
             "d77803b5de0f7dab"
         ],
-        "x": 3154,
-        "y": 999,
+        "x": 3059,
+        "y": 1069,
         "w": 252,
         "h": 404
     },
@@ -109,10 +109,88 @@
             "5f3f01a7b66b82c1",
             "d4c4a7848e8c9b04"
         ],
-        "x": 3519,
-        "y": 667,
+        "x": 3235,
+        "y": 513,
         "w": 252,
         "h": 404
+    },
+    {
+        "id": "e4084a937a77f0d0",
+        "type": "group",
+        "z": "3b1289d7ccf9cb0f",
+        "name": "Don't Press Here.",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "03b87e7f0c64f35b"
+        ],
+        "x": 485,
+        "y": 1070,
+        "w": 312,
+        "h": 82
+    },
+    {
+        "id": "d07ddb933d722248",
+        "type": "group",
+        "z": "3b1289d7ccf9cb0f",
+        "name": "prepare commit, create commit and update repo with new commit",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "538382528e212e10",
+            "dfeb191f16bef5df",
+            "ee00d35fee925bc7",
+            "9488d18457d0f1f7",
+            "8a12d8c3f7305d06",
+            "9d116acb86d60a6a"
+        ],
+        "x": 3465,
+        "y": 1288,
+        "w": 432,
+        "h": 487
+    },
+    {
+        "id": "72f284ff2072c42e",
+        "type": "group",
+        "z": "3b1289d7ccf9cb0f",
+        "name": "do commit to cdn.omm.org",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "cf1b500165dd957a",
+            "fb0cfc6fc6ba198d",
+            "5aae5e5579e1f571",
+            "3b588233885dc912"
+        ],
+        "x": 4144,
+        "y": 507,
+        "w": 355,
+        "h": 328
+    },
+    {
+        "id": "174950271a5c38fe",
+        "type": "group",
+        "z": "3b1289d7ccf9cb0f",
+        "name": "check that something did actually change",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "9f79b5be7ff9aec0",
+            "ec7dc3f74585d7ad",
+            "9cd21c2349d55ec5",
+            "78f922f2379a9db3",
+            "5064042f7e28cf9e",
+            "7910f96bca237835",
+            "53aa521f18c37c97"
+        ],
+        "x": 3556,
+        "y": 504,
+        "w": 351,
+        "h": 503
     },
     {
         "id": "c9469bc8f43477f8",
@@ -2011,6 +2089,7 @@
         "id": "03b87e7f0c64f35b",
         "type": "inject",
         "z": "3b1289d7ccf9cb0f",
+        "g": "e4084a937a77f0d0",
         "name": "GitHub Commit - Press Here.",
         "props": [
             {
@@ -2254,7 +2333,7 @@
         "id": "83744d14d589d375",
         "type": "function",
         "z": "3b1289d7ccf9cb0f",
-        "name": "prepare msg.payload with directory structure",
+        "name": "prepare commit for node-red-flowviewer-js",
         "func": "msg.writermap.forEach( (txt) => {\n    msg.payload.push( {\n        payload: txt.text,\n        name: txt.name\n    })\n})\n\nfor ( var nme in msg ) {\n    if ( nme.startsWith(\"js\")) {\n        msg.payload.push({\n            payload: msg[nme],\n            name: \"src/\" + nme.replace(/^js(.)/, function (m) { return m[2].toLowerCase() }) + \".js\"\n        })\n        delete msg[nme];\n    }\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
@@ -2332,8 +2411,8 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 3266,
-        "y": 1040,
+        "x": 3171,
+        "y": 1110,
         "wires": [
             [
                 "84deaa8431cc6d1e"
@@ -2348,8 +2427,8 @@
         "name": "",
         "action": "",
         "property": "payload",
-        "x": 3267,
-        "y": 1157,
+        "x": 3172,
+        "y": 1227,
         "wires": [
             [
                 "e184b0fe543c835f"
@@ -2404,8 +2483,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3266,
-        "y": 1101,
+        "x": 3171,
+        "y": 1171,
         "wires": [
             [
                 "e275f899d947408c"
@@ -2429,8 +2508,8 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 3285,
-        "y": 1362,
+        "x": 3190,
+        "y": 1432,
         "wires": [
             [
                 "538382528e212e10"
@@ -2448,8 +2527,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3280,
-        "y": 1223,
+        "x": 3185,
+        "y": 1293,
         "wires": [
             [
                 "d77803b5de0f7dab"
@@ -2476,8 +2555,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3286,
-        "y": 1297,
+        "x": 3191,
+        "y": 1367,
         "wires": [
             [
                 "4e454286c4e6e746"
@@ -2488,6 +2567,7 @@
         "id": "538382528e212e10",
         "type": "change",
         "z": "3b1289d7ccf9cb0f",
+        "g": "d07ddb933d722248",
         "name": "blobs",
         "rules": [
             {
@@ -2504,8 +2584,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3840,
-        "y": 1362,
+        "x": 3655,
+        "y": 1329,
         "wires": [
             [
                 "dfeb191f16bef5df"
@@ -2516,14 +2596,15 @@
         "id": "dfeb191f16bef5df",
         "type": "link call",
         "z": "3b1289d7ccf9cb0f",
+        "g": "d07ddb933d722248",
         "name": "",
         "links": [
             "c90bd91e45e1ac7e"
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3862,
-        "y": 1440,
+        "x": 3677,
+        "y": 1407,
         "wires": [
             [
                 "ee00d35fee925bc7"
@@ -2534,6 +2615,7 @@
         "id": "ee00d35fee925bc7",
         "type": "change",
         "z": "3b1289d7ccf9cb0f",
+        "g": "d07ddb933d722248",
         "name": "parent_sha, blobs --> payload, message & author",
         "rules": [
             {
@@ -2571,8 +2653,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3866,
-        "y": 1521,
+        "x": 3681,
+        "y": 1488,
         "wires": [
             [
                 "9488d18457d0f1f7"
@@ -2583,14 +2665,15 @@
         "id": "9488d18457d0f1f7",
         "type": "link call",
         "z": "3b1289d7ccf9cb0f",
+        "g": "d07ddb933d722248",
         "name": "",
         "links": [
             "78d886e3f8af26b7"
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3849,
-        "y": 1606,
+        "x": 3664,
+        "y": 1573,
         "wires": [
             [
                 "8a12d8c3f7305d06"
@@ -2601,14 +2684,15 @@
         "id": "8a12d8c3f7305d06",
         "type": "link call",
         "z": "3b1289d7ccf9cb0f",
+        "g": "d07ddb933d722248",
         "name": "",
         "links": [
             "ab95f13fbc3a2d5b"
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3849,
-        "y": 1690,
+        "x": 3664,
+        "y": 1657,
         "wires": [
             [
                 "9d116acb86d60a6a"
@@ -2619,14 +2703,15 @@
         "id": "9d116acb86d60a6a",
         "type": "link call",
         "z": "3b1289d7ccf9cb0f",
+        "g": "d07ddb933d722248",
         "name": "",
         "links": [
             "2df1a9a310e8a9fd"
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3850,
-        "y": 1767,
+        "x": 3665,
+        "y": 1734,
         "wires": [
             [
                 "eada8fe6d904667d"
@@ -2646,16 +2731,16 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 4152,
-        "y": 1767,
+        "x": 3595,
+        "y": 1876,
         "wires": []
     },
     {
         "id": "58ad9096a049bd57",
         "type": "function",
         "z": "3b1289d7ccf9cb0f",
-        "name": "prepare for commit to cdn.openmindmap.org",
-        "func": "delete msg.writermap;\n\nfor (var nme in msg) {\n    if (nme.startsWith(\"js\")) {\n        delete msg[nme];\n    }\n}\n\nmsg.payload = msg.payload.filter( (obj) => {\n    return (obj.name == \"flowviewer.css\" || obj.name == \"flowviewer.js\")\n}).map( function(obj){\n    obj.name = \"embed/\" + obj.name;\n    return obj;\n});\n\nreturn msg;\n",
+        "name": "prepare commit for cdn.openmindmap.org",
+        "func": "/*\n  this only commits the js and css files, everything else\n  is ignored.\n */\ndelete msg.writermap;\n\nfor (var nme in msg) {\n    if (nme.startsWith(\"js\")) {\n        delete msg[nme];\n    }\n}\n\nmsg.payload = msg.payload.filter( (obj) => {\n    return (obj.name == \"flowviewer.css\" || obj.name == \"flowviewer.js\")\n}).map( function(obj){\n    obj.name = \"embed/\" + obj.name;\n    return obj;\n});\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2681,8 +2766,8 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 3631,
-        "y": 708,
+        "x": 3347,
+        "y": 554,
         "wires": [
             [
                 "c83e498a1edbea4a"
@@ -2697,8 +2782,8 @@
         "name": "",
         "action": "",
         "property": "payload",
-        "x": 3632,
-        "y": 825,
+        "x": 3348,
+        "y": 671,
         "wires": [
             [
                 "5f3f01a7b66b82c1"
@@ -2753,8 +2838,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3631,
-        "y": 769,
+        "x": 3347,
+        "y": 615,
         "wires": [
             [
                 "3e447b3d36b5192e"
@@ -2778,11 +2863,11 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 3650,
-        "y": 1030,
+        "x": 3366,
+        "y": 876,
         "wires": [
             [
-                "538382528e212e10"
+                "9f79b5be7ff9aec0"
             ]
         ]
     },
@@ -2797,8 +2882,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3645,
-        "y": 891,
+        "x": 3361,
+        "y": 737,
         "wires": [
             [
                 "d4c4a7848e8c9b04"
@@ -2825,8 +2910,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3651,
-        "y": 965,
+        "x": 3367,
+        "y": 811,
         "wires": [
             [
                 "540423e89add682a"
@@ -2886,5 +2971,262 @@
         "x": 373,
         "y": 448,
         "wires": []
+    },
+    {
+        "id": "9f79b5be7ff9aec0",
+        "type": "change",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "174950271a5c38fe",
+        "name": "blobs",
+        "rules": [
+            {
+                "t": "set",
+                "p": "blobs",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3657,
+        "y": 545,
+        "wires": [
+            [
+                "ec7dc3f74585d7ad"
+            ]
+        ]
+    },
+    {
+        "id": "ec7dc3f74585d7ad",
+        "type": "link call",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "174950271a5c38fe",
+        "name": "",
+        "links": [
+            "c90bd91e45e1ac7e"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 3702,
+        "y": 623,
+        "wires": [
+            [
+                "9cd21c2349d55ec5"
+            ]
+        ]
+    },
+    {
+        "id": "cf1b500165dd957a",
+        "type": "change",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "72f284ff2072c42e",
+        "name": "blobs --> payload, message & author",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "blobs",
+                "tot": "msg",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "message",
+                "pt": "msg",
+                "to": "github.message",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "author",
+                "pt": "msg",
+                "to": "github.author",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 4320,
+        "y": 548,
+        "wires": [
+            [
+                "fb0cfc6fc6ba198d"
+            ]
+        ]
+    },
+    {
+        "id": "fb0cfc6fc6ba198d",
+        "type": "link call",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "72f284ff2072c42e",
+        "name": "",
+        "links": [
+            "78d886e3f8af26b7"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 4343,
+        "y": 633,
+        "wires": [
+            [
+                "5aae5e5579e1f571"
+            ]
+        ]
+    },
+    {
+        "id": "5aae5e5579e1f571",
+        "type": "link call",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "72f284ff2072c42e",
+        "name": "",
+        "links": [
+            "ab95f13fbc3a2d5b"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 4343,
+        "y": 717,
+        "wires": [
+            [
+                "3b588233885dc912"
+            ]
+        ]
+    },
+    {
+        "id": "3b588233885dc912",
+        "type": "link call",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "72f284ff2072c42e",
+        "name": "",
+        "links": [
+            "2df1a9a310e8a9fd"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 4344,
+        "y": 794,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9cd21c2349d55ec5",
+        "type": "change",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "174950271a5c38fe",
+        "name": "parent_sha",
+        "rules": [
+            {
+                "t": "set",
+                "p": "parent_sha",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3731,
+        "y": 681,
+        "wires": [
+            [
+                "78f922f2379a9db3"
+            ]
+        ]
+    },
+    {
+        "id": "78f922f2379a9db3",
+        "type": "link call",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "174950271a5c38fe",
+        "name": "",
+        "links": [
+            "43d3a872c31bb664"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 3734,
+        "y": 759,
+        "wires": [
+            [
+                "5064042f7e28cf9e"
+            ]
+        ]
+    },
+    {
+        "id": "5064042f7e28cf9e",
+        "type": "function",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "174950271a5c38fe",
+        "name": "set sha for embed folder",
+        "func": "msg.payload = msg.payload.filter( function(d){\n    return d.path == \"embed\"\n})[0].sha;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 3741,
+        "y": 831,
+        "wires": [
+            [
+                "7910f96bca237835"
+            ]
+        ]
+    },
+    {
+        "id": "7910f96bca237835",
+        "type": "link call",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "174950271a5c38fe",
+        "name": "",
+        "links": [
+            "43d3a872c31bb664"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 3771,
+        "y": 899,
+        "wires": [
+            [
+                "53aa521f18c37c97"
+            ]
+        ]
+    },
+    {
+        "id": "53aa521f18c37c97",
+        "type": "function",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "174950271a5c38fe",
+        "name": "check sha of files",
+        "func": "// flowviewer.js\n\nvar currSha = msg.payload.filter( function(d){\n    return d.path == \"flowviewer.js\"\n})[0].sha;\n\nvar newSha = msg.blobs.filter( function(d) {\n    return d.path == \"embed/flowviewer.js\"\n})[0].sha;\n\nif ( currSha != newSha ) { return [{...msg, payload: \"js differ\"}, undefined ] }\n\n// flowviewer.css\n\ncurrSha = msg.payload.filter(function (d) {\n    return d.path == \"flowviewer.css\"\n})[0].sha;\n\nnewSha = msg.blobs.filter(function (d) {\n    return d.path == \"embed/flowviewer.css\"\n})[0].sha;\n\nif (currSha != newSha) { return [{...msg, payload: \"css differ\"}, undefined] }\n\nreturn [undefined, {...msg, payload: \"same\"}];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 3741,
+        "y": 966,
+        "wires": [
+            [
+                "cf1b500165dd957a"
+            ],
+            []
+        ],
+        "outputLabels": [
+            "not same",
+            "same"
+        ]
     }
 ]
