@@ -20,8 +20,8 @@
             "1188e4813903d3b6",
             "831964cf8df2c0b2"
         ],
-        "x": 217,
-        "y": 1256,
+        "x": 264,
+        "y": 1249,
         "w": 312,
         "h": 180
     },
@@ -146,8 +146,8 @@
             "8a12d8c3f7305d06",
             "9d116acb86d60a6a"
         ],
-        "x": 3465,
-        "y": 1288,
+        "x": 3351,
+        "y": 1388,
         "w": 432,
         "h": 487
     },
@@ -165,8 +165,8 @@
             "5aae5e5579e1f571",
             "3b588233885dc912"
         ],
-        "x": 4144,
-        "y": 507,
+        "x": 4023,
+        "y": 1102,
         "w": 355,
         "h": 328
     },
@@ -187,8 +187,8 @@
             "7910f96bca237835",
             "53aa521f18c37c97"
         ],
-        "x": 3556,
-        "y": 504,
+        "x": 3585,
+        "y": 756,
         "w": 351,
         "h": 503
     },
@@ -322,7 +322,7 @@
         "fieldType": "msg",
         "format": "css",
         "syntax": "mustache",
-        "template": "body {\n    color: #040506;\n    background-color: #fefcfc\n}\n\n.group-text-label {\n    font-family: Helvetica Neue, Arial, Helvetica, sans-serif;\n\tfont-size: 14px;\n}\n\n.node-text-label {\n\tfont-family: Helvetica Neue, Arial, Helvetica, sans-serif;\n\tfont-size: 14px;\n\tdominant-baseline: middle;\n}\n\n.flow-download-link {\n    font-size: 70%;\n}\n\n.flow-copy-to-clipboard-link {\n    font-size: 70%;\n}\n\n.link-highlight, .node-highlight {\n    stroke: rgb(255, 127, 14);\n}\n.node-highlight {\n    stroke-width: 3px;\n}\n\n.node-disabled {\n\tstroke-dasharray: 8,3;\n\tfill-opacity: 0.5;\n}\n\n.link-disabled {\n\tstroke-dasharray: 10,8 !important;\n\tstroke-width: 2 !important;\n\tstroke: rgb(204, 204, 204);\n}\n\n.grid-line {\n    shape-rendering: crispedges;\n    stroke: rgb(238, 238, 238);\n    stroke-width: 1px;\n    fill: none;\n}\n.output-deco {\n    stroke-width: 2px; \n    stroke-miterlimit: 4;\n}\n\n.input-deco {\n    stroke-width: 2px;\n    stroke-miterlimit: 4;\n}\n\n.flow-render-error {\n    background-color: rgb(54, 52, 52); \n    color: rgb(196, 59, 59); \n    width: 100%;\n}\n\npre {\n    background: #f4f4f4;\n    border: 1px solid #ddd;\n    border-left: 3px solid #f36d33;\n    color: #666;\n    page-break-inside: avoid;\n    font-family: monospace;\n    font-size: 15px;\n    line-height: 1.6;\n    margin-bottom: 1.6em;\n    max-width: 100%;\n    overflow: auto;\n    padding: 1em 1.5em;\n    display: block;\n    word-wrap: break-word;\n}",
+        "template": "body {\n    color: #040506;\n    background-color: #fefcfc\n}\n\n.flow-description-label {\n\tfont-family: Helvetica Neue, Arial, Helvetica, sans-serif;\n\tfont-size: 34px;\n\tdominant-baseline: middle;\n}\n\n.group-text-label {\n    font-family: Helvetica Neue, Arial, Helvetica, sans-serif;\n\tfont-size: 14px;\n}\n\n.node-text-label {\n\tfont-family: Helvetica Neue, Arial, Helvetica, sans-serif;\n\tfont-size: 14px;\n\tdominant-baseline: middle;\n}\n\n.flow-download-link {\n    font-size: 70%;\n}\n\n.flow-copy-to-clipboard-link {\n    font-size: 70%;\n}\n\n.link-highlight, .node-highlight {\n    stroke: rgb(255, 127, 14);\n}\n.node-highlight {\n    stroke-width: 3px;\n}\n\n.node-disabled {\n\tstroke-dasharray: 8,3;\n\tfill-opacity: 0.5;\n}\n\n.link-disabled {\n\tstroke-dasharray: 10,8 !important;\n\tstroke-width: 2 !important;\n\tstroke: rgb(204, 204, 204);\n}\n\n.grid-line {\n    shape-rendering: crispedges;\n    stroke: rgb(238, 238, 238);\n    stroke-width: 1px;\n    fill: none;\n}\n.output-deco {\n    stroke-width: 2px; \n    stroke-miterlimit: 4;\n}\n\n.input-deco {\n    stroke-width: 2px;\n    stroke-miterlimit: 4;\n}\n\n.flow-render-error {\n    background-color: rgb(54, 52, 52); \n    color: rgb(196, 59, 59); \n    width: 100%;\n}\n\npre {\n    background: #f4f4f4;\n    border: 1px solid #ddd;\n    border-left: 3px solid #f36d33;\n    color: #666;\n    page-break-inside: avoid;\n    font-family: monospace;\n    font-size: 15px;\n    line-height: 1.6;\n    margin-bottom: 1.6em;\n    max-width: 100%;\n    overflow: auto;\n    padding: 1em 1.5em;\n    display: block;\n    word-wrap: break-word;\n}",
         "output": "str",
         "x": 1762,
         "y": 1291,
@@ -620,11 +620,12 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 369,
-        "y": 1297,
+        "x": 416,
+        "y": 1290,
         "wires": [
             [
-                "58a0c0fa022572ed"
+                "58a0c0fa022572ed",
+                "8bdec028a172490e"
             ]
         ]
     },
@@ -638,11 +639,12 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 363,
-        "y": 1350,
+        "x": 410,
+        "y": 1343,
         "wires": [
             [
-                "ea58a5148e91ee25"
+                "ea58a5148e91ee25",
+                "8bdec028a172490e"
             ]
         ]
     },
@@ -970,7 +972,8 @@
         "y": 2988,
         "wires": [
             [
-                "a29a6c3facf4d1bc"
+                "a29a6c3facf4d1bc",
+                "8bdec028a172490e"
             ]
         ]
     },
@@ -1721,11 +1724,12 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 373,
-        "y": 1395,
+        "x": 420,
+        "y": 1388,
         "wires": [
             [
-                "ea58a5148e91ee25"
+                "ea58a5148e91ee25",
+                "8bdec028a172490e"
             ]
         ]
     },
@@ -2584,8 +2588,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3655,
-        "y": 1329,
+        "x": 3541,
+        "y": 1429,
         "wires": [
             [
                 "dfeb191f16bef5df"
@@ -2603,8 +2607,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3677,
-        "y": 1407,
+        "x": 3563,
+        "y": 1507,
         "wires": [
             [
                 "ee00d35fee925bc7"
@@ -2653,8 +2657,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3681,
-        "y": 1488,
+        "x": 3567,
+        "y": 1588,
         "wires": [
             [
                 "9488d18457d0f1f7"
@@ -2672,8 +2676,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3664,
-        "y": 1573,
+        "x": 3550,
+        "y": 1673,
         "wires": [
             [
                 "8a12d8c3f7305d06"
@@ -2691,8 +2695,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3664,
-        "y": 1657,
+        "x": 3550,
+        "y": 1757,
         "wires": [
             [
                 "9d116acb86d60a6a"
@@ -2710,30 +2714,11 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3665,
-        "y": 1734,
+        "x": 3551,
+        "y": 1834,
         "wires": [
-            [
-                "eada8fe6d904667d"
-            ]
+            []
         ]
-    },
-    {
-        "id": "eada8fe6d904667d",
-        "type": "debug",
-        "z": "3b1289d7ccf9cb0f",
-        "name": "debug 30",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 3595,
-        "y": 1876,
-        "wires": []
     },
     {
         "id": "58ad9096a049bd57",
@@ -2993,8 +2978,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3657,
-        "y": 545,
+        "x": 3686,
+        "y": 797,
         "wires": [
             [
                 "ec7dc3f74585d7ad"
@@ -3012,8 +2997,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3702,
-        "y": 623,
+        "x": 3731,
+        "y": 875,
         "wires": [
             [
                 "9cd21c2349d55ec5"
@@ -3055,8 +3040,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 4320,
-        "y": 548,
+        "x": 4199,
+        "y": 1143,
         "wires": [
             [
                 "fb0cfc6fc6ba198d"
@@ -3074,8 +3059,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 4343,
-        "y": 633,
+        "x": 4222,
+        "y": 1228,
         "wires": [
             [
                 "5aae5e5579e1f571"
@@ -3093,8 +3078,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 4343,
-        "y": 717,
+        "x": 4222,
+        "y": 1312,
         "wires": [
             [
                 "3b588233885dc912"
@@ -3112,8 +3097,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 4344,
-        "y": 794,
+        "x": 4223,
+        "y": 1389,
         "wires": [
             []
         ]
@@ -3138,8 +3123,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3731,
-        "y": 681,
+        "x": 3760,
+        "y": 933,
         "wires": [
             [
                 "78f922f2379a9db3"
@@ -3157,8 +3142,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3734,
-        "y": 759,
+        "x": 3763,
+        "y": 1011,
         "wires": [
             [
                 "5064042f7e28cf9e"
@@ -3170,15 +3155,15 @@
         "type": "function",
         "z": "3b1289d7ccf9cb0f",
         "g": "174950271a5c38fe",
-        "name": "set sha for embed folder",
+        "name": "get sha for embed folder",
         "func": "msg.payload = msg.payload.filter( function(d){\n    return d.path == \"embed\"\n})[0].sha;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 3741,
-        "y": 831,
+        "x": 3770,
+        "y": 1083,
         "wires": [
             [
                 "7910f96bca237835"
@@ -3196,8 +3181,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3771,
-        "y": 899,
+        "x": 3800,
+        "y": 1151,
         "wires": [
             [
                 "53aa521f18c37c97"
@@ -3216,8 +3201,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 3741,
-        "y": 966,
+        "x": 3770,
+        "y": 1218,
         "wires": [
             [
                 "cf1b500165dd957a"
@@ -3228,5 +3213,14 @@
             "not same",
             "same"
         ]
+    },
+    {
+        "id": "8bdec028a172490e",
+        "type": "subflow:1d3e4db6ecdf8e95",
+        "z": "3b1289d7ccf9cb0f",
+        "name": "TODO: ensure HTTPS for these connections",
+        "x": 882,
+        "y": 2146,
+        "wires": []
     }
 ]

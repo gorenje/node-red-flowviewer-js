@@ -3,6 +3,12 @@ body {
     background-color: #fefcfc
 }
 
+.flow-description-label {
+	font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+	font-size: 34px;
+	dominant-baseline: middle;
+}
+
 .group-text-label {
     font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
 	font-size: 14px;
