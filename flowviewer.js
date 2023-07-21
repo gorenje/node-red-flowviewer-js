@@ -840,6 +840,7 @@ var catchLabelFunct = (obj, subflowObj, flowdata) => {
     
     if ( obj.uncaught ) { sublabel = ": uncaught" }
     if ( obj.scope ) { sublabel = ": " + obj.scope.length }
+    if ( !obj.scope && !obj.uncaught ) { sublabel = ": all" }
 
     return obj.name || (obj.type + sublabel)
 };
