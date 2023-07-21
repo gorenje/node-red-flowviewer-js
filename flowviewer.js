@@ -555,6 +555,12 @@ function nodeOnlyHighlight(nodes) {
    });
 }
 
+function groupOnlyHighlight(nodes) {
+    nodes.forEach(function (ndeId) {
+        $('.group-' + ndeId).addClass("group-highlight");
+    });
+}
+
 
 /* 
  * Taken from http://demo.openmindmap.org/omm/red/red.js?v=3.0.2 
@@ -1499,6 +1505,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                 "fill-opacity": 0,
                 "stroke-width": 2,
                 stroke: "grey",
+                class: "group-" + grpObj.id,
                 ...grpObj.style,
             }));
 

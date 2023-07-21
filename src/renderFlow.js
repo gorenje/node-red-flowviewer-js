@@ -392,6 +392,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                 "fill-opacity": 0,
                 "stroke-width": 2,
                 stroke: "grey",
+                class: "group-" + grpObj.id,
                 ...grpObj.style,
             }));
 

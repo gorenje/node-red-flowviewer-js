@@ -60,3 +60,9 @@ function nodeOnlyHighlight(nodes) {
         $('.node-' + ndeId).addClass("node-highlight");
    });
 }
+
+function groupOnlyHighlight(nodes) {
+    nodes.forEach(function (ndeId) {
+        $('.group-' + ndeId).addClass("group-highlight");
+    });
+}
