@@ -308,7 +308,7 @@
         "fieldType": "msg",
         "format": "css",
         "syntax": "mustache",
-        "template": "body {\n    color: #040506;\n    background-color: #fefcfc\n}\n\n.group-text-label {\n    font-family: Helvetica Neue, Arial, Helvetica, sans-serif;\n\tfont-size: 14px;\n}\n\n.node-text-label {\n\tfont-family: Helvetica Neue, Arial, Helvetica, sans-serif;\n\tfont-size: 14px;\n\tdominant-baseline: middle;\n}\n\n.flow-download-link {\n    font-size: 70%;\n}\n\n.flow-copy-to-clipboard-link {\n    font-size: 70%;\n}\n\n.link-highlight, .node-highlight {\n    stroke: rgb(255, 127, 14);\n}\n.node-highlight {\n    stroke-width: 3px;\n}\n\n.node-disabled {\n\tstroke-dasharray: 8,3;\n\tfill-opacity: 0.5;\n}\n\n.link-disabled {\n\tstroke-dasharray: 10,8 !important;\n\tstroke-width: 2 !important;\n\tstroke: rgb(204, 204, 204);\n}\n\n.grid-line {\n    shape-rendering: crispedges;\n    stroke: rgb(238, 238, 238);\n    stroke-width: 1px;\n    fill: none;\n}\n.output-deco {\n    stroke-width: 2px; \n    stroke-miterlimit: 4;\n}\n\n.input-deco {\n    stroke-width: 2px;\n    stroke-miterlimit: 4;\n}\n\n.flow-render-error {\n    background-color: rgb(54, 52, 52); \n    color: rgb(196, 59, 59); \n    width: 100%;\n}\n\npre {\n    background: #f4f4f4;\n    border: 1px solid #ddd;\n    border-left: 3px solid #f36d33;\n    color: #666;\n    page-break-inside: avoid;\n    font-family: monospace;\n    font-size: 15px;\n    line-height: 1.6;\n    margin-bottom: 1.6em;\n    max-width: 100%;\n    overflow: auto;\n    padding: 1em 1.5em;\n    display: block;\n    word-wrap: break-word;\n}",
+        "template": "body {\n    color: #040506;\n    background-color: #fefcfc\n}\n\n.group-text-label {\n    font-family: Helvetica Neue, Arial, Helvetica, sans-serif;\n\tfont-size: 14px;\n}\n\n.node-text-label {\n\tfont-family: Helvetica Neue, Arial, Helvetica, sans-serif;\n\tfont-size: 14px;\n\tdominant-baseline: middle;\n}\n\n.flow-download-link {\n    font-size: 70%;\n}\n\n.flow-copy-to-clipboard-link {\n    font-size: 70%;\n}\n\n.link-highlight, .node-highlight {\n    stroke: rgb(255, 127, 14);\n}\n.node-highlight {\n    stroke-width: 3px;\n}\n\n.node-disabled {\n\tstroke-dasharray: 8,3;\n\tfill-opacity: 0.5;\n}\n\n.link-disabled {\n\tstroke-dasharray: 10,8 !important;\n\tstroke-width: 2 !important;\n\tstroke: rgb(204, 204, 204);\n}\n\n.grid-line {\n    shape-rendering: crispedges;\n    stroke: rgb(238, 238, 238);\n    stroke-width: 1px;\n    fill: none;\n}\n.output-deco {\n    stroke-width: 2px; \n    stroke-miterlimit: 4;\n}\n\n.input-deco {\n    stroke-width: 2px;\n    stroke-miterlimit: 4;\n}\n\n.flow-render-error {\n    background-color: rgb(54, 52, 52); \n    color: rgb(196, 59, 59); \n    width: 100%;\n}\n",
         "output": "str",
         "x": 1762,
         "y": 1291,
@@ -1788,7 +1788,7 @@
             },
             {
                 "p": "github",
-                "v": "{\"owner\":\"gorenje\",\"repo\":\"node-red-flowviewer-js\",\"message\":\"refactoring flow that creates this\",\"branch\":\"main\",\"author\":{\"name\":\"Gerrit Riessen\",\"email\":\"gerrit@openmindmap.org\"}}",
+                "v": "{\"owner\":\"gorenje\",\"repo\":\"node-red-flowviewer-js\",\"message\":\"removed 'pre' element css styling\",\"branch\":\"main\",\"author\":{\"name\":\"Gerrit Riessen\",\"email\":\"gerrit@openmindmap.org\"}}",
                 "vt": "json"
             }
         ],
