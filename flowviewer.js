@@ -680,19 +680,19 @@ function renderSvgWithOptions(elem, flowId, flowdata, opts) {
         boundingBox.height 
     );
 
-    svgElem.style.width = (boundingBox.width + 20) + "px";
+    var divElem = $('#' + divId)[0];   
+    svgElem.style.width = Math.max( $(divElem).width(), (boundingBox.width + 20) ) + "px";
     svgElem.style.height = (boundingBox.height + 20) + "px";
 
     /* shrink div container to the size of the svg if the svg is smaller than the container */
-    var divElem = $('#' + divId)[0];   
     if ($(divElem).height() > (boundingBox.height + 20)) {
         $(divElem).css("height", (boundingBox.height + 30) + "px")
     }
 
 
     if (opts["zoom"]) {
-        svgLocation.scaleFactorW = $(divElem).width() / (boundingBox.width + 10);
-        svgLocation.scaleFactorH = $(divElem).height() / (boundingBox.height + 10);
+        svgLocation.scaleFactorW = Math.min(1, $(divElem).width() / (boundingBox.width + 10));
+        svgLocation.scaleFactorH = Math.min(1, $(divElem).height() / (boundingBox.height + 10));
         defineZoomOnFlow($('#' + divId + " svg")[0], $('#' + divId)[0], svgLocation)
     }
 
