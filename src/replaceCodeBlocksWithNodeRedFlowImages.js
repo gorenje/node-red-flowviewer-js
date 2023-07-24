@@ -36,30 +36,31 @@ function renderSvgWithOptions(elem, flowId, flowdata, opts) {
     var boundingBox = $('#' + divId + " svg").find('.containerGroup')[0].getBBox();
     var svgElem = $("#" + divId + " svg")[0];
 
-    var moveToNextGridLineY = (boundingBox.y % 20) + 5;
-    var moveToNextGridLineX = (boundingBox.x % 20) + 5;
-
     var svgLocation = {
-        x: (boundingBox.x - moveToNextGridLineX),
-        y: (boundingBox.y - moveToNextGridLineY)
+        x: boundingBox.x,
+        y: boundingBox.y 
     }
 
     svgElem.setAttribute("viewBox", "" +
         svgLocation.x + " " +
         svgLocation.y + " " +
-        (boundingBox.width + (moveToNextGridLineX * 2)) + " " +
-        (boundingBox.height + (moveToNextGridLineY * 2))
+        boundingBox.width + " " +
+        boundingBox.height 
     );
 
     svgElem.style.width = (boundingBox.width + 20) + "px";
     svgElem.style.height = (boundingBox.height + 20) + "px";
 
-    var divElem = $('#' + divId)[0];
+    /* shrink div container to the size of the svg if the svg is smaller than the container */
+    var divElem = $('#' + divId)[0];   
     if ($(divElem).height() > (boundingBox.height + 20)) {
         $(divElem).css("height", (boundingBox.height + 30) + "px")
     }
 
+
     if (opts["zoom"]) {
+        svgLocation.scaleFactorW = $(divElem).width() / (boundingBox.width + 10);
+        svgLocation.scaleFactorH = $(divElem).height() / (boundingBox.height + 10);
         defineZoomOnFlow($('#' + divId + " svg")[0], $('#' + divId)[0], svgLocation)
     }
 

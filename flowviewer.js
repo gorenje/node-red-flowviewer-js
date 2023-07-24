@@ -668,30 +668,31 @@ function renderSvgWithOptions(elem, flowId, flowdata, opts) {
     var boundingBox = $('#' + divId + " svg").find('.containerGroup')[0].getBBox();
     var svgElem = $("#" + divId + " svg")[0];
 
-    var moveToNextGridLineY = (boundingBox.y % 20) + 5;
-    var moveToNextGridLineX = (boundingBox.x % 20) + 5;
-
     var svgLocation = {
-        x: (boundingBox.x - moveToNextGridLineX),
-        y: (boundingBox.y - moveToNextGridLineY)
+        x: boundingBox.x,
+        y: boundingBox.y 
     }
 
     svgElem.setAttribute("viewBox", "" +
         svgLocation.x + " " +
         svgLocation.y + " " +
-        (boundingBox.width + (moveToNextGridLineX * 2)) + " " +
-        (boundingBox.height + (moveToNextGridLineY * 2))
+        boundingBox.width + " " +
+        boundingBox.height 
     );
 
     svgElem.style.width = (boundingBox.width + 20) + "px";
     svgElem.style.height = (boundingBox.height + 20) + "px";
 
-    var divElem = $('#' + divId)[0];
+    /* shrink div container to the size of the svg if the svg is smaller than the container */
+    var divElem = $('#' + divId)[0];   
     if ($(divElem).height() > (boundingBox.height + 20)) {
         $(divElem).css("height", (boundingBox.height + 30) + "px")
     }
 
+
     if (opts["zoom"]) {
+        svgLocation.scaleFactorW = $(divElem).width() / (boundingBox.width + 10);
+        svgLocation.scaleFactorH = $(divElem).height() / (boundingBox.height + 10);
         defineZoomOnFlow($('#' + divId + " svg")[0], $('#' + divId)[0], svgLocation)
     }
 
@@ -947,9 +948,15 @@ var labelByFunct = {
 //    (demo: https://mdn.github.io/dom-examples/pointerevents/Pinch_zoom_gestures.html)
 //
 function defineZoomOnFlow(svgImage, svgContainer, svgLocation) {
-   var viewBox = { x: svgLocation.x, y: svgLocation.y, w: svgImage.clientWidth, h: svgImage.clientHeight };
+   var viewBox = { 
+      x: svgLocation.x, 
+      y: svgLocation.y, 
+      w: svgImage.clientWidth * (1 / svgLocation.scaleFactorW), 
+      h: svgImage.clientHeight * (1 / svgLocation.scaleFactorH)
+   };
+
    const originalViewBox = { ...viewBox };
-   const originalStartLocation = { ...svgLocation};
+   const originalStartLocation = { ...svgLocation };
 
    svgImage.setAttribute('viewBox', `${viewBox.x} ${viewBox.y} ${viewBox.w} ${viewBox.h}`);
    const svgSize = { w: svgImage.clientWidth, h: svgImage.clientHeight };
@@ -1024,9 +1031,6 @@ function defineZoomOnFlow(svgImage, svgContainer, svgLocation) {
       scale = 1;
    }
 
-   function log(msg, evnt) {
-      // console.log(msg, evnt); /* not that this does much on mobile */
-   }
 
    function removeEvent(ev) {
       // Remove this event from the target's cache
@@ -1041,10 +1045,8 @@ function defineZoomOnFlow(svgImage, svgContainer, svgLocation) {
       // This event is cached to support 2-finger gestures
       evCache.push(ev);
 
-      log("pointerDown", ev);
    }
    function pointerupHandler(ev) {
-      log(ev.type, ev);
       removeEvent(ev);
 
       if (evCache.length < 2) {
@@ -1060,8 +1062,6 @@ function defineZoomOnFlow(svgImage, svgContainer, svgLocation) {
       //
       // This function sets the target element's border to "dashed" to visually
       // indicate the pointer's target received a move event.
-      log("pointerMove", ev);
-      //ev.target.style.border = "dashed";
 
       // Find this event in the cache and update its record with this event
       const index = evCache.findIndex(
@@ -1075,7 +1075,6 @@ function defineZoomOnFlow(svgImage, svgContainer, svgLocation) {
          const curDiff = Math.abs(evCache[0].clientX - evCache[1].clientX);
 
          ev.deltaY = evCache[0].clientY - evCache[1].clientY;
-
 
          var w = viewBox.w;
          var h = viewBox.h;
