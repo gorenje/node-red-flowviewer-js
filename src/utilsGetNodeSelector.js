@@ -8,8 +8,10 @@ function fillFlowSelector(selectedFlowId, flowdata) {
     var sltObj = $('#flowSelector');
 
     flowdata.forEach(function (obj) {
-        if (obj.type == "tab") {
-            sltObj.append($('<option></option>').val(obj.id).html(obj.label));
+        if (obj.type == "tab" || obj.type == "subflow") {
+            sltObj.append($('<option></option>').val(obj.id).html(
+                (obj.type == "subflow" ? " [SF] " : "") + (obj.label || obj.name)
+            ));
         }
     });
 

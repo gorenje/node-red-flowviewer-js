@@ -35,6 +35,7 @@ var clrByType = {
     "range":         _hshClr("#E2D96E"),
     "sort":          _hshClr("#E2D96E"),
     "split":         _hshClr("#E2D96E"),
+    "subflow":       _hshClr("#ddd"),
     "switch":        _hshClr("#E2D96E"),
     "trigger":       _hshClr("#E6E0F8"),
     ui_button:       _hshClr("rgb(176, 223, 227)"),
