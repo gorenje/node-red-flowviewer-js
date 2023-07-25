@@ -546,6 +546,7 @@ function rmHighlightLink(fromNodeId, toNodeId) {
 function rmAllLinkHighlights() {
     $('.link-highlight').removeClass('link-highlight');
     $('.node-highlight').removeClass('node-highlight');
+    $('.group-highlight').removeClass("group-highlight");
 }
 
 function linkOnlyHighlight(fromNodeId, toNodeId) {
