@@ -649,7 +649,7 @@ function renderSvgWithOptions(elem, flowId, flowdata, opts) {
 
     $($(elem).parent()).replaceWith($("<div></div>").attr('id', divId).attr(
         'style', 'width: 92% ; height: 500px ; left: 4%; overflow: scroll; display: inline-block; position: relative;'
-    ).attr('class', 'svg-container'));
+    ).attr('class', 'svg-container').attr('class', 'svg-container-noderedjson'));
 
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("width", "5000");
@@ -693,11 +693,20 @@ function renderSvgWithOptions(elem, flowId, flowdata, opts) {
         $(divElem).css("height", (boundingBox.height + 30) + "px")
     }
 
+    svgLocation.scaleFactorW = Math.min(1, $(divElem).width() / (boundingBox.width + 10));
+    svgLocation.scaleFactorH = Math.min(1, $(divElem).height() / (boundingBox.height + 10));
 
     if (opts["zoom"]) {
-        svgLocation.scaleFactorW = Math.min(1, $(divElem).width() / (boundingBox.width + 10));
-        svgLocation.scaleFactorH = Math.min(1, $(divElem).height() / (boundingBox.height + 10));
         defineZoomOnFlow($('#' + divId + " svg")[0], $('#' + divId)[0], svgLocation)
+    } else {
+        var svgImage = $('#' + divId + " svg")[0];
+
+        svgElem.setAttribute("viewBox", "" +
+            svgLocation.x + " " +
+            svgLocation.y + " " +
+            (svgImage.clientWidth * (1 / svgLocation.scaleFactorW)) + " " +
+            (svgImage.clientHeight * (1 / svgLocation.scaleFactorH))
+        );
     }
 
     if (opts.dllink) {
