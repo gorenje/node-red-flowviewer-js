@@ -1,3 +1,20 @@
+function convertHtmlEntities(text) {
+    var entityMap = {
+        'amp': '&',
+        'lt': '<',
+        'gt': '>',
+        'quot': '"',
+        '#39': "'",
+        '#x2F': '/',
+        '#x60': '`',
+        '#x3D': '=',
+    };
+
+    return text.replace(/[&]([^;]+);/g, function(e,m) {
+        return entityMap[m] || e;
+    });
+}
+
 /* 
  * Taken from http://demo.openmindmap.org/omm/red/red.js?v=3.0.2 
  * 
@@ -23,7 +40,7 @@ function convertLineBreakCharacter(str) {
     } else {
         result = lines;
     }
-    result = result.map(function (l) { return l.replace(/\\\\n /g, "\\n ").trim() })
+    result = result.map(function (l) { return convertHtmlEntities(l.replace(/\\\\n /g, "\\n ").trim()) })
     return result;
 }
 
