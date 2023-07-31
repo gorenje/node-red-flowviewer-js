@@ -56,6 +56,13 @@ body {
 	fill-opacity: 0.5;
 }
 
+.group-highlight {
+    stroke: rgb(255, 127, 14);
+    stroke-width: 4px;
+    fill: rgb(255, 127, 14);
+    fill-opacity: 0.2;
+}
+
 .link-disabled {
 	stroke-dasharray: 10,8 !important;
 	stroke-width: 2 !important;
