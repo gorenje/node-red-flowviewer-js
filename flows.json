@@ -36,48 +36,6 @@
         "h": 159
     },
     {
-        "id": "f6dfc013ef04cbff",
-        "type": "group",
-        "z": "3b1289d7ccf9cb0f",
-        "name": "for each file, create blob at github",
-        "style": {
-            "label": true
-        },
-        "nodes": [
-            "be932cbb0971d0e6",
-            "e275f899d947408c",
-            "84deaa8431cc6d1e",
-            "4e454286c4e6e746",
-            "e184b0fe543c835f",
-            "d77803b5de0f7dab"
-        ],
-        "x": 3059,
-        "y": 1069,
-        "w": 252,
-        "h": 404
-    },
-    {
-        "id": "33afb8166416d54e",
-        "type": "group",
-        "z": "3b1289d7ccf9cb0f",
-        "name": "for each file, create blob at github",
-        "style": {
-            "label": true
-        },
-        "nodes": [
-            "966b2c12bc124684",
-            "3e447b3d36b5192e",
-            "c83e498a1edbea4a",
-            "540423e89add682a",
-            "5f3f01a7b66b82c1",
-            "d4c4a7848e8c9b04"
-        ],
-        "x": 3235,
-        "y": 513,
-        "w": 252,
-        "h": 404
-    },
-    {
         "id": "e4084a937a77f0d0",
         "type": "group",
         "z": "3b1289d7ccf9cb0f",
@@ -92,68 +50,6 @@
         "y": 1071,
         "w": 312,
         "h": 82
-    },
-    {
-        "id": "d07ddb933d722248",
-        "type": "group",
-        "z": "3b1289d7ccf9cb0f",
-        "name": "prepare commit, create commit and update repo with new commit",
-        "style": {
-            "label": true
-        },
-        "nodes": [
-            "538382528e212e10",
-            "dfeb191f16bef5df",
-            "ee00d35fee925bc7",
-            "9488d18457d0f1f7",
-            "8a12d8c3f7305d06",
-            "9d116acb86d60a6a"
-        ],
-        "x": 3351,
-        "y": 1388,
-        "w": 432,
-        "h": 487
-    },
-    {
-        "id": "72f284ff2072c42e",
-        "type": "group",
-        "z": "3b1289d7ccf9cb0f",
-        "name": "do commit to cdn.omm.org",
-        "style": {
-            "label": true
-        },
-        "nodes": [
-            "cf1b500165dd957a",
-            "fb0cfc6fc6ba198d",
-            "5aae5e5579e1f571",
-            "3b588233885dc912"
-        ],
-        "x": 4023,
-        "y": 1102,
-        "w": 355,
-        "h": 328
-    },
-    {
-        "id": "174950271a5c38fe",
-        "type": "group",
-        "z": "3b1289d7ccf9cb0f",
-        "name": "check that something did actually change",
-        "style": {
-            "label": true
-        },
-        "nodes": [
-            "9f79b5be7ff9aec0",
-            "ec7dc3f74585d7ad",
-            "9cd21c2349d55ec5",
-            "78f922f2379a9db3",
-            "5064042f7e28cf9e",
-            "7910f96bca237835",
-            "53aa521f18c37c97"
-        ],
-        "x": 3585,
-        "y": 756,
-        "w": 351,
-        "h": 503
     },
     {
         "id": "a9db9cc079cee4d1",
@@ -178,6 +74,152 @@
         "y": 53,
         "w": 1100,
         "h": 308
+    },
+    {
+        "id": "6c68f0dc375cbe62",
+        "type": "group",
+        "z": "3b1289d7ccf9cb0f",
+        "name": "WARNING: this will create empty commits, no sha checking here",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "83744d14d589d375",
+            "f6dfc013ef04cbff",
+            "d07ddb933d722248"
+        ],
+        "x": 2662,
+        "y": 1207,
+        "w": 988,
+        "h": 966
+    },
+    {
+        "id": "91967f767ec6c48f",
+        "type": "group",
+        "z": "3b1289d7ccf9cb0f",
+        "name": "this will only commit if the sha's of the files differ",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "58ad9096a049bd57",
+            "33afb8166416d54e",
+            "72f284ff2072c42e",
+            "174950271a5c38fe"
+        ],
+        "x": 2637,
+        "y": 439,
+        "w": 1774,
+        "h": 555
+    },
+    {
+        "id": "f6dfc013ef04cbff",
+        "type": "group",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "6c68f0dc375cbe62",
+        "name": "for each file, create blob at github",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "be932cbb0971d0e6",
+            "e275f899d947408c",
+            "84deaa8431cc6d1e",
+            "4e454286c4e6e746",
+            "e184b0fe543c835f",
+            "d77803b5de0f7dab"
+        ],
+        "x": 2855,
+        "y": 1386,
+        "w": 252,
+        "h": 404
+    },
+    {
+        "id": "33afb8166416d54e",
+        "type": "group",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "91967f767ec6c48f",
+        "name": "for each file, create blob at github",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "966b2c12bc124684",
+            "3e447b3d36b5192e",
+            "c83e498a1edbea4a",
+            "540423e89add682a",
+            "5f3f01a7b66b82c1",
+            "d4c4a7848e8c9b04"
+        ],
+        "x": 3235,
+        "y": 513,
+        "w": 252,
+        "h": 404
+    },
+    {
+        "id": "d07ddb933d722248",
+        "type": "group",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "6c68f0dc375cbe62",
+        "name": "prepare commit, create commit and update repo with new commit",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "538382528e212e10",
+            "dfeb191f16bef5df",
+            "ee00d35fee925bc7",
+            "9488d18457d0f1f7",
+            "8a12d8c3f7305d06",
+            "9d116acb86d60a6a"
+        ],
+        "x": 3192,
+        "y": 1660,
+        "w": 432,
+        "h": 487
+    },
+    {
+        "id": "72f284ff2072c42e",
+        "type": "group",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "91967f767ec6c48f",
+        "name": "do commit to cdn.omm.org",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "cf1b500165dd957a",
+            "fb0cfc6fc6ba198d",
+            "5aae5e5579e1f571",
+            "3b588233885dc912"
+        ],
+        "x": 4030,
+        "y": 541,
+        "w": 355,
+        "h": 328
+    },
+    {
+        "id": "174950271a5c38fe",
+        "type": "group",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "91967f767ec6c48f",
+        "name": "check that something did actually change",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "9f79b5be7ff9aec0",
+            "ec7dc3f74585d7ad",
+            "9cd21c2349d55ec5",
+            "78f922f2379a9db3",
+            "5064042f7e28cf9e",
+            "7910f96bca237835",
+            "53aa521f18c37c97"
+        ],
+        "x": 3582,
+        "y": 465,
+        "w": 351,
+        "h": 503
     },
     {
         "id": "c9469bc8f43477f8",
@@ -1416,7 +1458,7 @@
         "name": "[blog] embedded-flow-v13.html",
         "links": [],
         "x": 146,
-        "y": 632,
+        "y": 626,
         "wires": [
             [
                 "3ac3731f7f658b25"
@@ -1442,7 +1484,7 @@
         "redirectNodeId": "status-404",
         "redirectStatusCode": "301",
         "x": 347.2855796813965,
-        "y": 632,
+        "y": 626,
         "wires": [
             [
                 "47bf516145338726"
@@ -1574,7 +1616,7 @@
         "name": "[blog] embedded-flow-v16.html",
         "links": [],
         "x": 146,
-        "y": 585,
+        "y": 579,
         "wires": [
             [
                 "b474bad8eb12f244"
@@ -1605,7 +1647,7 @@
         "redirectNodeId": "status-404",
         "redirectStatusCode": "301",
         "x": 347.2855796813965,
-        "y": 585,
+        "y": 579,
         "wires": [
             [
                 "fef17a3e74650ec4"
@@ -1933,12 +1975,12 @@
         "type": "Text",
         "z": "3b1289d7ccf9cb0f",
         "name": "README.md",
-        "info": "## Unofficial Node-RED flow viewer\n\nFor more details, see this [blog page](https://blog.openmindmap.org/blog/backticks-in-markdown-and-node-red).\n\nSource code is maintained in [Node-RED over here](https://demo.openmindmap.org/omm/#flow/3b1289d7ccf9cb0f).\n\n",
+        "info": "## Unofficial Node-RED flow viewer\n\nCreate renderings of your Node-RED flows in the browser.\n\nThis:\n\n```\n[{\"id\":\"95114553b51edb0e\",\"type\":\"group\",\"z\":\"1cf772ae2066495e\",\"style\":{\"stroke\":\"#999999\",\"stroke-opacity\":\"1\",\"fill\":\"none\",\"fill-opacity\":\"1\",\"label\":true,\"label-position\":\"nw\",\"color\":\"#a4a4a4\"},\"nodes\":[\"90aee4ed68c9b0d4\",\"9566742be56e5253\",\"e4fc9a0bc5334568\"],\"x\":66,\"y\":148,\"w\":1072,\"h\":420.5},{\"id\":\"9566742be56e5253\",\"type\":\"group\",\"z\":\"1cf772ae2066495e\",\"g\":\"95114553b51edb0e\",\"name\":\"Fails\",\"style\":{\"label\":true},\"nodes\":[\"6f3ef30b39769654\",\"d5b30c5a1123d50e\",\"0a5eea257dc1fa82\",\"129e1f3418ce8fce\",\"a66882716c7e581f\"],\"x\":335,\"y\":174,\"w\":706,\"h\":162},{\"id\":\"e4fc9a0bc5334568\",\"type\":\"group\",\"z\":\"1cf772ae2066495e\",\"g\":\"95114553b51edb0e\",\"name\":\"Succeeds\",\"style\":{\"label\":true},\"nodes\":[\"f8cd8013dad6a7e2\",\"64b3488ed906c211\",\"9dd05af5ce6443a9\",\"b4f9e6b24c0651b3\",\"211ed735c0cfa73f\"],\"x\":334,\"y\":393,\"w\":778,\"h\":149.5},{\"id\":\"6f3ef30b39769654\",\"type\":\"split\",\"z\":\"1cf772ae2066495e\",\"g\":\"9566742be56e5253\",\"name\":\"\",\"splt\":\"\\\\n\",\"spltType\":\"str\",\"arraySplt\":1,\"arraySpltType\":\"len\",\"stream\":false,\"addname\":\"\",\"x\":411,\"y\":215,\"wires\":[[\"d5b30c5a1123d50e\"]]},{\"id\":\"d5b30c5a1123d50e\",\"type\":\"switch\",\"z\":\"1cf772ae2066495e\",\"g\":\"9566742be56e5253\",\"name\":\"is not null\",\"property\":\"payload\",\"propertyType\":\"msg\",\"rules\":[{\"t\":\"nnull\"}],\"checkall\":\"true\",\"repair\":false,\"outputs\":1,\"x\":511,\"y\":295,\"wires\":[[\"a66882716c7e581f\"]]},{\"id\":\"0a5eea257dc1fa82\",\"type\":\"join\",\"z\":\"1cf772ae2066495e\",\"g\":\"9566742be56e5253\",\"name\":\"\",\"mode\":\"auto\",\"build\":\"object\",\"property\":\"payload\",\"propertyType\":\"msg\",\"key\":\"topic\",\"joiner\":\"\\\\n\",\"joinerType\":\"str\",\"accumulate\":\"false\",\"timeout\":\"\",\"count\":\"\",\"reduceRight\":false,\"x\":760,\"y\":295,\"wires\":[[\"129e1f3418ce8fce\"]]},{\"id\":\"129e1f3418ce8fce\",\"type\":\"debug\",\"z\":\"1cf772ae2066495e\",\"g\":\"9566742be56e5253\",\"name\":\"no output\",\"active\":true,\"tosidebar\":true,\"console\":false,\"tostatus\":false,\"complete\":\"payload\",\"targetType\":\"msg\",\"statusVal\":\"\",\"statusType\":\"auto\",\"x\":935,\"y\":295,\"wires\":[]},{\"id\":\"f8cd8013dad6a7e2\",\"type\":\"split\",\"z\":\"1cf772ae2066495e\",\"g\":\"e4fc9a0bc5334568\",\"name\":\"\",\"splt\":\"\\\\n\",\"spltType\":\"str\",\"arraySplt\":1,\"arraySpltType\":\"len\",\"stream\":false,\"addname\":\"\",\"x\":429,\"y\":434,\"wires\":[[\"64b3488ed906c211\"]]},{\"id\":\"64b3488ed906c211\",\"type\":\"switch\",\"z\":\"1cf772ae2066495e\",\"g\":\"e4fc9a0bc5334568\",\"name\":\"is not null &amp; otherwise\",\"property\":\"payload\",\"propertyType\":\"msg\",\"rules\":[{\"t\":\"nnull\"},{\"t\":\"else\"}],\"checkall\":\"true\",\"repair\":false,\"outputs\":2,\"x\":460,\"y\":495.5,\"wires\":[[\"211ed735c0cfa73f\"],[\"9dd05af5ce6443a9\"]]},{\"id\":\"9dd05af5ce6443a9\",\"type\":\"join\",\"z\":\"1cf772ae2066495e\",\"g\":\"e4fc9a0bc5334568\",\"name\":\"\",\"mode\":\"auto\",\"build\":\"object\",\"property\":\"payload\",\"propertyType\":\"msg\",\"key\":\"topic\",\"joiner\":\"\\\\n\",\"joinerType\":\"str\",\"accumulate\":\"false\",\"timeout\":\"\",\"count\":\"\",\"reduceRight\":false,\"x\":854,\"y\":501.5,\"wires\":[[\"b4f9e6b24c0651b3\"]]},{\"id\":\"90aee4ed68c9b0d4\",\"type\":\"inject\",\"z\":\"1cf772ae2066495e\",\"g\":\"95114553b51edb0e\",\"name\":\"payload: [null,1,2]\",\"props\":[{\"p\":\"payload\"}],\"repeat\":\"\",\"crontab\":\"\",\"once\":false,\"onceDelay\":0.1,\"topic\":\"\",\"payload\":\"[null,1,2]\",\"payloadType\":\"json\",\"x\":192,\"y\":330.5,\"wires\":[[\"f8cd8013dad6a7e2\",\"6f3ef30b39769654\"]]},{\"id\":\"b4f9e6b24c0651b3\",\"type\":\"debug\",\"z\":\"1cf772ae2066495e\",\"g\":\"e4fc9a0bc5334568\",\"name\":\"original arrary\",\"active\":true,\"tosidebar\":true,\"console\":false,\"tostatus\":false,\"complete\":\"payload\",\"targetType\":\"msg\",\"statusVal\":\"\",\"statusType\":\"auto\",\"x\":986,\"y\":434,\"wires\":[]},{\"id\":\"a66882716c7e581f\",\"type\":\"function\",\"z\":\"1cf772ae2066495e\",\"g\":\"9566742be56e5253\",\"name\":\"... do something ...\",\"func\":\"\\nreturn msg;\",\"outputs\":1,\"noerr\":0,\"initialize\":\"\",\"finalize\":\"\",\"libs\":[],\"x\":643,\"y\":215,\"wires\":[[\"0a5eea257dc1fa82\"]]},{\"id\":\"211ed735c0cfa73f\",\"type\":\"function\",\"z\":\"1cf772ae2066495e\",\"g\":\"e4fc9a0bc5334568\",\"name\":\"... do something ...\",\"func\":\"\\nreturn msg;\",\"outputs\":1,\"noerr\":0,\"initialize\":\"\",\"finalize\":\"\",\"libs\":[],\"x\":681,\"y\":434,\"wires\":[[\"9dd05af5ce6443a9\"]]}]\n```\n\nBecomes this:\n\n![img](https://raw.githubusercontent.com/gorenje/flows.flowhub.org/main/1cf772ae2066495e/preview.png)\n\nFor more details, see this [blog page](https://blog.openmindmap.org/blog/backticks-in-markdown-and-node-red).\n\nSource code is maintained in [Node-RED over here](https://demo.openmindmap.org/omm/#flow/3b1289d7ccf9cb0f).\n",
         "sumPass": false,
         "sumPassPrio": 0,
         "sumPassNodeId": "",
         "createdAt": "2023-07-18T11:35:56.033Z",
-        "updatedAt": "2023-07-18T12:00:13.585Z",
+        "updatedAt": "2023-08-10T21:37:38.925Z",
         "x": 830,
         "y": 1393,
         "wires": [
@@ -1951,6 +1993,7 @@
         "id": "83744d14d589d375",
         "type": "function",
         "z": "3b1289d7ccf9cb0f",
+        "g": "6c68f0dc375cbe62",
         "name": "prepare commit for node-red-flowviewer-js",
         "func": "msg.writermap.forEach( (txt) => {\n    msg.payload.push( {\n        payload: txt.text,\n        name: txt.name\n    })\n})\n\nfor ( var nme in msg ) {\n    if ( nme.startsWith(\"js\")) {\n        msg.payload.push({\n            payload: msg[nme],\n            name: \"src/\" + nme.replace(/^js(.)/, function (m) { return m[2].toLowerCase() }) + \".js\"\n        })\n        delete msg[nme];\n    }\n}\n\nreturn msg;",
         "outputs": 1,
@@ -1958,8 +2001,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2813,
-        "y": 1040,
+        "x": 2858,
+        "y": 1248,
         "wires": [
             [
                 "be932cbb0971d0e6"
@@ -2029,8 +2072,8 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 3171,
-        "y": 1110,
+        "x": 2967,
+        "y": 1427,
         "wires": [
             [
                 "84deaa8431cc6d1e"
@@ -2045,8 +2088,8 @@
         "name": "",
         "action": "",
         "property": "payload",
-        "x": 3172,
-        "y": 1227,
+        "x": 2968,
+        "y": 1544,
         "wires": [
             [
                 "e184b0fe543c835f"
@@ -2101,8 +2144,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3171,
-        "y": 1171,
+        "x": 2967,
+        "y": 1488,
         "wires": [
             [
                 "e275f899d947408c"
@@ -2126,8 +2169,8 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 3190,
-        "y": 1432,
+        "x": 2986,
+        "y": 1749,
         "wires": [
             [
                 "538382528e212e10"
@@ -2145,8 +2188,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3185,
-        "y": 1293,
+        "x": 2981,
+        "y": 1610,
         "wires": [
             [
                 "d77803b5de0f7dab"
@@ -2173,8 +2216,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3191,
-        "y": 1367,
+        "x": 2987,
+        "y": 1684,
         "wires": [
             [
                 "4e454286c4e6e746"
@@ -2202,8 +2245,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3541,
-        "y": 1429,
+        "x": 3382,
+        "y": 1701,
         "wires": [
             [
                 "dfeb191f16bef5df"
@@ -2221,8 +2264,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3563,
-        "y": 1507,
+        "x": 3404,
+        "y": 1779,
         "wires": [
             [
                 "ee00d35fee925bc7"
@@ -2271,8 +2314,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3567,
-        "y": 1588,
+        "x": 3408,
+        "y": 1860,
         "wires": [
             [
                 "9488d18457d0f1f7"
@@ -2290,8 +2333,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3550,
-        "y": 1673,
+        "x": 3391,
+        "y": 1945,
         "wires": [
             [
                 "8a12d8c3f7305d06"
@@ -2309,8 +2352,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3550,
-        "y": 1757,
+        "x": 3391,
+        "y": 2029,
         "wires": [
             [
                 "9d116acb86d60a6a"
@@ -2328,8 +2371,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3551,
-        "y": 1834,
+        "x": 3392,
+        "y": 2106,
         "wires": [
             []
         ]
@@ -2338,6 +2381,7 @@
         "id": "58ad9096a049bd57",
         "type": "function",
         "z": "3b1289d7ccf9cb0f",
+        "g": "91967f767ec6c48f",
         "name": "prepare commit for cdn.openmindmap.org",
         "func": "/*\n  this only commits the js and css files, everything else\n  is ignored.\n */\ndelete msg.writermap;\n\nfor (var nme in msg) {\n    if (nme.startsWith(\"js\")) {\n        delete msg[nme];\n    }\n}\n\nmsg.payload = msg.payload.filter( (obj) => {\n    return (obj.name == \"flowviewer.css\" || obj.name == \"flowviewer.js\")\n}).map( function(obj){\n    obj.name = \"embed/\" + obj.name;\n    return obj;\n});\n\nreturn msg;\n",
         "outputs": 1,
@@ -2592,8 +2636,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3686,
-        "y": 797,
+        "x": 3683,
+        "y": 506,
         "wires": [
             [
                 "ec7dc3f74585d7ad"
@@ -2611,8 +2655,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3731,
-        "y": 875,
+        "x": 3728,
+        "y": 584,
         "wires": [
             [
                 "9cd21c2349d55ec5"
@@ -2654,8 +2698,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 4199,
-        "y": 1143,
+        "x": 4206,
+        "y": 582,
         "wires": [
             [
                 "fb0cfc6fc6ba198d"
@@ -2673,8 +2717,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 4222,
-        "y": 1228,
+        "x": 4229,
+        "y": 667,
         "wires": [
             [
                 "5aae5e5579e1f571"
@@ -2692,8 +2736,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 4222,
-        "y": 1312,
+        "x": 4229,
+        "y": 751,
         "wires": [
             [
                 "3b588233885dc912"
@@ -2711,8 +2755,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 4223,
-        "y": 1389,
+        "x": 4230,
+        "y": 828,
         "wires": [
             []
         ]
@@ -2737,8 +2781,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3760,
-        "y": 933,
+        "x": 3757,
+        "y": 642,
         "wires": [
             [
                 "78f922f2379a9db3"
@@ -2756,8 +2800,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3763,
-        "y": 1011,
+        "x": 3760,
+        "y": 720,
         "wires": [
             [
                 "5064042f7e28cf9e"
@@ -2776,8 +2820,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 3770,
-        "y": 1083,
+        "x": 3767,
+        "y": 792,
         "wires": [
             [
                 "7910f96bca237835"
@@ -2795,8 +2839,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3800,
-        "y": 1151,
+        "x": 3797,
+        "y": 860,
         "wires": [
             [
                 "53aa521f18c37c97"
@@ -2815,8 +2859,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 3770,
-        "y": 1218,
+        "x": 3767,
+        "y": 927,
         "wires": [
             [
                 "cf1b500165dd957a"
@@ -3227,15 +3271,57 @@
         ]
     },
     {
-        "id": "da8786a7ba23a75b",
-        "type": "FlowHubPush",
+        "id": "a7c08fa148f82f3f",
+        "type": "link in",
         "z": "3b1289d7ccf9cb0f",
-        "apiToken": "FLOWHUB_API_TOKEN",
-        "apiTokenType": "env",
-        "x": 1869,
-        "y": 400,
+        "name": "[blog] embedded-flow-v3.html",
+        "links": [],
+        "x": 158,
+        "y": 129,
         "wires": [
-            []
+            [
+                "04b2c4438c162bba"
+            ]
         ]
+    },
+    {
+        "id": "04b2c4438c162bba",
+        "type": "BlogPageInfo",
+        "z": "3b1289d7ccf9cb0f",
+        "name": "",
+        "image": "",
+        "summary": "Can I generate html directly without using markdown markup?",
+        "title": "This is a test of something new",
+        "tags": "",
+        "publishedAt": "2023-06-25T11:22",
+        "updatedOn": "2023-07-06T16:21",
+        "incRss": false,
+        "incSitemap": false,
+        "incIndex": false,
+        "draft": false,
+        "shrHackerNews": false,
+        "shrLinkedIn": false,
+        "supportNodeRedJson": false,
+        "reloadOnEdit": false,
+        "editbutton": false,
+        "redirectToNode": true,
+        "redirectNodeId": "2fca0a31a3a9b2d3",
+        "redirectStatusCode": "301",
+        "x": 233,
+        "y": 191,
+        "wires": [
+            [
+                "d463eca9bd7abf7a"
+            ]
+        ]
+    },
+    {
+        "id": "d463eca9bd7abf7a",
+        "type": "subflow:f7838e60af92a8bb",
+        "z": "3b1289d7ccf9cb0f",
+        "name": "",
+        "x": 287,
+        "y": 253,
+        "wires": []
     }
 ]
