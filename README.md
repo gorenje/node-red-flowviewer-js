@@ -12,6 +12,9 @@ Becomes this:
 
 ![img](https://raw.githubusercontent.com/gorenje/flows.flowhub.org/main/1cf772ae2066495e/preview.png)
 
+(Read more over that flow [over here](https://flowhub.org/f/1cf772ae2066495e).)
+
 For more details, see this [blog page](https://blog.openmindmap.org/blog/backticks-in-markdown-and-node-red).
 
 Source code is maintained in [Node-RED over here](https://demo.openmindmap.org/omm/#flow/3b1289d7ccf9cb0f).
+
