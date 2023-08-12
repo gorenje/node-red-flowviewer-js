@@ -2,6 +2,7 @@ var imgByType = {
     "batch":         "batch.svg",
     "catch":         "alert.svg",
     "change":        "swap.svg",
+    "rbe":           "rbe.png",
     "comment":       "comment.svg",
     "csv":           "parser-csv.svg",
     "debug":         "debug.svg",
