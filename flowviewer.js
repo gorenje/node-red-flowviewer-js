@@ -120,6 +120,10 @@ var imgByType = {
     "websocket in":  "white-globe.svg",
     "websocket out": "white-globe.svg",
 
+    "i2c scan": "serial.svg",
+    "i2c in": "serial.svg",
+    "i2c out": "serial.svg",
+
     /* custom, my own private collection */
     "Thought": "alert.svg",
     "Idea": "light.svg",
@@ -423,6 +427,11 @@ var clrByType = {
     'Navigator': _hshClr('#e5e4ef'),
     'DrawSVG': _hshClr('#e5e4ef'),
     'GetFlows': _hshClr('#e5e4ef'),
+
+    "i2c scan": _hshClr('rgb(227, 82, 83)'),
+    "i2c in": _hshClr('rgb(227, 82, 83)'),
+    "i2c out": _hshClr('rgb(227, 82, 83)'),
+
     
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };

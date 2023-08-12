@@ -55,6 +55,10 @@ var imgByType = {
     "websocket in":  "white-globe.svg",
     "websocket out": "white-globe.svg",
 
+    "i2c scan": "serial.svg",
+    "i2c in": "serial.svg",
+    "i2c out": "serial.svg",
+
     /* custom, my own private collection */
     "Thought": "alert.svg",
     "Idea": "light.svg",
