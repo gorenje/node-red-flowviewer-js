@@ -55,7 +55,7 @@ var clrByType = {
     ui_numeric:      _hshClr("rgb(176, 223, 227)"),
     ui_slider:       _hshClr("rgb(176, 223, 227)"),
     ui_switch:       _hshClr("rgb(176, 223, 227)"),
-
+    ui_text_input:   _hshClr("rgb(176, 223, 227)"),
     ui_colour_picker: _hshClr("rgb(176, 223, 227)"),
 
     "websocket in":  _hshClr("rgb(215, 215, 160)"),

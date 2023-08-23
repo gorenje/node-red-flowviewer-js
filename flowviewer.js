@@ -117,7 +117,7 @@ var imgByType = {
     ui_slider: "ui_slider.png",
     ui_switch: "ui_switch.png",
     ui_text: "ui_text.png",
-
+    ui_text_input: "ui_text.png",
     "websocket in":  "white-globe.svg",
     "websocket out": "white-globe.svg",
 
@@ -376,7 +376,7 @@ var clrByType = {
     ui_numeric:      _hshClr("rgb(176, 223, 227)"),
     ui_slider:       _hshClr("rgb(176, 223, 227)"),
     ui_switch:       _hshClr("rgb(176, 223, 227)"),
-
+    ui_text_input:   _hshClr("rgb(176, 223, 227)"),
     ui_colour_picker: _hshClr("rgb(176, 223, 227)"),
 
     "websocket in":  _hshClr("rgb(215, 215, 160)"),

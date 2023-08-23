@@ -52,7 +52,7 @@ var imgByType = {
     ui_slider: "ui_slider.png",
     ui_switch: "ui_switch.png",
     ui_text: "ui_text.png",
-
+    ui_text_input: "ui_text.png",
     "websocket in":  "white-globe.svg",
     "websocket out": "white-globe.svg",
 
