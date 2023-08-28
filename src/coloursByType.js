@@ -86,7 +86,7 @@ var clrByType = {
     "Text": _hshClr('#c8ffb5'),
     "Blog-Post": _hshClr('#d0fdc2'),
     "Comment": _hshClr('#d9fcce'),
-    "Codebase": _hshClr('#e1fbda'),
+    "Code-Base": _hshClr('#e1fbda'),
     "Sketch": _hshClr('#e1fbda'),
     "Inspiration": _hshClr('#dfdfb6'),
     "Quote": _hshClr('#e5e5c0'),
