@@ -108,6 +108,8 @@ var clrByType = {
     'Navigator': _hshClr('#e5e4ef'),
     'DrawSVG': _hshClr('#e5e4ef'),
     'GetFlows': _hshClr('#e5e4ef'),
+    'SendFlow': _hshClr('#e5e4ef'),
+    'TriggerImport': _hshClr('#e5e4ef'),
 
     "i2c scan": _hshClr('rgb(227, 82, 83)'),
     "i2c in": _hshClr('rgb(227, 82, 83)'),
