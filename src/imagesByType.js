@@ -60,6 +60,8 @@ var imgByType = {
     "i2c in": "serial.svg",
     "i2c out": "serial.svg",
 
+    "cronplus": "timer.svg",
+    
     /* custom, my own private collection */
     "Thought": "alert.svg",
     "Idea": "light.svg",

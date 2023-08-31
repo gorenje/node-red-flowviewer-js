@@ -125,6 +125,8 @@ var imgByType = {
     "i2c in": "serial.svg",
     "i2c out": "serial.svg",
 
+    "cronplus": "timer.svg",
+    
     /* custom, my own private collection */
     "Thought": "alert.svg",
     "Idea": "light.svg",
@@ -436,6 +438,7 @@ var clrByType = {
     "i2c in": _hshClr('rgb(227, 82, 83)'),
     "i2c out": _hshClr('rgb(227, 82, 83)'),
 
+    'cronplus': _hshClr('#a6bbcf'),
     
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };

@@ -115,6 +115,7 @@ var clrByType = {
     "i2c in": _hshClr('rgb(227, 82, 83)'),
     "i2c out": _hshClr('rgb(227, 82, 83)'),
 
+    'cronplus': _hshClr('#a6bbcf'),
     
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };
