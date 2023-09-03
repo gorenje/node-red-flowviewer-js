@@ -65,4 +65,8 @@ var imgByType = {
     /* custom, my own private collection */
     "Thought": "alert.svg",
     "Idea": "light.svg",
+    "ClientCode": "subflow.svg",
+    "GetFlows": "subflow.svg",
+    "SendFlow": "subflow.svg",
+    
  };

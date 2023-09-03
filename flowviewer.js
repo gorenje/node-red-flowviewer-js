@@ -130,6 +130,10 @@ var imgByType = {
     /* custom, my own private collection */
     "Thought": "alert.svg",
     "Idea": "light.svg",
+    "ClientCode": "subflow.svg",
+    "GetFlows": "subflow.svg",
+    "SendFlow": "subflow.svg",
+    
  };
 
 var imageNameToContent = {
@@ -433,6 +437,7 @@ var clrByType = {
     'GetFlows': _hshClr('#e5e4ef'),
     'SendFlow': _hshClr('#e5e4ef'),
     'TriggerImport': _hshClr('#e5e4ef'),
+    'ClientCode': _hshClr('#e5e4ef'),
 
     "i2c scan": _hshClr('rgb(227, 82, 83)'),
     "i2c in": _hshClr('rgb(227, 82, 83)'),
