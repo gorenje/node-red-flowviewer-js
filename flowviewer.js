@@ -1198,6 +1198,18 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
     var nodeIdsThatReceiveInput = {};
     var svgObj = undefined;
 
+    const PORT_WIDTH = 10;
+
+    const portDimensions = {
+        width: PORT_WIDTH,
+        height: PORT_WIDTH
+    }
+
+    const portRadius = {
+        rx: 3,
+        ry: 3
+    }
+    
     svgObj = $(svgjQueryObj.find('.flowGridlines')[0]);
 
     if ( renderOpts["gridlines"] ) {
@@ -1279,7 +1291,9 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
     flowdata.forEach(function (obj) {
         if (obj.z == flowId || obj.id == flowId /* this is a subflow or tab */) {
 
+            // get node dimensions
             var dimensions = widthHeightByType[obj.type] || widthHeightByType["_default"];
+            // get node color
             var clr = clrByType[obj.type] || clrByType["_default"];
 
             switch (obj.type) {
@@ -1325,15 +1339,11 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                         inObj.bbox.x = inObj.x - dimensions.width / 2
                         inObj.bbox.y = inObj.y - dimensions.height / 2
 
-                        var transAndPath = {
-                            transform: "translate(15,-5)",
-                            d: "M 0.5,9.5 9.5,9.5 9.5,0.5 0.5,0.5 Z",
-                        }
-
                         /* add output decoration after computing the bounding box - the decoration extends the bounding box */
-                        $(grpObj).append(getNode('path', {
+                        $(grpObj).append(getNode('rect', {
                             ...clr,
-                            ...transAndPath,
+                            ...portDimensions,
+                            ...portRadius,
                             class: "output-deco",
                             "stroke-linecap": "round",
                             "stroke-linejoin": "round",
@@ -1370,18 +1380,16 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                         outObj.bbox.x = outObj.x - dimensions.width / 2
                         outObj.bbox.y = outObj.y - dimensions.height / 2
 
-                        var transAndPath = {
-                            transform: "translate(-25,-5)",
-                            d: "M 0.5,9.5 9.5,9.5 9.5,0.5 0.5,0.5 Z",
-                        }
-
                         /* add output decoration after computing the bounding box - the decoration extends the bounding box */
-                        $(grpObj).append(getNode('path', {
+                        $(grpObj).append(getNode('rect', {
                             ...clr,
-                            ...transAndPath,
+                            ...portDimensions,
+                            ...portRadius,
                             class: "input-deco",
                             "stroke-linecap": "round",
                             "stroke-linejoin": "round",
+                            rx: 3,
+                            ry: 3,
                         }));
 
                         /* text that goes "output\n(idx+1)\n" i.e. two lines */
@@ -1424,15 +1432,11 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                         outObj.bbox.x = outObj.x - dimensions.width / 2
                         outObj.bbox.y = outObj.y - dimensions.height / 2
 
-                        var transAndPath = {
-                            transform: "translate(-25,-5)",
-                            d: "M 0.5,9.5 9.5,9.5 9.5,0.5 0.5,0.5 Z",
-                        }
-
                         /* add output decoration after computing the bounding box - the decoration extends the bounding box */
                         $(grpObj).append(getNode('path', {
                             ...clr,
-                            ...transAndPath,
+                            ...portDimensions,
+                            ...portRadius,
                             class: "input-deco",
                             "stroke-linecap": "round",
                             "stroke-linejoin": "round",
@@ -1523,9 +1527,10 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     }
 
                     /* add output decoration after computing the bounding box - the decoration extends the bounding box */
-                    $(grpObj).append(getNode('path', {
+                    $(grpObj).append(getNode('rect', {
                         ...clr,
-                        ...transAndPath,
+                        ...portDimensions,
+                        ...portRadius,
                         class: (obj.type == "link in" ? "output-deco" : ("input-deco" + (renderOpts.arrows ? " input-arrows" : ""))),
                         "stroke-linecap": "round",
                         "stroke-linejoin": "round",
@@ -1575,7 +1580,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                         /* move the text block into the middle */
                         if ( rectHeight > txtHeight ) {
                             var offsetHeight = ( rectHeight - txtHeight) / 2;
-                            grpText.setAttributeNS(null, "transform", "translate(38," + ( (textLabels.lines.length > 1 ? 18 : 16) + offsetHeight) + ")");
+                            grpText.setAttributeNS(null, "transform", "translate(38," + ( (textLabels.lines.length > 1 ? 19 : 17) + offsetHeight) + ")");
                         }
                     }
                     
@@ -1637,27 +1642,36 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
 
                     /* add output decoration after computing the bounding box - the decoration extends the bounding box otherwise */
                     if ( (subflowObj.in && subflowObj.in.length > 0) || nodeIdsThatReceiveInput[obj.id] ) {
-                        $(grpObj).append(getNode('path', {
-                            ...clrByType["junction"],
-                            transform: "translate(-3,"+((obj.bbox.height/2)-5)+")",
-                            d: (renderOpts["arrows"] ? "M 0,10 9,5 0,0 Z" : "M -1,9.5 8,9.5 8,0.5 -1,0.5 Z"),
-                            class: "input-deco" + (renderOpts.arrows ? " input-arrows" : ""),
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                        }));
+                        if (renderOpts.arrows) {
+                            $(grpObj).append(getNode('path', {
+                                ...clrByType["junction"],
+                                transform: "translate(-3,"+((obj.bbox.height/2)-5)+")",
+                                d: (renderOpts["arrows"] ? "M 0,10 9,5 0,0 Z" : "M -1,9.5 8,9.5 8,0.5 -1,0.5 Z"),
+                                class: "input-deco input-arrows",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                            }));
+                        } else {
+                           $(grpObj).append(getNode('rect', {
+                                ...clrByType["junction"],
+                                transform: "translate(-5,"+((obj.bbox.height/2)-5)+")",
+                                ...portDimensions,
+                                ...portRadius,
+                                class: "input-deco"
+                           }));
+                        }
                     }
 
                     var outDecoBaseAttrs = {
                         ...clrByType["junction"],
-                        d: "M 0.5,9.5 9.5,9.5 9.5,0.5 0.5,0.5 Z", // *** this is the triangle --> "M 0,10 9,5 0,0 Z",
-                        class: "output-deco",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round",
+                        ...portDimensions,
+                        ...portRadius,
+                        class: "output-deco"
                     };
 
                     var initFactor = (obj.wires.length == 1 ? ((obj.bbox.height / 2) - 5) : ((obj.wires.length % 2 == 0) ? 5 : 8));
                     for (var idx = 0; idx < obj.wires.length; idx++) {
-                        $(grpObj).append(getNode('path', {
+                        $(grpObj).append(getNode('rect', {
                             transform: "translate(" + (obj.bbox.width - 4) + "," + (initFactor + (13 * idx)) + ")",
                             ...outDecoBaseAttrs
                         }));
@@ -1944,5 +1958,3 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
     /* finally remove our changes to the objects in the flowData array */
     flowdata.forEach(function (obj) { delete obj.bbox; });
 };
- 
-     
