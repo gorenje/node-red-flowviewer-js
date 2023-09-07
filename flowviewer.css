@@ -3,6 +3,17 @@ body {
     background-color: #fefcfc
 }
 
+.node {
+    fill-opacity: 1;
+    stroke-width: 1px;
+}
+
+.link {
+    stroke: #999;
+    stroke-width: 3;
+    fill: none;
+}
+
 .group-text-label {
     font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
 	font-size: 14px;

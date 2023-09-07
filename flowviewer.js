@@ -1198,10 +1198,22 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
     var nodeIdsThatReceiveInput = {};
     var svgObj = undefined;
 
+    const PORT_WIDTH = 10;
+
+    const portDimensions = {
+        width: PORT_WIDTH,
+        height: PORT_WIDTH
+    }
+
+    const portRadius = {
+        rx: 3,
+        ry: 3
+    }
+
     svgObj = $(svgjQueryObj.find('.flowGridlines')[0]);
 
-    if ( renderOpts["gridlines"] ) {
-        for ( var idx = 0; idx < 250; idx++ ) {
+    if (renderOpts["gridlines"]) {
+        for (var idx = 0; idx < 250; idx++) {
             svgObj.append(getNode('line', {
                 x1: 0,
                 x2: 5000,
@@ -1213,15 +1225,15 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
 
         for (var idx = 0; idx < 250; idx++) {
             svgObj.append(getNode('line', {
-                x1: 20*idx,
-                x2: 20*idx,
+                x1: 20 * idx,
+                x2: 20 * idx,
                 y1: 0,
                 y2: 5000,
                 class: 'grid-line'
             }));
         }
     }
-    
+
     /*  this is used to define which nodes get input decoration, this is not clear from the json data so
      *  we make a guessimate which nodes have inputs by the wiring within the flow 
      */
@@ -1229,15 +1241,15 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
         if (obj.type == "subflow") {
             /* prefix subflow since this is the type of the node that uses this subflow - makes lookup simpler */
             subflows["subflow:" + obj.id] = obj;
-            for ( var idx = 0; idx < obj.in.length; idx++ ) {
-                for ( var wdx = 0; wdx < obj.in[idx].wires.length; wdx++ ) {
+            for (var idx = 0; idx < obj.in.length; idx++) {
+                for (var wdx = 0; wdx < obj.in[idx].wires.length; wdx++) {
                     nodeIdsThatReceiveInput[obj.in[idx].wires[wdx].id] = true
                 }
             }
         }
 
-        if ( obj.wires && obj.wires.length > 0 ) {
-            obj.wires.forEach( function(aryWires){
+        if (obj.wires && obj.wires.length > 0) {
+            obj.wires.forEach(function (aryWires) {
                 aryWires.forEach(function (ndeId) { nodeIdsThatReceiveInput[ndeId] = true })
             })
         };
@@ -1279,6 +1291,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
     flowdata.forEach(function (obj) {
         if (obj.z == flowId || obj.id == flowId /* this is a subflow or tab */) {
 
+            // compute node dimensions and node colour by its type, both settings have default values
             var dimensions = widthHeightByType[obj.type] || widthHeightByType["_default"];
             var clr = clrByType[obj.type] || clrByType["_default"];
 
@@ -1287,7 +1300,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                 case "tab":
                     /* tab is the flow container, nothing visual found here */
                     break;
-                    
+
                 case "ui_spacer":
                     /* is included in the flow but is a dashboard node, not flow node */
                     break;
@@ -1304,7 +1317,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     subFlowInsOutsStatusNodes[obj.id] = { ...obj };
 
                     /* input connectors */
-                    for (var idx = 0; idx < subFlowInsOutsStatusNodes[obj.id].in.length; idx++ ) {
+                    for (var idx = 0; idx < subFlowInsOutsStatusNodes[obj.id].in.length; idx++) {
                         var inObj = subFlowInsOutsStatusNodes[obj.id].in[idx];
                         var grpId = "grp" + Math.random().toString().substring(2);
                         $(svgObj).append(getNode('g', { id: grpId, }));
@@ -1325,18 +1338,13 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                         inObj.bbox.x = inObj.x - dimensions.width / 2
                         inObj.bbox.y = inObj.y - dimensions.height / 2
 
-                        var transAndPath = {
-                            transform: "translate(15,-5)",
-                            d: "M 0.5,9.5 9.5,9.5 9.5,0.5 0.5,0.5 Z",
-                        }
-
                         /* add output decoration after computing the bounding box - the decoration extends the bounding box */
-                        $(grpObj).append(getNode('path', {
+                        $(grpObj).append(getNode('rect', {
                             ...clr,
-                            ...transAndPath,
+                            ...portDimensions,
+                            ...portRadius,
                             class: "output-deco",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
+                            transform: "translate(15,-5)",
                         }));
 
                         var textElem = getNode('text', {
@@ -1370,18 +1378,13 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                         outObj.bbox.x = outObj.x - dimensions.width / 2
                         outObj.bbox.y = outObj.y - dimensions.height / 2
 
-                        var transAndPath = {
-                            transform: "translate(-25,-5)",
-                            d: "M 0.5,9.5 9.5,9.5 9.5,0.5 0.5,0.5 Z",
-                        }
-
                         /* add output decoration after computing the bounding box - the decoration extends the bounding box */
-                        $(grpObj).append(getNode('path', {
+                        $(grpObj).append(getNode('rect', {
                             ...clr,
-                            ...transAndPath,
+                            ...portDimensions,
+                            ...portRadius,
                             class: "input-deco",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
+                            transform: "translate(-25,-5)",
                         }));
 
                         /* text that goes "output\n(idx+1)\n" i.e. two lines */
@@ -1398,7 +1401,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                             x: 0,
                             class: 'subflow-node-text-label-number'
                         });
-                        textElem.textContent = ""+(idx+1);
+                        textElem.textContent = "" + (idx + 1);
                         $(grpObj).append(textElem);
                     }
 
@@ -1424,18 +1427,13 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                         outObj.bbox.x = outObj.x - dimensions.width / 2
                         outObj.bbox.y = outObj.y - dimensions.height / 2
 
-                        var transAndPath = {
-                            transform: "translate(-25,-5)",
-                            d: "M 0.5,9.5 9.5,9.5 9.5,0.5 0.5,0.5 Z",
-                        }
-
                         /* add output decoration after computing the bounding box - the decoration extends the bounding box */
-                        $(grpObj).append(getNode('path', {
+                        $(grpObj).append(getNode('rect', {
                             ...clr,
-                            ...transAndPath,
+                            ...portDimensions,
+                            ...portRadius,
                             class: "input-deco",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
+                            transform: "translate(-25,-5)",
                         }));
 
                         var textElem = getNode('text', {
@@ -1444,7 +1442,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                             class: 'subflow-node-text-label'
                         });
                         textElem.textContent = "status";
-                        $(grpObj).append(textElem);                        
+                        $(grpObj).append(textElem);
                     }
 
                     break;
@@ -1486,13 +1484,11 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                         rx: 5,
                         ry: 5,
                         fill: obj.color || clr.fill,
-                        "fill-opacity": 1,
-                        "stroke-width": 2,
-                        class: (" node-" + obj.id)
+                        class: "node node-" + obj.id
                     }));
 
-                    $(grpObj).attr("transform", "translate(" + (obj.x - dimensions.width/2) + "," + (obj.y - dimensions.height/2) + ")");
-                    if (obj.d) { 
+                    $(grpObj).attr("transform", "translate(" + (obj.x - dimensions.width / 2) + "," + (obj.y - dimensions.height / 2) + ")");
+                    if (obj.d) {
                         $(grpObj).attr("class", "node-disabled")
                     };
                     obj.bbox = document.getElementById(grpId).getBBox();
@@ -1503,53 +1499,55 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     if (renderOpts.images) {
                         $(grpObj).append(getNode('image', {
                             "href": imageNameToContent[imgByType[obj.type + obj.mode]],
-                                x: (obj.type == "link in" ? 0 : (obj.mode == "return" ? 1 : 2)),
-                                y: 0,
-                                width: 30,
-                                height: 30
+                            x: (obj.type == "link in" ? 0 : (obj.mode == "return" ? 1 : 2)),
+                            y: 0,
+                            width: 30,
+                            height: 30
                         }));
                     };
 
-                    var transAndPath = {
-                        transform: (obj.type == "link in" ? "translate(25,10)" : "translate(-4,10)"),
-                        d: "M 0.5,9.5 9.5,9.5 9.5,0.5 0.5,0.5 Z",
-                    }
-
-                    if (renderOpts["arrows"] && (obj.type == "link out")) {
-                        transAndPath = {
+                    if (renderOpts.arrows) {
+                        var transAndPath = {
                             transform: (obj.type == "link in" ? "translate(27,10)" : "translate(-3,10)"),
                             d: "M 0,10 9,5 0,0 Z",
                         }
-                    }
 
-                    /* add output decoration after computing the bounding box - the decoration extends the bounding box */
-                    $(grpObj).append(getNode('path', {
-                        ...clr,
-                        ...transAndPath,
-                        class: (obj.type == "link in" ? "output-deco" : ("input-deco" + (renderOpts.arrows ? " input-arrows" : ""))),
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round",
-                    }));
+                        $(grpObj).append(getNode('path', {
+                            ...clr,
+                            ...transAndPath,
+                            class: (obj.type == "link in" ? "output-deco" : ("input-deco" + (renderOpts.arrows ? " input-arrows" : ""))),
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                        }));
+                    } else {
+                        $(grpObj).append(getNode('rect', {
+                            ...clr,
+                            ...portDimensions,
+                            ...portRadius,
+                            class: (obj.type == "link in" ? "output-deco" : "input-deco"),
+                            transform: (obj.type == "link in" ? "translate(25,10)" : "translate(-4,10)"),
+                        }));
+                    }
 
                     break;
 
                 default:
                     /* the type of the node that represents a subflow is subflow:XXXX while the subflow has type 'subflow' */
-                    var grpTextId  = "grpTxt" + Math.random().toString().substring(2);
-                    var lblFunct   = renderOpts.labels ? (labelByFunct[obj.type] || labelByFunct["_default"]) : emptyLabelFunct;
+                    var grpTextId = "grpTxt" + Math.random().toString().substring(2);
+                    var lblFunct = renderOpts.labels ? (labelByFunct[obj.type] || labelByFunct["_default"]) : emptyLabelFunct;
                     var subflowObj = subflows[obj.type] || {};
                     var textLabels = getLabelParts(lblFunct(obj, subflowObj, flowdata), "node-text-label");
 
                     var grpText = document.createElementNS("http://www.w3.org/2000/svg", 'g');
                     grpText.setAttributeNS(null, "id", grpTextId);
-                    grpText.setAttributeNS(null, "transform", "translate(38," + (textLabels.lines.length > 1 ? "18" : "16") + ")");
+                    grpText.setAttributeNS(null, "transform", "translate(38," + (textLabels.lines.length > 1 ? 16 : 14) + ")");
 
                     var ypos = 0;
-                    textLabels.lines.forEach( function(lne){
+                    textLabels.lines.forEach(function (lne) {
                         var textElem = getNode('text', {
                             y: ypos,
                             class: 'node-text-label'
-                        });                        
+                        });
                         textElem.textContent = lne;
                         grpText.appendChild(textElem);
                         ypos += 20;
@@ -1561,58 +1559,56 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
 
                     $(grpObj).append(grpText);
 
-                    var txtBBox    = document.getElementById(grpTextId).getBBox();
-                    var txtWidth   = txtBBox.width + 45;
-                    var txtHeight  = txtBBox.height + 16;
-                    var rectWidth  = (dimensions.width > txtWidth ? dimensions.width : txtWidth);
+                    var txtBBox = document.getElementById(grpTextId).getBBox();
+                    var txtWidth = txtBBox.width + 60;
+                    var txtHeight = txtBBox.height + 13.5;
+                    var rectWidth = (dimensions.width > txtWidth ? dimensions.width : txtWidth);
                     var rectHeight = (dimensions.height > txtHeight ? dimensions.height : txtHeight);
 
-                    if ( (obj.wires || []).length > 2 ) {  
+                    if ((obj.wires || []).length > 2) {
                         /* if more than 2 outputs, the node "grows" but the node might already be bigger enough. The base
                             height of 30 supports two outputs, everything else requires growth in height. */
                         rectHeight = Math.max(rectHeight, 15 * obj.wires.length);
 
                         /* move the text block into the middle */
-                        if ( rectHeight > txtHeight ) {
-                            var offsetHeight = ( rectHeight - txtHeight) / 2;
-                            grpText.setAttributeNS(null, "transform", "translate(38," + ( (textLabels.lines.length > 1 ? 18 : 16) + offsetHeight) + ")");
+                        if (rectHeight > txtHeight) {
+                            var offsetHeight = (rectHeight - txtHeight) / 2;
+                            grpText.setAttributeNS(null, "transform", "translate(38," + ((textLabels.lines.length > 1 ? 18 : 16) + offsetHeight) + ")");
                         }
                     }
-                    
+
                     $(grpObj).prepend(getNode('rect', {
                         ...clr,
                         rx: 5,
                         ry: 5,
                         fill: obj.color || subflowObj.color || clr.fill,
-                        "fill-opacity": 1,
                         width: rectWidth,
-                        height: rectHeight, 
-                        "stroke-width": 2,
-                        class: (" node-" + obj.id)
+                        height: rectHeight,
+                        class: "node node-" + obj.id
                     }));
 
                     $(grpObj).append(getNode('path', {
-                        d: "M5 0 h25 v" + rectHeight+" h-25 a 5 5 0 0 1 -5 -5  v-"+(rectHeight-10)+" a 5 5 0 0 1 5 -5",
+                        d: "M5 0 h25 v" + rectHeight + " h-25 a 5 5 0 0 1 -5 -5  v-" + (rectHeight - 10) + " a 5 5 0 0 1 5 -5",
                         fill: "rgb(0,0,0)",
                         "fill-opacity": 0.1,
                         "stroke": "none"
                     }));
-                    
+
                     $(grpObj).append(getNode('path', {
-                        d: "M 29.5 0.5 l 0 " + (rectHeight-1),
+                        d: "M 29.5 0.5 l 0 " + (rectHeight - 1),
                         fill: "none",
                         stroke: "rgb(0,0,0)",
                         "stroke-opacity": 0.1,
                         "stroke-width": "1px"
                     }));
 
-                    $(grpObj).attr("transform", "translate(" + (obj.x - rectWidth/2) + "," + (obj.y - rectHeight/2)+ ")");
+                    $(grpObj).attr("transform", "translate(" + (obj.x - rectWidth / 2) + "," + (obj.y - rectHeight / 2) + ")");
                     obj.bbox = document.getElementById(grpId).getBBox();
                     obj.bbox.x = obj.x - rectWidth / 2;
                     obj.bbox.y = obj.y - rectHeight / 2;
 
                     /* Add image - if requested - by type - some types have no image */
-                    if ( renderOpts.images ) {
+                    if (renderOpts.images) {
                         var imgBaseOpts = {
                             x: 1,
                             y: Math.max(rectHeight / 2 - 15, 1),
@@ -1620,15 +1616,15 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                             height: 30
                         };
 
-                        if ( imgByType[obj.type] && imageNameToContent[imgByType[obj.type]] ) { 
+                        if (imgByType[obj.type] && imageNameToContent[imgByType[obj.type]]) {
                             $(grpObj).append(getNode('image', {
                                 "href": imageNameToContent[imgByType[obj.type]],
                                 ...imgBaseOpts
                             }));
                         } else {
-                            if ( obj.type.startsWith("subflow:") ) {
-                                var hrefContent = (subflowObj.icon && 
-                                          imageNameToContent[subflowObj.icon]) || imageNameToContent["subflow.svg"];
+                            if (obj.type.startsWith("subflow:")) {
+                                var hrefContent = (subflowObj.icon &&
+                                    imageNameToContent[subflowObj.icon]) || imageNameToContent["subflow.svg"];
 
                                 $(grpObj).append(getNode('image', { "href": hrefContent, ...imgBaseOpts }));
                             }
@@ -1636,28 +1632,37 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     };
 
                     /* add output decoration after computing the bounding box - the decoration extends the bounding box otherwise */
-                    if ( (subflowObj.in && subflowObj.in.length > 0) || nodeIdsThatReceiveInput[obj.id] ) {
-                        $(grpObj).append(getNode('path', {
-                            ...clrByType["junction"],
-                            transform: "translate(-3,"+((obj.bbox.height/2)-5)+")",
-                            d: (renderOpts["arrows"] ? "M 0,10 9,5 0,0 Z" : "M -1,9.5 8,9.5 8,0.5 -1,0.5 Z"),
-                            class: "input-deco" + (renderOpts.arrows ? " input-arrows" : ""),
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                        }));
+                    if ((subflowObj.in && subflowObj.in.length > 0) || nodeIdsThatReceiveInput[obj.id]) {
+                        if (renderOpts.arrows) {
+                            $(grpObj).append(getNode('path', {
+                                ...clrByType["junction"],
+                                transform: "translate(-3," + ((obj.bbox.height / 2) - 5) + ")",
+                                d: "M 0,10 9,5 0,0 Z",
+                                class: "input-deco input-arrows",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                            }));
+                        } else {
+                            $(grpObj).append(getNode('rect', {
+                                ...clrByType["junction"],
+                                transform: "translate(-5," + ((obj.bbox.height / 2) - 5) + ")",
+                                ...portDimensions,
+                                ...portRadius,
+                                class: "input-deco"
+                            }));
+                        }
                     }
 
                     var outDecoBaseAttrs = {
                         ...clrByType["junction"],
-                        d: "M 0.5,9.5 9.5,9.5 9.5,0.5 0.5,0.5 Z", // *** this is the triangle --> "M 0,10 9,5 0,0 Z",
+                        ...portDimensions,
+                        ...portRadius,
                         class: "output-deco",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round",
                     };
 
                     var initFactor = (obj.wires.length == 1 ? ((obj.bbox.height / 2) - 5) : ((obj.wires.length % 2 == 0) ? 5 : 8));
                     for (var idx = 0; idx < obj.wires.length; idx++) {
-                        $(grpObj).append(getNode('path', {
+                        $(grpObj).append(getNode('rect', {
                             transform: "translate(" + (obj.bbox.width - 4) + "," + (initFactor + (13 * idx)) + ")",
                             ...outDecoBaseAttrs
                         }));
@@ -1753,14 +1758,14 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
             obj.bbox.x = grpObj.x;
             obj.bbox.y = grpObj.y;
 
-            var labelGrp = getNode('g',{
+            var labelGrp = getNode('g', {
             });
             $(grpSvgObj).append(labelGrp);
 
             /* this is taken from 
              * https://github.com/node-red/node-red/blob/7e9042e9f713eec981adeb8ff6af226a40efb5af/packages/node_modules/%40node-red/editor-client/src/js/ui/view.js#L5555 
             */
-            if ( grpObj.style.label && grpObj.name) {
+            if (grpObj.style.label && grpObj.name) {
                 var labelPos = grpObj.style["label-position"] || "nw";
                 var labels = getLabelParts(grpObj.name, "group-text-label");
 
@@ -1796,7 +1801,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                             fill: grpObj.style.color || 'grey',
                         });
                         tspan.textContent = name;
-                        $(labelGrp).append( tspan );
+                        $(labelGrp).append(tspan);
                         ypos += 16;
                     });
                 }
@@ -1815,13 +1820,13 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
 
     /* rendering subflow? then the subflow hash will be filled */
     var subFlowIds = Object.keys(subFlowInsOutsStatusNodes);
-    for ( var idx = 0; idx < subFlowIds.length; idx++ ) {
+    for (var idx = 0; idx < subFlowIds.length; idx++) {
         var sfObj = subFlowInsOutsStatusNodes[subFlowIds[idx]];
-        
-        for (var jdx = 0; jdx < sfObj.in.length; jdx++ ) {
+
+        for (var jdx = 0; jdx < sfObj.in.length; jdx++) {
             var inObj = sfObj.in[jdx];
 
-            for ( var wdx = 0; wdx < inObj.wires.length; wdx++ ){
+            for (var wdx = 0; wdx < inObj.wires.length; wdx++) {
                 var otherNode = nodes[inObj.wires[wdx].id];
 
                 var startX = inObj.bbox.x + inObj.bbox.width;
@@ -1834,7 +1839,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     stroke: 'grey',
                     "stroke-width": 4,
                     "fill": 'transparent',
-                    class: (otherNode.d ? "link-disabled" : "") + (" link-from-" + sfObj.id + "-to-" + otherNode.id)
+                    class: "link " + (otherNode.d ? "link-disabled" : "") + (" link-from-" + sfObj.id + "-to-" + otherNode.id)
                 }));
             }
         }
@@ -1857,7 +1862,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     stroke: 'grey',
                     "stroke-width": 4,
                     "fill": 'transparent',
-                    class: (otherNode.d ? "link-disabled" : "") + (" link-from-" + sfObj.id + "-to-" + otherNode.id)
+                    class: "link " + (otherNode.d ? "link-disabled" : "") + (" link-from-" + sfObj.id + "-to-" + otherNode.id)
                 }));
             }
         }
@@ -1866,8 +1871,8 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
 
     for (var ndeId in nodes) {
         var nde = nodes[ndeId];
-        if ( nde.type == "link out") { linkOutNodes.push( nde ) }
-        if ((nde.wires || []).length == 0 ) { continue }
+        if (nde.type == "link out") { linkOutNodes.push(nde) }
+        if ((nde.wires || []).length == 0) { continue }
 
         var initFactor = (nde.wires.length == 1 ? nde.bbox.height / 2 : ((nde.wires.length % 2 == 0) ? 10 : 13));
         var wireCnt = 0;
@@ -1886,7 +1891,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                         stroke: 'grey',
                         "stroke-width": 4,
                         "fill": 'transparent',
-                        class: (otherNode.d || nde.d ? "link-disabled" : "") + (" link-from-" + nde.id + "-to-" + otherNode.id)
+                        class: "link " + (otherNode.d || nde.d ? "link-disabled" : "") + (" link-from-" + nde.id + "-to-" + otherNode.id)
                     }));
                 }
             });
@@ -1895,12 +1900,12 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
     }
 
     /* draw the links between link nodes, i.e. link-in and link-out nodes */
-    if ( renderOpts.linklines ) {
-        linkOutNodes.forEach( function(nde) {
-            nde.links.forEach( function(ndeId){
+    if (renderOpts.linklines) {
+        linkOutNodes.forEach(function (nde) {
+            nde.links.forEach(function (ndeId) {
                 var otherNode = nodes[ndeId];
-                
-                if ( otherNode ) { 
+
+                if (otherNode) {
                     var startX = nde.bbox.x + nde.bbox.width;
                     var startY = nde.bbox.y + nde.bbox.height / 2;
                     var endX = otherNode.bbox.x;
@@ -1912,7 +1917,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                         "stroke-width": 2,
                         "stroke-dasharray": "25,4",
                         "fill": 'transparent',
-                        class: (otherNode.d || nde.d ? "link-disabled" : "") + (" link-from-" + nde.id + "-to-" + otherNode.id)
+                        class: "link " + (otherNode.d || nde.d ? "link-disabled" : "") + (" link-from-" + nde.id + "-to-" + otherNode.id)
                     }));
 
                     $(svgObj).append(getNode('circle', {
@@ -1944,5 +1949,3 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
     /* finally remove our changes to the objects in the flowData array */
     flowdata.forEach(function (obj) { delete obj.bbox; });
 };
- 
-     
