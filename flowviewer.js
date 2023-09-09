@@ -706,7 +706,7 @@ function renderSvgWithOptions(elem, flowId, flowdata, opts) {
     var jsonContent = undefined;
 
     /* if we're going to offer a download link, then copy the content before replacing it */
-    if (opts.dllink) { jsonContent = JSON.parse(elem.innerHTML) }
+    if (opts.dllink) { jsonContent = JSON.parse(elem.innerText) }
 
     $($(elem).parent()).replaceWith($("<div></div>").attr('id', divId).attr(
         'style', 'width: 92% ; height: 500px ; left: 4%; overflow: scroll; display: inline-block; position: relative;'
@@ -735,18 +735,18 @@ function renderSvgWithOptions(elem, flowId, flowdata, opts) {
 
     var svgLocation = {
         x: boundingBox.x,
-        y: boundingBox.y 
+        y: boundingBox.y
     }
 
     svgElem.setAttribute("viewBox", "" +
         svgLocation.x + " " +
         svgLocation.y + " " +
         boundingBox.width + " " +
-        boundingBox.height 
+        boundingBox.height
     );
 
-    var divElem = $('#' + divId)[0];   
-    svgElem.style.width = Math.max( $(divElem).width(), (boundingBox.width + 20) ) + "px";
+    var divElem = $('#' + divId)[0];
+    svgElem.style.width = Math.max($(divElem).width(), (boundingBox.width + 20)) + "px";
     svgElem.style.height = (boundingBox.height + 20) + "px";
 
     /* shrink div container to the size of the svg if the svg is smaller than the container */
@@ -774,18 +774,18 @@ function renderSvgWithOptions(elem, flowId, flowdata, opts) {
 
         $('#' + divId).after($("<a>Download Flow</a>").attr(
             'href', "data:application/json," + encodeURIComponent(JSON.stringify(jsonContent))
-        ).attr("download", "flow.json").attr('class','flow-download-link'));
+        ).attr("download", "flow.json").attr('class', 'flow-download-link'));
 
         $('#' + divId).after($("<span> | </span>").attr('class', 'flow-download-link'));
 
         var elem = $('#' + divId).after($("<a>Copy Flow to Clipboard</a>").attr('href', "#").attr(
-            'id', divId +'-copy-to-clipboard'
-        ).attr('class', 'flow-copy-to-clipboard-link')); 
+            'id', divId + '-copy-to-clipboard'
+        ).attr('class', 'flow-copy-to-clipboard-link'));
 
         var contents = JSON.stringify(jsonContent);
-        $('#' + divId + "-copy-to-clipboard").on('click', function(e) { 
+        $('#' + divId + "-copy-to-clipboard").on('click', function (e) {
             e.preventDefault();
-            copyTextToClipboard(contents, function() { alert('copied')});
+            copyTextToClipboard(contents, function () { alert('copied') });
         });
 
         $('#' + divId).after($("<br/>"));
@@ -834,19 +834,19 @@ function renderElemsWithOptions(elems, opts) {
 function parseLanguageOptions(optsStr) {
     // optsStr is assumed to be everything after the 'language-noderedjson-' prefix
     var rVal = {
-        "arrows":    optsStr.indexOf("with-arrows") > -1,
+        "arrows": optsStr.indexOf("with-arrows") > -1,
         "gridlines": !(optsStr.indexOf("no-gridlines") > -1),
-        "zoom":      optsStr.indexOf("with-zoom") > -1,
-        "images":    !(optsStr.indexOf("no-images") > -1),
-        "labels":    !(optsStr.indexOf("no-labels") > -1),
+        "zoom": optsStr.indexOf("with-zoom") > -1,
+        "images": !(optsStr.indexOf("no-images") > -1),
+        "labels": !(optsStr.indexOf("no-labels") > -1),
         "linklines": optsStr.indexOf("with-linklines") > -1,
-        "dllink":    optsStr.indexOf("with-download-link") > -1,
+        "dllink": optsStr.indexOf("with-download-link") > -1,
     };
 
     // with-XXXX overrides previous no-XXXX setting
     rVal.gridlines = (optsStr.indexOf("with-gridlines") > -1) || rVal.gridlines;
-    rVal.images    = (optsStr.indexOf("with-images") > -1) || rVal.images;
-    rVal.labels    = (optsStr.indexOf("with-labels") > -1) || rVal.labels;
+    rVal.images = (optsStr.indexOf("with-images") > -1) || rVal.images;
+    rVal.labels = (optsStr.indexOf("with-labels") > -1) || rVal.labels;
 
     return rVal;
 }
@@ -854,13 +854,13 @@ function parseLanguageOptions(optsStr) {
 function replaceCodeBlocksWithNodeRedFlowImages() {
     /* these are the default settings */
     renderElemsWithOptions($('code.language-noderedjson'), {
-        "arrows":    false,
+        "arrows": false,
         "gridlines": true,
-        "zoom":      false,
-        "images":    true,
+        "zoom": false,
+        "images": true,
         "linklines": false,
-        "dllink":    false,
-        "labels":    true,
+        "dllink": false,
+        "labels": true,
     });
 
     $("code[class*='language-noderedjson-']").each(function (idx, elem) {
