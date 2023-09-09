@@ -1850,7 +1850,12 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
 
             for (var wdx = 0; wdx < outObj.wires.length; wdx++) {
                 var otherNode = nodes[outObj.wires[wdx].id];
-                var initFactor = (otherNode.wires.length == 1 ? otherNode.bbox.height / 2 : ((otherNode.wires.length % 2 == 0) ? 10 : 13));
+                // This is the case where the input "connector" is linked directly to the output
+                // "connector" in a subflow defintion. There should be a path between input "connector"
+                // and output "connector" but in this case, there isn't. TODO TODO TODO.
+                if (!otherNode || otherNode.type == "subflow") { continue; }
+
+                var initFactor = (otherNode.wires.length == 1) ? otherNode.bbox.height / 2 : (otherNode.wires.length % 2 == 0) ? 10 : 13;
 
                 var startX = otherNode.bbox.x + otherNode.bbox.width;
                 var startY = otherNode.bbox.y + (initFactor + (13 * outObj.wires[wdx].port));
