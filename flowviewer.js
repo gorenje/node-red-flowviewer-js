@@ -771,21 +771,31 @@ function renderSvgWithOptions(elem, flowId, flowdata, opts) {
     }
 
     if (opts.dllink) {
-
-        $('#' + divId).after($("<a>Download Flow</a>").attr(
-            'href', "data:application/json," + encodeURIComponent(JSON.stringify(jsonContent))
-        ).attr("download", "flow.json").attr('class', 'flow-download-link'));
+        $('#' + divId).after(
+            $("<a>Download Flow</a>").attr(
+                'href', "data:application/json," + encodeURIComponent(JSON.stringify(jsonContent))
+            ).attr(
+                "download", "flow.json"
+            ).attr(
+                'class', 'flow-download-link'
+            )
+        );
 
         $('#' + divId).after($("<span> | </span>").attr('class', 'flow-download-link'));
 
-        var elem = $('#' + divId).after($("<a>Copy Flow to Clipboard</a>").attr('href', "#").attr(
-            'id', divId + '-copy-to-clipboard'
-        ).attr('class', 'flow-copy-to-clipboard-link'));
+        var elem = $('#' + divId).after(
+            $("<a>Copy Flow to Clipboard</a>").attr('href', "#").attr(
+                'id', divId + '-copy-to-clipboard'
+            ).attr(
+                'class', 'flow-copy-to-clipboard-link'
+            ).attr( 
+                'data-contents', encodeURIComponent(JSON.stringify(jsonContent))
+            )
+        );
 
-        var contents = JSON.stringify(jsonContent);
         $('#' + divId + "-copy-to-clipboard").on('click', function (e) {
             e.preventDefault();
-            copyTextToClipboard(contents, function () { alert('copied') });
+            copyTextToClipboard(decodeURIComponent($(this).data('contents')), function () { alert('copied to clipboard') });
         });
 
         $('#' + divId).after($("<br/>"));
