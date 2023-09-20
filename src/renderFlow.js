@@ -346,6 +346,12 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     break;
 
                 default:
+
+                    /* a node with no wires, no x and no y can only be a config node - ignore it, it has no visual representation */
+                    if (!obj.x && !obj.y && !obj.wires) {
+                        break;
+                    }
+
                     /* the type of the node that represents a subflow is subflow:XXXX while the subflow has type 'subflow' */
                     var grpTextId = "grpTxt" + Math.random().toString().substring(2);
                     var lblFunct = renderOpts.labels ? (labelByFunct[obj.type] || labelByFunct["_default"]) : emptyLabelFunct;
