@@ -564,7 +564,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                 width: width + 20,
                 height: height + 20,
                 fill: (grpObj.style && grpObj.style.fill) || "none",
-                "fill-opacity": (grpObj.style && grpObj.style["fill-opacity"]) || 0,
+                "fill-opacity": (grpObj.style && grpObj.style["fill-opacity"]) || "1",
                 "stroke-width": 2,
                 stroke: "grey",
                 class: "group-" + grpObj.id,
