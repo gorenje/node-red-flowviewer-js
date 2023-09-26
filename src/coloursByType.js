@@ -116,6 +116,12 @@ var clrByType = {
     "i2c in": _hshClr('rgb(227, 82, 83)'),
     "i2c out": _hshClr('rgb(227, 82, 83)'),
 
+    "NodeFactory": _hshClr('#e5e4ef'),
+    "NodeRedInstall": _hshClr('#e5e4ef'),
+    "PkgFile": _hshClr('#e5e4ef'),
+    "NpmTarBall": _hshClr('#e5e4ef'),
+    "NpmPublish": _hshClr('#e5e4ef'),
+    
     'cronplus': _hshClr('#a6bbcf'),
     
     "_default":      _hshClr("rgb(243, 181, 103)"),
