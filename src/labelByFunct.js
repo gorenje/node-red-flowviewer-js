@@ -63,12 +63,12 @@ var labelByFunct = {
     "csv":           undefined,
     "debug":         undefined,
     "exec":          undefined,
-    "file":          (obj, subflowObj, flowdata) => { return (obj.name || obj.filename || obj.type) },
-    "file in":       (obj, subflowObj, flowdata) => { return (obj.name || obj.filename || obj.type) },
+    "file":          (obj, _sub, _flow) => { return (obj.name || obj.filename || obj.type) },
+    "file in":       (obj, _sub, _flow) => { return (obj.name || obj.filename || obj.type) },
     "function":      undefined,
     "html":          undefined,
-    "http response": (obj, subflowObj, flowdata) => { return ( obj.name || ("http" + (obj.statusCode ? " (" + obj.statusCode +")" : ""))) },
-    "http in":       (obj, subflowObj, flowdata) => { return ( obj.name || ("[" + obj.method + "] " + obj.url)) },
+    "http response": (obj, _sub, _flow) => { return ( obj.name || ("http" + (obj.statusCode ? " (" + obj.statusCode +")" : ""))) },
+    "http in":       (obj, _sub, _flow) => { return ( obj.name || ("[" + obj.method + "] " + obj.url)) },
     "http request":  undefined,
     "inject":        undefined,
     "join":          undefined,
@@ -137,5 +137,8 @@ var labelByFunct = {
     'DrawSVG': undefined,
     'GetFlows': undefined,
     
+    "FlowHubPull": (obj, _sub, _flow) => { return (obj.name || obj.flowname || obj.type) },
+    "FlowHubPush": (obj, _sub, _flow) => { return (obj.name || obj.flowname || obj.type) },
+
     "_default": defaultLabelFunct,
 };
