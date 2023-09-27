@@ -123,6 +123,9 @@ var clrByType = {
     "NpmPublish": _hshClr('#e5e4ef'),
     
     'cronplus': _hshClr('#a6bbcf'),
+
+    "FlowHubPull": _hshClr("#44eeff"),
+    "FlowHubPush": _hshClr("#44eeff"),
     
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };

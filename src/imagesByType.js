@@ -68,5 +68,7 @@ var imgByType = {
     "ClientCode": "subflow.svg",
     "GetFlows": "subflow.svg",
     "SendFlow": "subflow.svg",
-    
+
+    "FlowHubPull": "flowhub.svg",
+    "FlowHubPush": "flowhub.svg",
  };
