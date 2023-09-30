@@ -459,6 +459,7 @@ var clrByType = {
     "FlowHubPush": _hshClr("#44eeff"),
     
     "JsonSchemaValidatorWithDocu": _hshClr("#addb7b"),
+    "Flow2UML": _hshClr("#C0DDFF"),
     
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };
@@ -1038,6 +1039,7 @@ var labelByFunct = {
     "FlowHubPush": (obj, _sub, _flow) => { return (obj.name || obj.flowname || obj.type) },
 
     "JsonSchemaValidatorWithDocu": (obj, _sub, _flow) => { return (obj.name || obj.schematitle || obj.type) },
+    "Flow2UML": (obj, _sub, _flow) => { return (obj.name || obj.type) },
 
     "_default": defaultLabelFunct,
 };

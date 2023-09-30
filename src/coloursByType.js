@@ -128,6 +128,7 @@ var clrByType = {
     "FlowHubPush": _hshClr("#44eeff"),
     
     "JsonSchemaValidatorWithDocu": _hshClr("#addb7b"),
+    "Flow2UML": _hshClr("#C0DDFF"),
     
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };

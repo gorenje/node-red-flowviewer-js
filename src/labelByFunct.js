@@ -141,6 +141,7 @@ var labelByFunct = {
     "FlowHubPush": (obj, _sub, _flow) => { return (obj.name || obj.flowname || obj.type) },
 
     "JsonSchemaValidatorWithDocu": (obj, _sub, _flow) => { return (obj.name || obj.schematitle || obj.type) },
+    "Flow2UML": (obj, _sub, _flow) => { return (obj.name || obj.type) },
 
     "_default": defaultLabelFunct,
 };
