@@ -460,6 +460,8 @@ var clrByType = {
     
     "JsonSchemaValidatorWithDocu": _hshClr("#addb7b"),
     "Flow2UML": _hshClr("#C0DDFF"),
+
+    "AutoAlign": _hshClr("#DDD7A0"),
     
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };
@@ -1040,6 +1042,8 @@ var labelByFunct = {
 
     "JsonSchemaValidatorWithDocu": (obj, _sub, _flow) => { return (obj.name || obj.schematitle || obj.type) },
     "Flow2UML": (obj, _sub, _flow) => { return (obj.name || obj.type) },
+
+    "AutoAlign": (obj, _sub, _flow) => { return (obj.name || obj.algname || obj.type) },
 
     "_default": defaultLabelFunct,
 };

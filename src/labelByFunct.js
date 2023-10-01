@@ -143,5 +143,7 @@ var labelByFunct = {
     "JsonSchemaValidatorWithDocu": (obj, _sub, _flow) => { return (obj.name || obj.schematitle || obj.type) },
     "Flow2UML": (obj, _sub, _flow) => { return (obj.name || obj.type) },
 
+    "AutoAlign": (obj, _sub, _flow) => { return (obj.name || obj.algname || obj.type) },
+
     "_default": defaultLabelFunct,
 };

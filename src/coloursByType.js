@@ -129,6 +129,8 @@ var clrByType = {
     
     "JsonSchemaValidatorWithDocu": _hshClr("#addb7b"),
     "Flow2UML": _hshClr("#C0DDFF"),
+
+    "AutoAlign": _hshClr("#DDD7A0"),
     
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };
