@@ -71,4 +71,5 @@ var imgByType = {
 
     "FlowHubPull": "flowhub.svg",
     "FlowHubPush": "flowhub.svg",
+    "FlowHubDiff": "flowhub.svg",
  };
