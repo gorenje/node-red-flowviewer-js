@@ -69,7 +69,7 @@ var imgByType = {
     "GetFlows": "subflow.svg",
     "SendFlow": "subflow.svg",
 
-    "FlowHubPull": "flowhub.svg",
-    "FlowHubPush": "flowhub.svg",
-    "FlowHubDiff": "flowhub.svg",
+    "FlowHubPull": "flowhub-pull.svg",
+    "FlowHubPush": "flowhub-push.svg",
+    "FlowHubDiff": "flowhub-diff.svg",
  };
