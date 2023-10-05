@@ -90,8 +90,8 @@
         ],
         "x": 2662,
         "y": 1207,
-        "w": 988,
-        "h": 966
+        "w": 1036,
+        "h": 967
     },
     {
         "id": "91967f767ec6c48f",
@@ -171,12 +171,15 @@
             "ee00d35fee925bc7",
             "9488d18457d0f1f7",
             "8a12d8c3f7305d06",
-            "9d116acb86d60a6a"
+            "9d116acb86d60a6a",
+            "c4bc9a7c3ee337e7",
+            "255cf2c177f684a9",
+            "238e3f6cfc2eefa5"
         ],
-        "x": 3192,
-        "y": 1660,
-        "w": 432,
-        "h": 487
+        "x": 3250,
+        "y": 1580,
+        "w": 422,
+        "h": 568
     },
     {
         "id": "72f284ff2072c42e",
@@ -2264,8 +2267,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3382,
-        "y": 1701,
+        "x": 3390,
+        "y": 1621,
         "wires": [
             [
                 "dfeb191f16bef5df"
@@ -2283,8 +2286,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3404,
-        "y": 1779,
+        "x": 3411,
+        "y": 1674,
         "wires": [
             [
                 "ee00d35fee925bc7"
@@ -2296,7 +2299,7 @@
         "type": "change",
         "z": "3b1289d7ccf9cb0f",
         "g": "d07ddb933d722248",
-        "name": "parent_sha, blobs --> payload, message & author",
+        "name": "parent_sha, message & author",
         "rules": [
             {
                 "t": "set",
@@ -2304,14 +2307,6 @@
                 "pt": "msg",
                 "to": "payload",
                 "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "blobs",
-                "tot": "msg",
-                "dc": true
             },
             {
                 "t": "set",
@@ -2333,11 +2328,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3408,
-        "y": 1860,
+        "x": 3406,
+        "y": 1730,
         "wires": [
             [
-                "9488d18457d0f1f7"
+                "c4bc9a7c3ee337e7"
             ]
         ]
     },
@@ -2352,8 +2347,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3391,
-        "y": 1945,
+        "x": 3433,
+        "y": 1967,
         "wires": [
             [
                 "8a12d8c3f7305d06"
@@ -2371,8 +2366,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3391,
-        "y": 2029,
+        "x": 3437,
+        "y": 2030,
         "wires": [
             [
                 "9d116acb86d60a6a"
@@ -2390,8 +2385,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3392,
-        "y": 2106,
+        "x": 3465,
+        "y": 2107,
         "wires": [
             [
                 "a9c126c42c3b4513"
@@ -2402,6 +2397,7 @@
         "id": "58ad9096a049bd57",
         "type": "function",
         "z": "3b1289d7ccf9cb0f",
+        "d": true,
         "g": "91967f767ec6c48f",
         "name": "prepare commit for cdn.openmindmap.org",
         "func": "/*\n  this only commits the js and css files, everything else\n  is ignored.\n */\ndelete msg.writermap;\n\nfor (var nme in msg) {\n    if (nme.startsWith(\"js\")) {\n        delete msg[nme];\n    }\n}\n\nmsg.payload = msg.payload.filter( (obj) => {\n    return (obj.name == \"flowviewer.css\" || obj.name == \"flowviewer.js\")\n}).map( function(obj){\n    obj.name = \"embed/\" + obj.name;\n    return obj;\n});\n\nreturn msg;\n",
@@ -3364,14 +3360,14 @@
         "id": "a9c126c42c3b4513",
         "type": "function",
         "z": "3b1289d7ccf9cb0f",
-        "name": "status",
+        "name": "updated repo",
         "func": "node.status({\n    fill: \"green\",\n    shape: 'dot',\n    text: \"committed: \" + msg.payload\n})\n\nsetTimeout( () => { node.status({}) }, 2500);",
         "outputs": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 3807,
+        "x": 3837,
         "y": 2121,
         "wires": []
     },
@@ -3732,5 +3728,113 @@
                 "47f4643a9e016b49"
             ]
         ]
+    },
+    {
+        "id": "49b3649a6f824221",
+        "type": "debug",
+        "z": "3b1289d7ccf9cb0f",
+        "name": "changes",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3929,
+        "y": 1947,
+        "wires": []
+    },
+    {
+        "id": "c4bc9a7c3ee337e7",
+        "type": "link call",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "d07ddb933d722248",
+        "name": "",
+        "links": [
+            "0ef17281d357e763"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 3410,
+        "y": 1791,
+        "wires": [
+            [
+                "255cf2c177f684a9"
+            ]
+        ]
+    },
+    {
+        "id": "255cf2c177f684a9",
+        "type": "function",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "d07ddb933d722248",
+        "name": "check for changes",
+        "func": "var shaLookup = {};\n\nfor ( var idx = 0 ; idx < msg.payload.length ; idx++ ) {\n    shaLookup[msg.payload[idx].path] = msg.payload[idx].sha\n}\n\nmsg.changes = msg.blobs.filter( (d) => {\n    return d.sha != shaLookup[d.path]\n})\n\nif ( msg.changes.length > 0 ) {\n    return [msg, undefined];\n} else {\n    msg.payload = \"no changes\"\n    return [undefined, msg];\n}\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 3408,
+        "y": 1847,
+        "wires": [
+            [
+                "238e3f6cfc2eefa5"
+            ],
+            [
+                "dd42bb9e9bf55948"
+            ]
+        ],
+        "outputLabels": [
+            "sha differ",
+            "no change"
+        ]
+    },
+    {
+        "id": "238e3f6cfc2eefa5",
+        "type": "change",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "d07ddb933d722248",
+        "name": "blobs --> payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "blobs",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3427,
+        "y": 1911,
+        "wires": [
+            [
+                "49b3649a6f824221",
+                "9488d18457d0f1f7"
+            ]
+        ]
+    },
+    {
+        "id": "dd42bb9e9bf55948",
+        "type": "function",
+        "z": "3b1289d7ccf9cb0f",
+        "name": "no changes",
+        "func": "node.status({\n    fill: \"green\",\n    shape: 'dot',\n    text: \"no changes\"\n})\n\nsetTimeout( () => { node.status({}) }, 2500);",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 3869,
+        "y": 1850,
+        "wires": []
     }
 ]
