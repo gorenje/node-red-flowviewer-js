@@ -79,7 +79,7 @@
         "id": "6c68f0dc375cbe62",
         "type": "group",
         "z": "3b1289d7ccf9cb0f",
-        "name": "WARNING: this will create empty commits, no sha checking here",
+        "name": "commit to node-red-flowviewer repo",
         "style": {
             "label": true
         },
@@ -90,8 +90,8 @@
         ],
         "x": 2662,
         "y": 1207,
-        "w": 1036,
-        "h": 967
+        "w": 894.5,
+        "h": 981
     },
     {
         "id": "91967f767ec6c48f",
@@ -129,8 +129,8 @@
             "e184b0fe543c835f",
             "d77803b5de0f7dab"
         ],
-        "x": 2855,
-        "y": 1386,
+        "x": 2935,
+        "y": 1323,
         "w": 252,
         "h": 404
     },
@@ -161,7 +161,7 @@
         "type": "group",
         "z": "3b1289d7ccf9cb0f",
         "g": "6c68f0dc375cbe62",
-        "name": "prepare commit, create commit and update repo with new commit",
+        "name": "prepare commit and check for change",
         "style": {
             "label": true
         },
@@ -176,9 +176,9 @@
             "255cf2c177f684a9",
             "238e3f6cfc2eefa5"
         ],
-        "x": 3250,
-        "y": 1580,
-        "w": 422,
+        "x": 3218.5,
+        "y": 1594,
+        "w": 312,
         "h": 568
     },
     {
@@ -2094,8 +2094,8 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 2967,
-        "y": 1427,
+        "x": 3047,
+        "y": 1364,
         "wires": [
             [
                 "84deaa8431cc6d1e"
@@ -2110,8 +2110,8 @@
         "name": "",
         "action": "",
         "property": "payload",
-        "x": 2968,
-        "y": 1544,
+        "x": 3048,
+        "y": 1481,
         "wires": [
             [
                 "e184b0fe543c835f"
@@ -2166,8 +2166,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2967,
-        "y": 1488,
+        "x": 3047,
+        "y": 1425,
         "wires": [
             [
                 "e275f899d947408c"
@@ -2191,8 +2191,8 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 2986,
-        "y": 1749,
+        "x": 3066,
+        "y": 1686,
         "wires": [
             [
                 "538382528e212e10"
@@ -2210,8 +2210,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 2981,
-        "y": 1610,
+        "x": 3061,
+        "y": 1547,
         "wires": [
             [
                 "d77803b5de0f7dab"
@@ -2238,8 +2238,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2987,
-        "y": 1684,
+        "x": 3067,
+        "y": 1621,
         "wires": [
             [
                 "4e454286c4e6e746"
@@ -2267,8 +2267,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3390,
-        "y": 1621,
+        "x": 3374.5,
+        "y": 1635,
         "wires": [
             [
                 "dfeb191f16bef5df"
@@ -2286,8 +2286,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3411,
-        "y": 1674,
+        "x": 3374.5,
+        "y": 1695.75,
         "wires": [
             [
                 "ee00d35fee925bc7"
@@ -2328,8 +2328,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3406,
-        "y": 1730,
+        "x": 3374.5,
+        "y": 1756.5,
         "wires": [
             [
                 "c4bc9a7c3ee337e7"
@@ -2347,8 +2347,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3433,
-        "y": 1967,
+        "x": 3374.5,
+        "y": 1999.5,
         "wires": [
             [
                 "8a12d8c3f7305d06"
@@ -2366,8 +2366,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3437,
-        "y": 2030,
+        "x": 3374.5,
+        "y": 2060.25,
         "wires": [
             [
                 "9d116acb86d60a6a"
@@ -2385,8 +2385,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3465,
-        "y": 2107,
+        "x": 3374.5,
+        "y": 2121,
         "wires": [
             [
                 "a9c126c42c3b4513"
@@ -2397,7 +2397,6 @@
         "id": "58ad9096a049bd57",
         "type": "function",
         "z": "3b1289d7ccf9cb0f",
-        "d": true,
         "g": "91967f767ec6c48f",
         "name": "prepare commit for cdn.openmindmap.org",
         "func": "/*\n  this only commits the js and css files, everything else\n  is ignored.\n */\ndelete msg.writermap;\n\nfor (var nme in msg) {\n    if (nme.startsWith(\"js\")) {\n        delete msg[nme];\n    }\n}\n\nmsg.payload = msg.payload.filter( (obj) => {\n    return (obj.name == \"flowviewer.css\" || obj.name == \"flowviewer.js\")\n}).map( function(obj){\n    obj.name = \"embed/\" + obj.name;\n    return obj;\n});\n\nreturn msg;\n",
@@ -3367,7 +3366,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 3837,
+        "x": 3771,
         "y": 2121,
         "wires": []
     },
@@ -3730,23 +3729,6 @@
         ]
     },
     {
-        "id": "49b3649a6f824221",
-        "type": "debug",
-        "z": "3b1289d7ccf9cb0f",
-        "name": "changes",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 3929,
-        "y": 1947,
-        "wires": []
-    },
-    {
         "id": "c4bc9a7c3ee337e7",
         "type": "link call",
         "z": "3b1289d7ccf9cb0f",
@@ -3757,8 +3739,8 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 3410,
-        "y": 1791,
+        "x": 3374.5,
+        "y": 1817.25,
         "wires": [
             [
                 "255cf2c177f684a9"
@@ -3777,8 +3759,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 3408,
-        "y": 1847,
+        "x": 3374.5,
+        "y": 1878,
         "wires": [
             [
                 "238e3f6cfc2eefa5"
@@ -3813,11 +3795,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 3427,
-        "y": 1911,
+        "x": 3374.5,
+        "y": 1938.75,
         "wires": [
             [
-                "49b3649a6f824221",
                 "9488d18457d0f1f7"
             ]
         ]
@@ -3833,8 +3814,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 3869,
-        "y": 1850,
+        "x": 3761,
+        "y": 1884,
         "wires": []
     }
 ]
