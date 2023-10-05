@@ -1792,7 +1792,7 @@
             },
             {
                 "p": "github.message",
-                "v": "replacing images for flowhub nodes",
+                "v": "added sha checking for commiting",
                 "vt": "str"
             },
             {
@@ -3808,7 +3808,7 @@
         "type": "function",
         "z": "3b1289d7ccf9cb0f",
         "name": "no changes",
-        "func": "node.status({\n    fill: \"green\",\n    shape: 'dot',\n    text: \"no changes\"\n})\n\nsetTimeout( () => { node.status({}) }, 2500);",
+        "func": "node.status({\n    fill: \"yellow\",\n    shape: 'dot',\n    text: \"no changes\"\n})\n\nsetTimeout( () => { node.status({}) }, 2500);",
         "outputs": 0,
         "noerr": 0,
         "initialize": "",
