@@ -1521,7 +1521,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                 case "link in":
                 case "link out":
                     var grpId = "grp" + Math.random().toString().substring(2);
-                    $(svgObj).append(getNode('g', { id: grpId, }));
+                    var createdObj = $(svgObj).append(getNode('g', { id: grpId, }));
                     var grpObj = $('#' + grpId);
 
                     $(grpObj).prepend(getNode('rect', {
@@ -1537,7 +1537,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     if (obj.d) {
                         $(grpObj).attr("class", "node-disabled")
                     };
-                    obj.bbox = (document.getElementById(grpId) || $('#' + grpId)[0]).getBBox();
+                    obj.bbox = (document.getElementById(grpId) || $('#' + grpId)[0] || createdObj).getBBox();
                     obj.bbox.x = obj.x - dimensions.width / 2
                     obj.bbox.y = obj.y - dimensions.height / 2
 
