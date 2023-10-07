@@ -148,7 +148,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                         }));
 
                         $(grpObj).attr("transform", "translate(" + inObj.x + "," + inObj.y + ")");
-                        inObj.bbox = (document.getElementById(grpId) || $('#' + grpId)[0]).getBBox();
+                        inObj.bbox = document.getElementById(grpId).getBBox();
                         inObj.bbox.x = inObj.x - dimensions.width / 2
                         inObj.bbox.y = inObj.y - dimensions.height / 2
 
@@ -188,7 +188,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                         }));
 
                         $(grpObj).attr("transform", "translate(" + outObj.x + "," + outObj.y + ")");
-                        outObj.bbox = (document.getElementById(grpId) || $('#' + grpId)[0]).getBBox();
+                        outObj.bbox = document.getElementById(grpId).getBBox();
                         outObj.bbox.x = outObj.x - dimensions.width / 2
                         outObj.bbox.y = outObj.y - dimensions.height / 2
 
@@ -237,7 +237,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                         }));
 
                         $(grpObj).attr("transform", "translate(" + outObj.x + "," + outObj.y + ")");
-                        outObj.bbox = (document.getElementById(grpId) || $('#' + grpId)[0]).getBBox();
+                        outObj.bbox = document.getElementById(grpId).getBBox();
                         outObj.bbox.x = outObj.x - dimensions.width / 2
                         outObj.bbox.y = outObj.y - dimensions.height / 2
 
@@ -278,7 +278,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
 
                     $(grpObj).attr("transform", "translate(" + obj.x + "," + obj.y + ")");
 
-                    obj.bbox = (document.getElementById(grpId) || $('#' + grpId)[0]).getBBox();
+                    obj.bbox = document.getElementById(grpId).getBBox();
                     obj.bbox.x = obj.x;
                     obj.bbox.y = obj.y;
                     obj.bbox.width = 0;
@@ -305,7 +305,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     if (obj.d) {
                         $(grpObj).attr("class", "node-disabled")
                     };
-                    obj.bbox = (document.getElementById(grpId) || $('#' + grpId)[0] || createdObj).getBBox();
+                    obj.bbox = document.getElementById(grpId).getBBox();
                     obj.bbox.x = obj.x - dimensions.width / 2
                     obj.bbox.y = obj.y - dimensions.height / 2
 
@@ -379,7 +379,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
 
                     $(grpObj).append(grpText);
 
-                    var txtBBox = (document.getElementById(grpTextId) || $('#' + grpTextId)[0]).getBBox();
+                    var txtBBox = document.getElementById(grpTextId).getBBox();
                     var txtWidth = txtBBox.width + 60;
                     var txtHeight = txtBBox.height + 13.5;
                     var rectWidth = (dimensions.width > txtWidth ? dimensions.width : txtWidth);
@@ -423,7 +423,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     }));
 
                     $(grpObj).attr("transform", "translate(" + (obj.x - rectWidth / 2) + "," + (obj.y - rectHeight / 2) + ")");
-                    obj.bbox = (document.getElementById(grpId) || $('#' + grpId)[0]).getBBox();
+                    obj.bbox = document.getElementById(grpId).getBBox();
                     obj.bbox.x = obj.x - rectWidth / 2;
                     obj.bbox.y = obj.y - rectHeight / 2;
 
@@ -574,7 +574,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
             $(svgObj).prepend(grpSvgObj);
 
             var obj = nodes[grpId];
-            obj.bbox = (document.getElementById(grpRectId) || $('#' + grpRectId)[0]).getBBox();
+            obj.bbox = document.getElementById(grpRectId).getBBox();
             obj.bbox.x = grpObj.x;
             obj.bbox.y = grpObj.y;
 

@@ -121,6 +121,7 @@ var clrByType = {
     "PkgFile": _hshClr('#e5e4ef'),
     "NpmTarBall": _hshClr('#e5e4ef'),
     "NpmPublish": _hshClr('#e5e4ef'),
+    "NodeDevOps": _hshClr('#e5e4ef'),
     
     'cronplus': _hshClr('#a6bbcf'),
 
