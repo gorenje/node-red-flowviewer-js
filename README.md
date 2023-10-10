@@ -17,3 +17,9 @@ For more details, see this [blog page](https://blog.openmindmap.org/blog/backtic
 
 Source code is maintained in Node-RED, the [flows.json](flows.json) contains the flow that containts the code.
 
+## Artifacts
+
+- [GitHub repo](https://github.com/gorenje/node-red-flowviewer-js)
+- [Flow that maintains this code](https://flowhub.org/f/3b1289d7ccf9cb0f)
+- [Article](https://blog.openmindmap.org/blog/backticks-in-markdown-and-node-red)
+- [JS library for browser](https://cdn.openmindmap.org/embed/flowviewer.js)
