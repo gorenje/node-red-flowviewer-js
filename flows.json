@@ -105,11 +105,17 @@
             "58ad9096a049bd57",
             "33afb8166416d54e",
             "72f284ff2072c42e",
-            "174950271a5c38fe"
+            "174950271a5c38fe",
+            "ca6f68d9e9a6911b",
+            "49771b22ba81070b",
+            "86875d673ee1c30c",
+            "eaa186595bcabd49",
+            "0f6926caf939f280",
+            "bcfe56aeb08be686"
         ],
-        "x": 2637,
+        "x": 2628,
         "y": 439,
-        "w": 1774,
+        "w": 1783,
         "h": 555
     },
     {
@@ -1792,7 +1798,7 @@
             },
             {
                 "p": "github.message",
-                "v": "new node type",
+                "v": "added minification",
                 "vt": "str"
             },
             {
@@ -2038,6 +2044,7 @@
         "name": "prepare commit for node-red-flowviewer-js",
         "func": "msg.writermap.forEach( (txt) => {\n    msg.payload.push( {\n        payload: txt.text,\n        name: txt.name\n    })\n})\n\nfor ( var nme in msg ) {\n    if ( nme.startsWith(\"js\")) {\n        msg.payload.push({\n            payload: msg[nme],\n            name: \"src/\" + nme.replace(/^js(.)/, function (m) { return m[2].toLowerCase() }) + \".js\"\n        })\n        delete msg[nme];\n    }\n}\n\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -2406,12 +2413,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2833,
-        "y": 708,
+        "x": 2824,
+        "y": 882,
         "wires": [
             [
-                "966b2c12bc124684",
-                "016f352a828e4e50"
+                "0f6926caf939f280"
             ]
         ]
     },
@@ -2873,8 +2879,9 @@
         "z": "3b1289d7ccf9cb0f",
         "g": "174950271a5c38fe",
         "name": "check sha of files",
-        "func": "// flowviewer.js\n\nvar currSha = msg.payload.filter( function(d){\n    return d.path == \"flowviewer.js\"\n})[0].sha;\n\nvar newSha = msg.blobs.filter( function(d) {\n    return d.path == \"embed/flowviewer.js\"\n})[0].sha;\n\nif ( currSha != newSha ) { return [{...msg, payload: \"js differ\"}, undefined ] }\n\n// flowviewer.css\n\ncurrSha = msg.payload.filter(function (d) {\n    return d.path == \"flowviewer.css\"\n})[0].sha;\n\nnewSha = msg.blobs.filter(function (d) {\n    return d.path == \"embed/flowviewer.css\"\n})[0].sha;\n\nif (currSha != newSha) { return [{...msg, payload: \"css differ\"}, undefined] }\n\nreturn [undefined, {...msg, payload: \"same\"}];",
+        "func": "// flowviewer.js\n\nvar currSha = msg.payload.filter( function(d){\n    return d.path == \"flowviewer.js\"\n})[0].sha;\n\nvar newSha = msg.blobs.filter( function(d) {\n    return d.path == \"embed/flowviewer.js\"\n})[0].sha;\n\nif ( currSha != newSha ) { return [{...msg, payload: \"js differ\"}, undefined ] }\n\n// flowviewer.css\n\ncurrSha = msg.payload.filter(function (d) {\n    return d.path == \"flowviewer.css\"\n})[0].sha;\n\nnewSha = msg.blobs.filter(function (d) {\n    return d.path == \"embed/flowviewer.css\"\n})[0].sha;\n\nif (currSha != newSha) { return [{...msg, payload: \"css differ\"}, undefined] }\n\n// flowviewer.min.js\n\ncurrSha = (msg.payload.filter(function (d) {\n    return d.path == \"flowviewer.min.js\"\n})[0] || {sha: undefined}).sha;\n\nnewSha = (msg.blobs.filter(function (d) {\n    return d.path == \"embed/flowviewer.min.js\"\n})[0] || { sha: undefined}).sha;\n\nif (currSha != newSha || currSha == undefined) { return [{...msg, payload: \"css differ\"}, undefined] }\n\n//\n// Else all good, same, same but not different.\n//\nreturn [undefined, {...msg, payload: \"same\"}];",
         "outputs": 2,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -3848,20 +3855,63 @@
         "id": "49771b22ba81070b",
         "type": "UglifyJS",
         "z": "3b1289d7ccf9cb0f",
+        "g": "91967f767ec6c48f",
         "name": "",
-        "config": "{\"parse\":{},\"compress\":{},\"mangle\":{\"reserved\":[\"$\",\"export\",\"require\"]},\"output\":null,\"sourceMap\":null,\"nameCache\":null,\"toplevel\":false,\"warnings\":false}",
+        "config": "{\"parse\":{},\"compress\":{},\"mangle\":{\"reserved\":[\"$\",\"export\",\"require\"]},\"output\":{\"preamble\":\"/***** DON'T BE EVIL LICENSE - See https://raw.githubusercontent.com/gorenje/cdn.openmindmap.org/main/LICENSE.txt *****/\"},\"sourceMap\":null,\"nameCache\":null,\"toplevel\":false,\"warnings\":false}",
         "configType": "json",
-        "x": 3361,
-        "y": 1079,
+        "x": 2874,
+        "y": 710,
         "wires": [
-            []
+            [
+                "ca6f68d9e9a6911b"
+            ]
         ]
     },
     {
-        "id": "016f352a828e4e50",
+        "id": "bcfe56aeb08be686",
+        "type": "function",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "91967f767ec6c48f",
+        "name": "retrieve contents of js file",
+        "func": "msg.payload = msg.payload.filter( (d) => {\n    return d.name == \"embed/flowviewer.js\"\n})[0].payload;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2848,
+        "y": 778,
+        "wires": [
+            [
+                "49771b22ba81070b"
+            ]
+        ]
+    },
+    {
+        "id": "86875d673ee1c30c",
+        "type": "catch",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "91967f767ec6c48f",
+        "name": "",
+        "scope": [
+            "49771b22ba81070b"
+        ],
+        "uncaught": false,
+        "x": 2853,
+        "y": 679,
+        "wires": [
+            [
+                "eaa186595bcabd49"
+            ]
+        ]
+    },
+    {
+        "id": "eaa186595bcabd49",
         "type": "debug",
         "z": "3b1289d7ccf9cb0f",
-        "name": "debug 44",
+        "g": "91967f767ec6c48f",
+        "name": "debug 46",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -3870,8 +3920,58 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 3252,
-        "y": 1151,
+        "x": 2799,
+        "y": 600,
         "wires": []
+    },
+    {
+        "id": "0f6926caf939f280",
+        "type": "change",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "91967f767ec6c48f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "orig_payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2837,
+        "y": 830,
+        "wires": [
+            [
+                "bcfe56aeb08be686"
+            ]
+        ]
+    },
+    {
+        "id": "ca6f68d9e9a6911b",
+        "type": "function",
+        "z": "3b1289d7ccf9cb0f",
+        "g": "91967f767ec6c48f",
+        "name": "add minified to the files to be committed.",
+        "func": "msg.orig_payload.push({\n    name: \"embed/flowviewer.min.js\",\n    payload: msg.payload\n})\n\nmsg.payload = msg.orig_payload;\ndelete msg.orig_payload;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 3183,
+        "y": 482,
+        "wires": [
+            [
+                "966b2c12bc124684"
+            ]
+        ]
     }
 ]
