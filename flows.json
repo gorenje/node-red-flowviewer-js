@@ -2410,7 +2410,8 @@
         "y": 708,
         "wires": [
             [
-                "966b2c12bc124684"
+                "966b2c12bc124684",
+                "016f352a828e4e50"
             ]
         ]
     },
@@ -3841,6 +3842,36 @@
         "incflowhubpull": false,
         "x": 252,
         "y": 1494,
+        "wires": []
+    },
+    {
+        "id": "49771b22ba81070b",
+        "type": "UglifyJS",
+        "z": "3b1289d7ccf9cb0f",
+        "name": "",
+        "config": "{\"parse\":{},\"compress\":{},\"mangle\":{\"reserved\":[\"$\",\"export\",\"require\"]},\"output\":null,\"sourceMap\":null,\"nameCache\":null,\"toplevel\":false,\"warnings\":false}",
+        "configType": "json",
+        "x": 3361,
+        "y": 1079,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "016f352a828e4e50",
+        "type": "debug",
+        "z": "3b1289d7ccf9cb0f",
+        "name": "debug 44",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 3252,
+        "y": 1151,
         "wires": []
     }
 ]
