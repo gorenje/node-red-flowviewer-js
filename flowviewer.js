@@ -473,6 +473,7 @@ var clrByType = {
     "Flow2UML": _hshClr("#C0DDFF"),
 
     "AutoAlign": _hshClr("#DDD7A0"),
+    "UglifyJS": _hshClr("#D7D7A0"),
     
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };
