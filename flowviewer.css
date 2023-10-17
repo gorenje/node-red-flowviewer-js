@@ -56,10 +56,10 @@ body {
 }
 
 .link-highlight, .node-highlight {
-    stroke: rgb(255, 127, 14);
+    stroke: rgb(247, 103, 30);
 }
 .node-highlight {
-    stroke-width: 3px;
+    stroke-width: 8px;
 }
 
 .node-disabled {
