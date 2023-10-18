@@ -1798,7 +1798,7 @@
             },
             {
                 "p": "github.message",
-                "v": "css manipulation",
+                "v": "flow change",
                 "vt": "str"
             },
             {
@@ -3859,6 +3859,8 @@
         "name": "",
         "config": "{\"parse\":{},\"compress\":{},\"mangle\":{\"reserved\":[\"$\",\"export\",\"require\"]},\"output\":{\"preamble\":\"/***** DON'T BE EVIL LICENSE - See https://raw.githubusercontent.com/gorenje/cdn.openmindmap.org/main/LICENSE.txt *****/\"},\"sourceMap\":null,\"nameCache\":null,\"toplevel\":false,\"warnings\":false}",
         "configType": "json",
+        "property": "payload",
+        "propertyType": "msg",
         "x": 2874,
         "y": 710,
         "wires": [
