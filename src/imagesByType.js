@@ -37,6 +37,8 @@ var imgByType = {
     "template":      "template.svg",
     "trigger":       "trigger.svg",
     "link return":   "link-return.svg",
+    "mqtt in":       "bridge.svg",
+    "mqtt out":      "bridge.svg",
 
     ui_button: "ui_button.png",
     ui_template: "ui_template.png",

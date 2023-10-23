@@ -102,6 +102,8 @@ var imgByType = {
     "template":      "template.svg",
     "trigger":       "trigger.svg",
     "link return":   "link-return.svg",
+    "mqtt in":       "bridge.svg",
+    "mqtt out":      "bridge.svg",
 
     ui_button: "ui_button.png",
     ui_template: "ui_template.png",
@@ -372,6 +374,8 @@ var clrByType = {
     "link out":      _hshClr("#ddd"),
     "link call":     _hshClr("#ddd"),
     "markdown":      _hshClr("#DEBD5C"),
+    "mqtt in":       _hshClr("rgb(216, 191, 216)"),
+    "mqtt out":      _hshClr("rgb(216, 191, 216)"),
     "postgresql":    _hshClr("#5b85a7"),
     "range":         _hshClr("#E2D96E"),
     "sort":          _hshClr("#E2D96E"),
@@ -474,6 +478,8 @@ var clrByType = {
 
     "AutoAlign": _hshClr("#DDD7A0"),
     "UglifyJS": _hshClr("#D7D7A0"),
+
+    "aedes broker": _hshClr("rgb(216, 191, 216)"),
     
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };
