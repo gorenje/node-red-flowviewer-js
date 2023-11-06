@@ -136,6 +136,9 @@ var imgByType = {
     "GetFlows": "subflow.svg",
     "SendFlow": "subflow.svg",
 
+    "PkgFile": "file.svg",
+    "NodeRedInstall": "subflow.svg",
+    
     "FlowHubPull": "flowhub-pull.svg",
     "FlowHubPush": "flowhub-push.svg",
     "FlowHubDiff": "flowhub-diff.svg",
