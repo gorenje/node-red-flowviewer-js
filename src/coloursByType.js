@@ -138,6 +138,8 @@ var clrByType = {
     "UglifyJS": _hshClr("#D7D7A0"),
 
     "aedes broker": _hshClr("rgb(216, 191, 216)"),
+
+    "Blockly": _hshClr("#FFAAAA"),
     
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };
