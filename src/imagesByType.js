@@ -28,7 +28,7 @@ var imgByType = {
     
     "link call":     "link-call.svg",
     "markdown":      "parser-markdown.png",
-    "postgresql":    "db.svg",
+    "postgresql":    "postgresql.png",
     "range":         "range.svg",
     "sort":          "sort.svg",
     "split":         "split.svg",
@@ -77,4 +77,5 @@ var imgByType = {
     "FlowHubPull": "flowhub-pull.svg",
     "FlowHubPush": "flowhub-push.svg",
     "FlowHubDiff": "flowhub-diff.svg",
+
  };
