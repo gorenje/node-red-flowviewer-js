@@ -742,7 +742,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                         "stroke-width": 2,
                         "stroke-dasharray": "25,4",
                         "fill": 'transparent',
-                        class: "link " + (otherNode.d || nde.d ? "link-disabled" : "") + (" link-from-" + nde.id + "-to-" + otherNode.id)
+                        class: "link link-dashed " + (otherNode.d || nde.d ? "link-disabled" : "") + (" link-from-" + nde.id + "-to-" + otherNode.id)
                     }));
 
                     $(svgObj).append(getNode('circle', {
