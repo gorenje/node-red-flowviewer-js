@@ -54,6 +54,10 @@ var catchLabelFunct = (obj, subflowObj, flowdata) => {
     return obj.name || (obj.type + sublabel)
 };
 
+var nodeDevPkgFile = (obj, subflowObj, flowdata) => {
+    return (obj.name || obj.filename || obj.type)
+};
+
 var labelByFunct = {
     "base64":        undefined,
     "batch":         undefined,
@@ -144,6 +148,8 @@ var labelByFunct = {
     "Flow2UML": (obj, _sub, _flow) => { return (obj.name || obj.type) },
 
     "AutoAlign": (obj, _sub, _flow) => { return (obj.name || obj.algname || obj.type) },
+    
+    "PkgFile": nodeDevPkgFile,
 
     "_default": defaultLabelFunct,
 };
