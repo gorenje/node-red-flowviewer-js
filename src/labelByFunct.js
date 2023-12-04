@@ -58,6 +58,10 @@ var nodeDevPkgFile = (obj, subflowObj, flowdata) => {
     return (obj.name || obj.filename || obj.type)
 };
 
+var newtworkNode = (obj, subflowObj, flowdata) => {
+    return (obj.name || (obj.type + " " + obj.port))
+};
+
 var labelByFunct = {
     "base64":        undefined,
     "batch":         undefined,
@@ -150,6 +154,9 @@ var labelByFunct = {
     "AutoAlign": (obj, _sub, _flow) => { return (obj.name || obj.algname || obj.type) },
     
     "PkgFile": nodeDevPkgFile,
+
+    "tcp in": newtworkNode,
+    "udp in": newtworkNode,
 
     "_default": defaultLabelFunct,
 };

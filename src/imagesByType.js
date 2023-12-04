@@ -79,4 +79,9 @@ var imgByType = {
     "FlowHubDiff": "flowhub-diff.svg",
 
     "osc": "bridge-dash.svg",
+    "tcp in": "bridge-dash.svg",
+    "tcp out": "bridge-dash.svg",
+    "tcp request": "bridge-dash.svg",
+    "udp in": "bridge-dash.svg",
+    "udp out": "bridge-dash.svg",
  };

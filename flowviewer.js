@@ -144,6 +144,11 @@ var imgByType = {
     "FlowHubDiff": "flowhub-diff.svg",
 
     "osc": "bridge-dash.svg",
+    "tcp in": "bridge-dash.svg",
+    "tcp out": "bridge-dash.svg",
+    "tcp request": "bridge-dash.svg",
+    "udp in": "bridge-dash.svg",
+    "udp out": "bridge-dash.svg",
  };
 
 var imageNameToContent = {
@@ -389,6 +394,11 @@ var clrByType = {
     "subflow":       _hshClr("#ddd"),
     "switch":        _hshClr("#E2D96E"),
     "trigger":       _hshClr("#E6E0F8"),
+    "tcp in":        _hshClr("#c0c0c0"),
+    "tcp out":       _hshClr("#c0c0c0"),
+    "tcp request":   _hshClr("#c0c0c0"),
+    "udp in":        _hshClr("#c0c0c0"),
+    "udp out":       _hshClr("#c0c0c0"),
     ui_button:       _hshClr("rgb(176, 223, 227)"),
     ui_list:         _hshClr("rgb( 63, 173, 181)"),
     ui_svg_graphics: _hshClr("rgb( 63, 173, 181)"),
@@ -985,6 +995,10 @@ var nodeDevPkgFile = (obj, subflowObj, flowdata) => {
     return (obj.name || obj.filename || obj.type)
 };
 
+var newtworkNode = (obj, subflowObj, flowdata) => {
+    return (obj.name || (obj.type + " " + obj.port))
+};
+
 var labelByFunct = {
     "base64":        undefined,
     "batch":         undefined,
@@ -1077,6 +1091,9 @@ var labelByFunct = {
     "AutoAlign": (obj, _sub, _flow) => { return (obj.name || obj.algname || obj.type) },
     
     "PkgFile": nodeDevPkgFile,
+
+    "tcp in": newtworkNode,
+    "udp in": newtworkNode,
 
     "_default": defaultLabelFunct,
 };
