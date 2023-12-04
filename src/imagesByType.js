@@ -78,4 +78,5 @@ var imgByType = {
     "FlowHubPush": "flowhub-push.svg",
     "FlowHubDiff": "flowhub-diff.svg",
 
+    "osc": "bridge-dash.svg",
  };

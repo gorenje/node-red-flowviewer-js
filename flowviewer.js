@@ -143,6 +143,7 @@ var imgByType = {
     "FlowHubPush": "flowhub-push.svg",
     "FlowHubDiff": "flowhub-diff.svg",
 
+    "osc": "bridge-dash.svg",
  };
 
 var imageNameToContent = {
@@ -487,6 +488,7 @@ var clrByType = {
     "aedes broker": _hshClr("rgb(216, 191, 216)"),
 
     "Blockly": _hshClr("#FFAAAA"),
+    "osc": _hshClr("#0099FF"),
     
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };
