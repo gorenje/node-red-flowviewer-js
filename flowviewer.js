@@ -500,6 +500,13 @@ var clrByType = {
     "Blockly": _hshClr("#FFAAAA"),
     "osc": _hshClr("#0099FF"),
     
+    "sphere": _hshClr('#D8BFD8'),
+    "box": _hshClr('#D8BFD8'),
+    "plane": _hshClr('#D8BFD8'),
+    "cone": _hshClr('#D8BFD8'),
+    "transform": _hshClr('#D8BFD8'),
+    "events": _hshClr('#D8BFD8'),
+
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };
 
