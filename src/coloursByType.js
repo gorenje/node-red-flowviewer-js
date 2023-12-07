@@ -154,5 +154,7 @@ var clrByType = {
     "transform": _hshClr('#D8BFD8'),
     "events": _hshClr('#D8BFD8'),
 
+    "AIsBreaker": _hshClr('#1AE0F0'),
+    
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };
