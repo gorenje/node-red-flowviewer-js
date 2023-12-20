@@ -62,6 +62,13 @@ var newtworkNode = (obj, subflowObj, flowdata) => {
     return (obj.name || (obj.type + " " + obj.port))
 };
 
+var joinNodeLabel = (obj, subflowObj, flowdata) => {
+    if ( obj.mode == "custom" && obj.count ) {
+        return "join " + obj.count
+    }
+    return defaultLabelFunct(obj, subflowObj, flowdata)
+};
+
 var labelByFunct = {
     "base64":        undefined,
     "batch":         undefined,
@@ -79,7 +86,7 @@ var labelByFunct = {
     "http in":       (obj, _sub, _flow) => { return ( obj.name || ("[" + obj.method + "] " + obj.url)) },
     "http request":  undefined,
     "inject":        undefined,
-    "join":          undefined,
+    "join":          joinNodeLabel,
     "json":          undefined,
     "junction":      undefined,
     "link in":       undefined,
