@@ -156,5 +156,16 @@ var clrByType = {
 
     "AIsBreaker": _hshClr('#1AE0F0'),
     
+    "PipeStart": _hshClr('#e5e4ef'),
+    "FileStream": _hshClr('#D7D7A0'),
+    "HttpRequestStream": _hshClr('#D7D7A0'),
+    "CsvStream": _hshClr('#FDD0A2'),
+    "JsonLStream": _hshClr('#FDD0A2'),
+    "LineStream": _hshClr('#FDD0A2'),
+    "IconvStream": _hshClr('#FDD0A2'),
+    "DeCompStream": _hshClr('#FDF0C2'),
+    "ArchiveStream": _hshClr('#FDF0C2'),
+    "PipeEnd": _hshClr('#e5e4ef'),
+
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };
