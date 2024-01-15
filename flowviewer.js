@@ -516,6 +516,7 @@ var clrByType = {
     "JsonLStream": _hshClr('#FDD0A2'),
     "LineStream": _hshClr('#FDD0A2'),
     "IconvStream": _hshClr('#FDD0A2'),
+    "Chunk2Msg": _hshClr('#FDD0A2'),
     "DeCompStream": _hshClr('#FDF0C2'),
     "ArchiveStream": _hshClr('#FDF0C2'),
     "PipeEnd": _hshClr('#e5e4ef'),
