@@ -10,7 +10,7 @@ This:
 
 Becomes this:
 
-![img](https://raw.githubusercontent.com/gorenje/flows.flowhub.org/main/1cf772ae2066495e/preview.png)
+![img](https://raw.githubusercontent.com/gorenje/cdn.openmindmap.org/main/flows/1cf772ae2066495e/preview.png)
 
 For more details, see this [blog page](https://blog.openmindmap.org/blog/backticks-in-markdown-and-node-red) with an example of embedding this into a [HTML page](https://blog.openmindmap.org/embed/example.html).
 
