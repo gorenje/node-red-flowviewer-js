@@ -168,5 +168,7 @@ var clrByType = {
     "ArchiveStream": _hshClr('#FDF0C2'),
     "PipeEnd": _hshClr('#e5e4ef'),
 
+    "Yaml2Flow": _hshClr('#e5e4ef'),
+
     "_default":      _hshClr("rgb(243, 181, 103)"),
 };

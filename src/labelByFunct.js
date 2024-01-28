@@ -69,6 +69,20 @@ var joinNodeLabel = (obj, subflowObj, flowdata) => {
     return defaultLabelFunct(obj, subflowObj, flowdata)
 };
 
+var yaml2FlowLabel = (obj, subflowObj, flowdata) => {
+    if (obj.yamlurl && obj.yamlurl.trim() != "") {
+        let yamlUrl = (obj.yamlurl || "").split("/")
+
+        yamlUrl.pop()
+        let qqq = yamlUrl.pop()
+        let ppp = yamlUrl.pop()
+
+        return (obj.name || (ppp + "/" + qqq) || obj.type);
+    }
+    return defaultLabelFunct(obj, subflowObj, flowdata)
+};
+
+
 var labelByFunct = {
     "base64":        undefined,
     "batch":         undefined,
@@ -164,6 +178,8 @@ var labelByFunct = {
 
     "tcp in": newtworkNode,
     "udp in": newtworkNode,
+    
+    "Yaml2Flow": yaml2FlowLabel,
 
     "_default": defaultLabelFunct,
 };
