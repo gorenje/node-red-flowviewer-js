@@ -5,7 +5,7 @@ var mindMapNodeLabelFunct = (obj,subflowObj,flowdata) => {
 };
 
 var defaultLabelFunct = (obj, subflowObj, flowdata) => {
-    return (obj.name || obj.label || obj.info || obj.text || subflowObj.name || obj.type)
+    return (obj.name || obj.label || obj.text || subflowObj.name || obj.type)
 };
 
 var emptyLabelFunct = (obj, subflowObj, flowdata) => {

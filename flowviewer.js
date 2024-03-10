@@ -965,7 +965,7 @@ var mindMapNodeLabelFunct = (obj,subflowObj,flowdata) => {
 };
 
 var defaultLabelFunct = (obj, subflowObj, flowdata) => {
-    return (obj.name || obj.label || obj.info || obj.text || subflowObj.name || obj.type)
+    return (obj.name || obj.label || obj.text || subflowObj.name || obj.type)
 };
 
 var emptyLabelFunct = (obj, subflowObj, flowdata) => {
@@ -1421,7 +1421,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
      * For the sack of sanity, compute the top-left corner (x,y) and add it to the node. We also add the bounding-box so we have the width.
      */
     flowdata.forEach(function (obj) {
-        if (obj.z == flowId || obj.id == flowId /* this is a subflow or tab */) {
+        if (obj.z == flowId || obj.id == flowId) {
 
             // compute node dimensions and node colour by its type, both settings have default values
             var dimensions = widthHeightByType[obj.type] || widthHeightByType["_default"];
