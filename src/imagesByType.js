@@ -70,6 +70,7 @@ var imgByType = {
     "ClientCode": "subflow.svg",
     "GetFlows": "subflow.svg",
     "SendFlow": "subflow.svg",
+    "InstallPackage": "subflow.svg",
 
     "PkgFile": "file.svg",
     "NodeRedInstall": "subflow.svg",

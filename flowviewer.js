@@ -135,6 +135,7 @@ var imgByType = {
     "ClientCode": "subflow.svg",
     "GetFlows": "subflow.svg",
     "SendFlow": "subflow.svg",
+    "InstallPackage": "subflow.svg",
 
     "PkgFile": "file.svg",
     "NodeRedInstall": "subflow.svg",
@@ -469,6 +470,7 @@ var clrByType = {
     'DrawSVG': _hshClr('#e5e4ef'),
     'GetFlows': _hshClr('#e5e4ef'),
     'SendFlow': _hshClr('#e5e4ef'),
+    'InstallPackage': _hshClr('#e5e4ef'),
     'TriggerImport': _hshClr('#e5e4ef'),
     'ClientCode': _hshClr('#e5e4ef'),
 

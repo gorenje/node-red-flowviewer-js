@@ -116,6 +116,7 @@ var clrByType = {
     'DrawSVG': _hshClr('#e5e4ef'),
     'GetFlows': _hshClr('#e5e4ef'),
     'SendFlow': _hshClr('#e5e4ef'),
+    'InstallPackage': _hshClr('#e5e4ef'),
     'TriggerImport': _hshClr('#e5e4ef'),
     'ClientCode': _hshClr('#e5e4ef'),
 
