@@ -130,6 +130,7 @@ var clrByType = {
     "NpmTarBall": _hshClr('#e5e4ef'),
     "NpmPublish": _hshClr('#e5e4ef'),
     "NodeDevOps": _hshClr('#e5e4ef'),
+    "OTPGenerate": _hshClr('#e5e4ef'),
     
     'cronplus': _hshClr('#a6bbcf'),
 
