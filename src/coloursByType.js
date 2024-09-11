@@ -172,5 +172,9 @@ var clrByType = {
 
     "Yaml2Flow": _hshClr('#e5e4ef'),
 
-    "_default":      _hshClr("rgb(243, 181, 103)"),
+    "Contact": _hshClr('#e5e4ef'),
+    "EmptyContact": _hshClr('#E9967A'),
+    "Generator": _hshClr('#e5e4ef'),
+
+    "_default": _hshClr("rgb(243, 181, 103)"),
 };

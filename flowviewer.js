@@ -150,6 +150,10 @@ var imgByType = {
     "tcp request": "bridge-dash.svg",
     "udp in": "bridge-dash.svg",
     "udp out": "bridge-dash.svg",
+
+    "Contact": "flowhub.svg",
+    "EmptyContact": "flowhub.svg",
+    "Generator": "flowhub.svg",
  };
 
 var imageNameToContent = {
@@ -526,7 +530,11 @@ var clrByType = {
 
     "Yaml2Flow": _hshClr('#e5e4ef'),
 
-    "_default":      _hshClr("rgb(243, 181, 103)"),
+    "Contact": _hshClr('#e5e4ef'),
+    "EmptyContact": _hshClr('#E9967A'),
+    "Generator": _hshClr('#e5e4ef'),
+
+    "_default": _hshClr("rgb(243, 181, 103)"),
 };
 
 /**

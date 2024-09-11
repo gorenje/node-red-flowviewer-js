@@ -85,4 +85,8 @@ var imgByType = {
     "tcp request": "bridge-dash.svg",
     "udp in": "bridge-dash.svg",
     "udp out": "bridge-dash.svg",
+
+    "Contact": "flowhub.svg",
+    "EmptyContact": "flowhub.svg",
+    "Generator": "flowhub.svg",
  };
