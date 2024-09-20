@@ -534,6 +534,8 @@ var clrByType = {
     "EmptyContact": _hshClr('#E9967A'),
     "Generator": _hshClr('#e5e4ef'),
 
+    "ArtWork": _hshClr("#FDD0A284"),
+
     "_default": _hshClr("rgb(243, 181, 103)"),
 };
 
