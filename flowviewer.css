@@ -33,7 +33,7 @@ body {
 .subflow-node-text-label {
     color: rgb(85, 85, 85);
     dominant-baseline: middle;
-    font-family: Helvetica Neue, Arial, Helvetica, sans - serif;
+    font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
     font-size: 10px;
     line-height: 20px;
     pointer-events: none;
