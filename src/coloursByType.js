@@ -185,5 +185,13 @@ var clrByType = {
 
     "ArtWork": _hshClr("#FDD0A284"),
 
+    "ut-assert-failure": _hshClr("#FFAAAA"),
+    "ut-assert-values": _hshClr('#FDF0C2'),
+    "ut-assert-success": _hshClr('#addb7b'),
+    "ut-assert-status": _hshClr('#C0DEED'),
+    "ut-assert-debug": _hshClr('#D8BFD8'),
+
+    "erlsupervisor": _hshClr('#E9967A'),
+
     "_default": _hshClr("rgb(243, 181, 103)"),
 };

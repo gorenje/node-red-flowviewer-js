@@ -89,4 +89,13 @@ var imgByType = {
     "Contact": "flowhub.svg",
     "EmptyContact": "flowhub.svg",
     "Generator": "flowhub.svg",
+
+    // "ut-assert-failure": _hshClr("#FFAAAA"),
+    "ut-assert-values": "alert.svg",
+    // "ut-assert-success": _hshClr('#addb7b'),
+    // "ut-assert-status": _hshClr('#C0DEED'),
+    "ut-assert-debug": "debug.svg",
+
+    // "erlsupervisor": _hshClr('#E9967A'),
+
  };

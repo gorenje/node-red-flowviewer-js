@@ -154,6 +154,15 @@ var imgByType = {
     "Contact": "flowhub.svg",
     "EmptyContact": "flowhub.svg",
     "Generator": "flowhub.svg",
+
+    // "ut-assert-failure": _hshClr("#FFAAAA"),
+    "ut-assert-values": "alert.svg",
+    // "ut-assert-success": _hshClr('#addb7b'),
+    // "ut-assert-status": _hshClr('#C0DEED'),
+    "ut-assert-debug": "debug.svg",
+
+    // "erlsupervisor": _hshClr('#E9967A'),
+
  };
 
 var imageNameToContent = {
@@ -542,6 +551,14 @@ var clrByType = {
     "Generator": _hshClr('#e5e4ef'),
 
     "ArtWork": _hshClr("#FDD0A284"),
+
+    "ut-assert-failure": _hshClr("#FFAAAA"),
+    "ut-assert-values": _hshClr('#FDF0C2'),
+    "ut-assert-success": _hshClr('#addb7b'),
+    "ut-assert-status": _hshClr('#C0DEED'),
+    "ut-assert-debug": _hshClr('#D8BFD8'),
+
+    "erlsupervisor": _hshClr('#E9967A'),
 
     "_default": _hshClr("rgb(243, 181, 103)"),
 };
