@@ -194,6 +194,9 @@ var clrByType = {
     "ut-assert-debug": _hshClr('#D8BFD8'),
 
     "erlsupervisor": _hshClr('#E9967A'),
+    "erlmodule": _hshClr("#fdd0a2"),
+    "erlstatemachine": _hshClr("#FFCC66"),
+    "erleventhandler": _hshClr("#FFCC66"),
 
-    "_default": _hshClr("rgb(243, 181, 103)"),
+    "_default": _hshClr("rgb(243, 181, 103)")
 };
