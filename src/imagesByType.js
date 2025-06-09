@@ -99,5 +99,5 @@ var imgByType = {
     "ut-assert-debug": "debug.svg",
 
     // "erlsupervisor": _hshClr('#E9967A'),
-
+    "mermaid-flowchart": "flowhub.svg",
  };

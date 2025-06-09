@@ -198,5 +198,7 @@ var clrByType = {
     "erlstatemachine": _hshClr("#FFCC66"),
     "erleventhandler": _hshClr("#FFCC66"),
 
+    "mermaid-flowchart": _hshClr("#C7E9C0"),
+
     "_default": _hshClr("rgb(243, 181, 103)")
 };

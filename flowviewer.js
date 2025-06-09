@@ -164,7 +164,7 @@ var imgByType = {
     "ut-assert-debug": "debug.svg",
 
     // "erlsupervisor": _hshClr('#E9967A'),
-
+    "mermaid-flowchart": "flowhub.svg",
  };
 
 var imageNameToContent = {
@@ -566,6 +566,8 @@ var clrByType = {
     "erlmodule": _hshClr("#fdd0a2"),
     "erlstatemachine": _hshClr("#FFCC66"),
     "erleventhandler": _hshClr("#FFCC66"),
+
+    "mermaid-flowchart": _hshClr("#C7E9C0"),
 
     "_default": _hshClr("rgb(243, 181, 103)")
 };
