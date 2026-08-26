@@ -24,6 +24,32 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
         ry: 3
     }
 
+    let checkforFA = () => {
+        function css(element, property) {
+            return window.getComputedStyle(element, null).getPropertyValue(property);
+        }
+
+        var span = document.createElement('span');
+        var yesOrNo = false;
+
+        span.className = 'fa';
+        span.style.display = 'none';
+        document.body.insertBefore(span, document.body.firstChild);
+
+        let fontFamily = `${css(span, 'font-family')}` || ""
+
+        // yes, the value is really in quotes if it contains a space.
+        if (fontFamily.startsWith('FontAwesome') || fontFamily.startsWith("Font Awesome") || fontFamily.startsWith("\"Font Awesome") || fontFamily.startsWith("\"FontAwesome") ) {
+            yesOrNo = true
+        } else {
+            yesOrNo = false
+        }
+
+        document.body.removeChild(span);
+        return yesOrNo;
+    };
+    const faFontInstalled = checkforFA();
+    
     svgObj = $(svgjQueryObj.find('.flowGridlines')[0]);
 
     if (renderOpts["gridlines"]) {
@@ -436,11 +462,21 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                             height: 30
                         };
 
-                        if (imgByType[obj.type] && imageNameToContent[imgByType[obj.type]]) {
-                            $(grpObj).append(getNode('image', {
-                                "href": imageNameToContent[imgByType[obj.type]],
-                                ...imgBaseOpts
-                            }));
+                        if (faFontInstalled && fontawesomeByType[obj.type]) {
+                            let faIconElem =  getNode('text', {
+                                "class": "svg-fa-icon",
+                                "x": 8,
+                                "y": 21.5,
+                                width: 30,
+                                height: 30
+                            });
+                            faIconElem.textContent = fontawesomeByType[obj.type]
+                            $(grpObj).append(faIconElem)
+                         } else if (imgByType[obj.type] && imageNameToContent[imgByType[obj.type]]) {
+                             $(grpObj).append(getNode('image', {
+                                 "href": imageNameToContent[imgByType[obj.type]],
+                                 ...imgBaseOpts
+                             }));                        
                         } else {
                             if (obj.type.startsWith("subflow:")) {
                                 var hrefContent = (subflowObj.icon &&

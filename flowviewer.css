@@ -106,3 +106,9 @@ body {
     color: rgb(196, 59, 59); 
     width: 100%;
 }
+
+.svg-fa-icon {
+    font-family: "FontAwesome";
+    fill: white;
+    stroke: none;
+}

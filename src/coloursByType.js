@@ -152,6 +152,7 @@ var clrByType = {
 
     "AutoAlign": _hshClr("#DDD7A0"),
     "UglifyJS": _hshClr("#D7D7A0"),
+    "MinifyCSS": _hshClr("#D7D7A0"),
 
     "aedes broker": _hshClr("rgb(216, 191, 216)"),
 
@@ -182,6 +183,7 @@ var clrByType = {
     "Yaml2Flow": _hshClr('#e5e4ef'),
 
     "Contact": _hshClr('#e5e4ef'),
+    "findvcard": _hshClr('#e5e4ef'),
     "EmptyContact": _hshClr('#E9967A'),
     "Generator": _hshClr('#e5e4ef'),
 
@@ -199,6 +201,19 @@ var clrByType = {
     "erleventhandler": _hshClr("#FFCC66"),
 
     "mermaid-flowchart": _hshClr("#C7E9C0"),
+
+    "ollama-chat": _hshClr("rgb(186, 230, 253)"),
+    "ollama-copy": _hshClr("rgb(186, 230, 253)"),
+    "ollama-create": _hshClr("rgb(186, 230, 253)"),
+    "ollama-delete": _hshClr("rgb(186, 230, 253)"),
+    "ollama-embed": _hshClr("rgb(186, 230, 253)"),
+    "ollama-generate": _hshClr("rgb(186, 230, 253)"),
+    "ollama-list": _hshClr("rgb(186, 230, 253)"),
+    "ollama-pull": _hshClr("rgb(186, 230, 253)"),
+    "ollama-push": _hshClr("rgb(186, 230, 253)"),
+    "ollama-show": _hshClr("rgb(186, 230, 253)"),
+    "ollama-ps": _hshClr("rgb(186, 230, 253)"),
+    "ollama-abort": _hshClr("rgb(186, 230, 253)"),    
 
     "_default": _hshClr("rgb(243, 181, 103)")
 };

@@ -153,10 +153,6 @@ var imgByType = {
     "udp in": "bridge-dash.svg",
     "udp out": "bridge-dash.svg",
 
-    "Contact": "flowhub.svg",
-    "EmptyContact": "flowhub.svg",
-    "Generator": "flowhub.svg",
-
     // "ut-assert-failure": _hshClr("#FFAAAA"),
     "ut-assert-values": "alert.svg",
     // "ut-assert-success": _hshClr('#addb7b'),
@@ -165,7 +161,44 @@ var imgByType = {
 
     // "erlsupervisor": _hshClr('#E9967A'),
     "mermaid-flowchart": "flowhub.svg",
+    "base64": "parser-base64.png",
+
+    "ollama-chat": "arrow-in.svg",
+    "ollama-copy": "arrow-in.svg",
+    "ollama-create": "arrow-in.svg",
+    "ollama-delete": "arrow-in.svg",
+    "ollama-embed": "arrow-in.svg",
+    "ollama-generate": "arrow-in.svg",
+    "ollama-list": "arrow-in.svg",
+    "ollama-pull": "arrow-in.svg",
+    "ollama-push": "arrow-in.svg",
+    "ollama-show": "arrow-in.svg",
+    "ollama-ps": "arrow-in.svg",
+    "ollama-abort": "arrow-in.svg",
  };
+
+/***
+ * icon value does not exist here, that's attached to the node type definition
+ * that does not exist here. So we have to map the node type to awesome happy character.
+ * 
+ * This mapping can be checked at https://github.com/node-red/node-red/blob/1f38dc899b1d6d24b05369023ef2d83b808cd55d/packages/node_modules/%40node-red/editor-client/src/js/font-awesome.js
+ * 
+ * NOTE: these mappings are using FontAwesome 4.7.0 Unicodes, these do change with versions.
+ */
+var fontawesomeByType = {
+    "Contact": "\uf2bc",
+    "UglifyJS": "\uf066",
+    "MinifyCSS": "\uf0b0",
+    "PkgFile": "\uf016",
+    "NodeDevOps": "\uf120",
+    "NpmPublish": "\uf0d6",
+    "NpmTarBall":  "\uf187",
+    "NodeFactory": "\uf275",
+    "OTPGenerate": "\uf21b",
+    "JsonSchemaValidatorWithDocu": "\uf05d",
+    "tarball": "\uf187",
+    "findvcard": "\uf059"
+};
 
 var imageNameToContent = {
 
@@ -249,7 +282,8 @@ var imageNameToContent = {
 
     "mouse.png": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB98CBBcXKYRGaWIAAAIfSURBVEjHrVY9a1RBFD33bjAhNqYTBW0kpBErawPpjIq4RWyEYG2hiIWdnY3+Aiut/GhiYyeIhb/AJGgQFAtTpFlWCYjnHIvMw3XzXvI2m1vNx50zc7/OHaClSLLtB2WMsUXSkiSRfHgYYAAA29clmeSZJt0cBdh2pwz7h/HKm9qRJ2OD2Z4vpi7vF5SJOn9lZgV0SdKk7bsAEBEXbSeALdtvIuLPoP4uIVmBzktyMdG2RdJlooH1hcFzTaDvCtgLSfNl7bgkD1gxK+lWccPzRjeQXC5gdwaVSJ4eBKxeZPt20e8OO726+ZOkrzUX/Qc4tLci6WN1SRZnV/uzth+3jT5JZOYqgJkskdkVnsxcbwvY6XRgmxExASCaKiVGzNG9S8/2WFQyUbN2VdIvAOuZ2Ss+/l1z8REAc7bnALiR86qELolsSZ9tr5REfkTytaSfA4lu2z8q4ohhQABd25sRcTIiFm1fADATEZOl7PoANgA8i4g1Sd3MXAJwIiK4y+SI6GfmhzJ91YInFw7MhzUpNh7BHijKto+OAhARYVtVPuYwU0TE5REBp2z3M1N1Tn5q+9uIreELydWmzRsl9061LLtzhRPP79nQSXq4hQ7PSR4juW37ZSNr24akqfLK7ySvNdDWFUnbRW+61U9C0lo5sCnpHslFSfclbXmnsbytY5s9fwqSzkra8L/OZJLvq59DK7A635EM29O9Xm/fc38BtSAs2DgLlw8AAAAASUVORK5CYII=",
 
-
+    "parser-base64.png": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4gIDDy86IGFKRQAAARhJREFUSMfllTGOwjAQRf+gFCxIK05AQ0u1F6BCHICGW3ALOi5AxQGQoF5ttwUNFZyAigYJsR1I6NMYaTBjZ52k4zdxfuLn8cw4Ad5OAgAkMwAT7RnXx/gKYCIif0EqyTrTtCb5WSUwDi0IDEM1UHkv99qPQkNAHxAAkuT8Ma+W2wZOvue91voPkDrSCOxJMeDNB/hpsZTFHoYmx6C1qo9eDHgQTwC+k4EkOy53baPiAwCz3DBJflgJJ3lSvbZT/tHrw5UfIY1FfnV/Aeiq8U+RHH4Zi0zd1kdVVTkrU+WNUZSxi3SZDBSRHoCzsrZq3C+0BRFpGXlcAGgmR0hyb3hrAMOkJFvfxKqOXvHfqIumUYJzE5EL3lN34R2HIkQ6sMYAAAAASUVORK5CYII=",
+    
     "parser-csv.svg": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAsIDAsIDQwLCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjYuMDAxIDcuMDM0bC0yMiAuMDQzdjQ1Ljk1OGgzMnYtMzZ6bS0xNC44MzggMTRoMi44Mzh2MTUuMDAxaC0zVjI1LjczOGMtMS4wMjcuOTYtMi42MDYgMS4xMTQtNCAxLjU3NFYyNC43NmMuNzM0LS4yNCAxLjUzLS43MDYgMi4zOS0xLjM3My44NjEtLjY3MyAxLjQ1Mi0xLjQ1NyAxLjc3Mi0yLjM1MXptMTUuOTQ4IDBjMS40NDggMCAyLjgyNC4zOTIgMy42NSAxLjE3My44MjguNzggMS4yNCAxLjc1MSAxLjI0IDIuOTEyIDAgLjY2LS4xMiAxLjI5LS4zNiAxLjg5YTcuMTQzIDcuMTQzIDAgMCAxLTEuMDUgMS44NzJjLS4zNC40MzMtLjk1MiAxLjA1Ny0xLjg0IDEuODctLjg4Ni44MTUtMS42ODcgMS4zNTUtMS45MjcgMS42MjItLjIzMy4yNjctLjQyMy40MDgtLjU3LjY2Mmg1Ljc0OHYzSDIxLjk4Yy4xMDctLjk4Ny40MjctMi4xOTIuOTYtMy4wNzIuNTM0LS44ODcgMS44MjUtMi4wNiAzLjQtMy41MjIgMS4yNjctMS4xOCAxLjk3Mi0xLjk4MiAyLjI1OS0yLjQwMi4zODctLjU4LjQwMi0xLjE1NC40MDItMS43MjEgMC0uNjI3LjAwOC0xLjEwOC0uMzMyLTEuNDQxLS4zMzMtLjM0LTEuMDM1LS41MS0xLjYyOS0uNTEtLjU4NyAwLTEuMDUzLjE3OC0xLjQuNTMxLS4zNDcuMzU0LS41NDYgMS4zMTYtLjYgMi4xMzdoLTMuMDM5Yy4xNjctMS41NDguOTI4LTMuMzE1IDEuODA5LTMuOTg5Ljg4LS42NzMgMS45OC0xLjAxMSAzLjMtMS4wMTF6TTE3LjAwMiAzMy4wMzZoM3YxLjkyOGMwIC44MTQtLjA3MyAxLjQ1NS0uMjEzIDEuOTIyLS4xNC40NzMtLjQwNy44OTgtLjggMS4yNzEtLjM4Ny4zNzQtLjg4LjY2Ni0xLjQ4MS44OGwtLjU0OS0xLjE2MWMuNTY3LS4xODcuOTY5LS40NDMgMS4yMS0uNzcuMjQtLjMyNy4zNjctLjUwMy4zOC0xLjA3aC0xLjU0N3oiIGZpbGw9IiNmZmYiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIuNjEyIi8+PC9zdmc+Cg==",
 
 
@@ -521,6 +555,7 @@ var clrByType = {
 
     "AutoAlign": _hshClr("#DDD7A0"),
     "UglifyJS": _hshClr("#D7D7A0"),
+    "MinifyCSS": _hshClr("#D7D7A0"),
 
     "aedes broker": _hshClr("rgb(216, 191, 216)"),
 
@@ -551,6 +586,7 @@ var clrByType = {
     "Yaml2Flow": _hshClr('#e5e4ef'),
 
     "Contact": _hshClr('#e5e4ef'),
+    "findvcard": _hshClr('#e5e4ef'),
     "EmptyContact": _hshClr('#E9967A'),
     "Generator": _hshClr('#e5e4ef'),
 
@@ -568,6 +604,19 @@ var clrByType = {
     "erleventhandler": _hshClr("#FFCC66"),
 
     "mermaid-flowchart": _hshClr("#C7E9C0"),
+
+    "ollama-chat": _hshClr("rgb(186, 230, 253)"),
+    "ollama-copy": _hshClr("rgb(186, 230, 253)"),
+    "ollama-create": _hshClr("rgb(186, 230, 253)"),
+    "ollama-delete": _hshClr("rgb(186, 230, 253)"),
+    "ollama-embed": _hshClr("rgb(186, 230, 253)"),
+    "ollama-generate": _hshClr("rgb(186, 230, 253)"),
+    "ollama-list": _hshClr("rgb(186, 230, 253)"),
+    "ollama-pull": _hshClr("rgb(186, 230, 253)"),
+    "ollama-push": _hshClr("rgb(186, 230, 253)"),
+    "ollama-show": _hshClr("rgb(186, 230, 253)"),
+    "ollama-ps": _hshClr("rgb(186, 230, 253)"),
+    "ollama-abort": _hshClr("rgb(186, 230, 253)"),    
 
     "_default": _hshClr("rgb(243, 181, 103)")
 };
@@ -1098,8 +1147,8 @@ var labelByFunct = {
     "csv":           undefined,
     "debug":         undefined,
     "exec":          undefined,
-    "file":          (obj, _sub, _flow) => { return (obj.name || obj.filename || obj.type) },
-    "file in":       (obj, _sub, _flow) => { return (obj.name || obj.filename || obj.type) },
+    "file":          (obj, _sub, _flow) => { return (obj.name || (obj.filenameType != "jsonata" && obj.filename) || "write file") },
+    "file in":       (obj, _sub, _flow) => { return (obj.name || (obj.filenameType != "jsonata" && obj.filename) || "read file") },
     "function":      undefined,
     "html":          undefined,
     "http response": (obj, _sub, _flow) => { return ( obj.name || ("http" + (obj.statusCode ? " (" + obj.statusCode +")" : ""))) },
@@ -1388,6 +1437,32 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
         ry: 3
     }
 
+    let checkforFA = () => {
+        function css(element, property) {
+            return window.getComputedStyle(element, null).getPropertyValue(property);
+        }
+
+        var span = document.createElement('span');
+        var yesOrNo = false;
+
+        span.className = 'fa';
+        span.style.display = 'none';
+        document.body.insertBefore(span, document.body.firstChild);
+
+        let fontFamily = `${css(span, 'font-family')}` || ""
+
+        // yes, the value is really in quotes if it contains a space.
+        if (fontFamily.startsWith('FontAwesome') || fontFamily.startsWith("Font Awesome") || fontFamily.startsWith("\"Font Awesome") || fontFamily.startsWith("\"FontAwesome") ) {
+            yesOrNo = true
+        } else {
+            yesOrNo = false
+        }
+
+        document.body.removeChild(span);
+        return yesOrNo;
+    };
+    const faFontInstalled = checkforFA();
+    
     svgObj = $(svgjQueryObj.find('.flowGridlines')[0]);
 
     if (renderOpts["gridlines"]) {
@@ -1800,11 +1875,21 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                             height: 30
                         };
 
-                        if (imgByType[obj.type] && imageNameToContent[imgByType[obj.type]]) {
-                            $(grpObj).append(getNode('image', {
-                                "href": imageNameToContent[imgByType[obj.type]],
-                                ...imgBaseOpts
-                            }));
+                        if (faFontInstalled && fontawesomeByType[obj.type]) {
+                            let faIconElem =  getNode('text', {
+                                "class": "svg-fa-icon",
+                                "x": 8,
+                                "y": 21.5,
+                                width: 30,
+                                height: 30
+                            });
+                            faIconElem.textContent = fontawesomeByType[obj.type]
+                            $(grpObj).append(faIconElem)
+                         } else if (imgByType[obj.type] && imageNameToContent[imgByType[obj.type]]) {
+                             $(grpObj).append(getNode('image', {
+                                 "href": imageNameToContent[imgByType[obj.type]],
+                                 ...imgBaseOpts
+                             }));                        
                         } else {
                             if (obj.type.startsWith("subflow:")) {
                                 var hrefContent = (subflowObj.icon &&

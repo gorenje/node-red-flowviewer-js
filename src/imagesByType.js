@@ -88,10 +88,6 @@ var imgByType = {
     "udp in": "bridge-dash.svg",
     "udp out": "bridge-dash.svg",
 
-    "Contact": "flowhub.svg",
-    "EmptyContact": "flowhub.svg",
-    "Generator": "flowhub.svg",
-
     // "ut-assert-failure": _hshClr("#FFAAAA"),
     "ut-assert-values": "alert.svg",
     // "ut-assert-success": _hshClr('#addb7b'),
@@ -100,4 +96,18 @@ var imgByType = {
 
     // "erlsupervisor": _hshClr('#E9967A'),
     "mermaid-flowchart": "flowhub.svg",
+    "base64": "parser-base64.png",
+
+    "ollama-chat": "arrow-in.svg",
+    "ollama-copy": "arrow-in.svg",
+    "ollama-create": "arrow-in.svg",
+    "ollama-delete": "arrow-in.svg",
+    "ollama-embed": "arrow-in.svg",
+    "ollama-generate": "arrow-in.svg",
+    "ollama-list": "arrow-in.svg",
+    "ollama-pull": "arrow-in.svg",
+    "ollama-push": "arrow-in.svg",
+    "ollama-show": "arrow-in.svg",
+    "ollama-ps": "arrow-in.svg",
+    "ollama-abort": "arrow-in.svg",
  };
