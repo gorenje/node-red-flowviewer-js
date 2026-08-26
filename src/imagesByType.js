@@ -111,3 +111,4 @@ var imgByType = {
     "ollama-ps": "arrow-in.svg",
     "ollama-abort": "arrow-in.svg",
  };
+ 

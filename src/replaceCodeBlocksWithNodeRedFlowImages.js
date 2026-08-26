@@ -180,4 +180,3 @@ function replaceCodeBlocksWithNodeRedFlowImages() {
         renderElemsWithOptions([elem], parseLanguageOptions(elem.attributes["class"].value.substring(21)))
     });
 };
-
