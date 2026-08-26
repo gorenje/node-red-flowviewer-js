@@ -20,6 +20,6 @@ Source code is maintained in Node-RED, the [flows.json](flows.json) contains the
 ## Artifacts
 
 - [GitHub repo](https://github.com/gorenje/node-red-flowviewer-js)
-- [Flow that maintains this code](https://flowhub.org/f/3b1289d7ccf9cb0f)
+- [Flow that maintains this code](https://flowhub.org/f/c3adcbd73febf582)
 - [Article](https://blog.openmindmap.org/blog/backticks-in-markdown-and-node-red)
 - [JS library for browser](https://cdn.openmindmap.org/embed/flowviewer.js)
