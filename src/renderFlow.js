@@ -383,26 +383,29 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     var lblFunct = renderOpts.labels ? (labelByFunct[obj.type] || labelByFunct["_default"]) : emptyLabelFunct;
                     var subflowObj = subflows[obj.type] || {};
                     var textLabels = getLabelParts(lblFunct(obj, subflowObj, flowdata), "node-text-label");
+                    var hideLabel = obj.hasOwnProperty('l') && !obj.l
 
                     var grpText = document.createElementNS("http://www.w3.org/2000/svg", 'g');
                     grpText.setAttributeNS(null, "id", grpTextId);
                     grpText.setAttributeNS(null, "transform", "translate(38," + (textLabels.lines.length > 1 ? 16 : 14) + ")");
 
-                    var ypos = 0;
-                    textLabels.lines.forEach(function (lne) {
-                        var textElem = getNode('text', {
-                            y: ypos,
-                            class: 'node-text-label'
+                    // obj has an 'l' attribute IFF the label shown't be shown!
+                    if (!hideLabel) {
+                        var ypos = 0;
+                        textLabels.lines.forEach(function (lne) {
+                            var textElem = getNode('text', {
+                                y: ypos,
+                                class: 'node-text-label'
+                            });
+                            textElem.textContent = lne;
+                            grpText.appendChild(textElem);
+                            ypos += 20;
                         });
-                        textElem.textContent = lne;
-                        grpText.appendChild(textElem);
-                        ypos += 20;
-                    });
+                    }
 
                     var grpId = "grp" + Math.random().toString().substring(2);
                     $(svgObj).append(getNode('g', { id: grpId, }));
                     var grpObj = $('#' + grpId);
-
                     $(grpObj).append(grpText);
 
                     var txtBBox = document.getElementById(grpTextId).getBBox();
@@ -410,6 +413,14 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     var txtHeight = txtBBox.height + 13.5;
                     var rectWidth = (dimensions.width > txtWidth ? dimensions.width : txtWidth);
                     var rectHeight = (dimensions.height > txtHeight ? dimensions.height : txtHeight);
+
+                    // show no label, resize to icon only.
+                    if (hideLabel) {
+                        txtWidth = 30;
+                        txtHeight = 30;
+                        rectWidth = txtWidth;
+                        rectHeight = txtHeight;
+                    }
 
                     if ((obj.wires || []).length > 2) {
                         /* if more than 2 outputs, the node "grows" but the node might already be bigger enough. The base

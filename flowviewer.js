@@ -107,6 +107,8 @@ var imgByType = {
     "mqtt in":       "bridge.svg",
     "mqtt out":      "bridge.svg",
 
+    "xml": "parser-xml.svg",
+
     ui_button: "ui_button.png",
     ui_template: "ui_template.png",
     ui_toast: "ui_toast.png",
@@ -131,9 +133,9 @@ var imgByType = {
 
     "cronplus": "timer.svg",
     
-    /* custom, my own private collection */
     "Thought": "alert.svg",
     "Idea": "light.svg",
+    
     "ClientCode": "subflow.svg",
     "GetFlows": "subflow.svg",
     "SendFlow": "subflow.svg",
@@ -153,13 +155,9 @@ var imgByType = {
     "udp in": "bridge-dash.svg",
     "udp out": "bridge-dash.svg",
 
-    // "ut-assert-failure": _hshClr("#FFAAAA"),
     "ut-assert-values": "alert.svg",
-    // "ut-assert-success": _hshClr('#addb7b'),
-    // "ut-assert-status": _hshClr('#C0DEED'),
     "ut-assert-debug": "debug.svg",
 
-    // "erlsupervisor": _hshClr('#E9967A'),
     "mermaid-flowchart": "flowhub.svg",
     "base64": "parser-base64.png",
 
@@ -175,6 +173,16 @@ var imgByType = {
     "ollama-show": "arrow-in.svg",
     "ollama-ps": "arrow-in.svg",
     "ollama-abort": "arrow-in.svg",
+
+    "xlsx": "xslx.svg",
+
+    'nnb-input-node': "subflow.svg",
+    'nnb-layer-node': "subflow.svg",
+    'nnb-output-node': "subflow.svg",
+    'nnb-backprop': "subflow.svg",
+    'nnb-trainer': "subflow.svg", 
+
+    "erlmodule": "erlang.svg",   
  };
  
 
@@ -198,7 +206,62 @@ var fontawesomeByType = {
     "OTPGenerate": "\uf21b",
     "JsonSchemaValidatorWithDocu": "\uf05d",
     "tarball": "\uf187",
-    "findvcard": "\uf059"
+    "findvcard": "\uf059",
+
+    "Topic": "\uf035",
+    "Observation": "\uf1e5",
+    "Question": "\uf128",
+    "Comment": "\uf27b",
+    "Dream": "\uf236",
+    "Metaphor": "\uf24e",
+    "Analogy": "\uf22c",
+    "Aphorism": "\uf2d1",
+    "Poesie": "\uf1c4",
+    "Humour": "\uf118",
+    "Synopsis": "\uf1fb",
+    "Task-mm": "\uf00b",
+    "Treasure": "\uf08a",
+
+    "Disadvantage": "\uf088",
+    "Learning": "\uf0e7",
+    "Consequence": "\uf0e3",
+    "Inspiration": "\uf129",
+    "Advantage": "\uf087",
+
+    "Text": "\uf0f6",
+    "Blog-Post": "\uf08e",
+    "Image": "\uf1c5",
+    "Video": "\uf008",
+    "Audio": "\uf2ce",
+    "Code-Base": "\uf121",
+    "Art": "\uf03e",
+
+    "Keyword": "\uf084",
+    "Quote": "\uf10d",
+    "Definition": "\uf0f6",
+    "Bookmark": "\uf097",
+    "Book": "\uf02d",
+    "Author": "\uf040",
+
+    "PipeStart": "\uf061",
+    "PipeEnd": "\uf140",
+    "HttpRequestStream": "\uf0ac",
+    "FileStream": "\uf0c9",
+    "DeCompStream": "\uf066",
+    "ArchiveStream": "\uf187",
+    "JsonLStream": "\uf043",
+    "LineStream": "\uf0c9",
+    "CsvStream": "\uf192",
+    "Chunk2Msg": "\uf054",
+    "IconvStream": "\uf1cd",
+
+    "erlsupervisor": "\uf0f9",
+    "erlstatemachine": "\uf085",
+    "elxmodule": "\uf043",
+    "erleventhandler": "\uf2dc",
+    "erlgenserver": "\uf233",
+
+    "Yaml2Flow": "\uf275",
 };
 
 
@@ -389,6 +452,10 @@ var imageNameToContent = {
 
     "postgresql.png": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAkCAYAAAAD3IPhAAAAAXNSR0IArs4c6QAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB94GBBUWL0lmXB0AAAHGSURBVFjD7Ze7SkNBEIZnNncIgoIPIAhBLMTOSkRsLGxSC7Z2BgQJ2Fj6BFaCnW+QQpQ8gYWFL2FhbRHMZ7OB5WTPnj0XvJGpzpmZnf3nsjuzIgv66wRokX/gDHgGXoCdKoCEqJMhX3fsnM6YZYB0AROQtzx8A7StfNkTOYBmdFqyPLAGtzN0alZvmNe+q7wKPAbk3TzhtjVjfA7FpkdD8pzpNr41aXbmUKsqVZ1GVZ2KyDUwKFS4MXKgBfTSCtzRvwLGSbvRaYo87o2Q/qxQgaOkHrAFXMaAOQF2Axu8JjZbAW49uvdAA1jygKGSVMUWI9AHjn063w4mBCBk34R6TULWEpFx2RajqppnwTlw4OFvAvtFIjm7vwr1p5R01IH3mB6VAuYJ2MsLpBaqAzeVMZ7aNaOs2z1k4MY3hwBNx9sN4C7HKFIrVWwpht+AoTu8RHTvOcodncT/hRvq2KIEOr5IeXtZ7FFMGnD5accVaIvIR4LdVNWJT7+e0XVdz42ITO33Q2SoDx3QWuVEMFcPRW7sEJkSs8pn1Q4a+UX078D0f9vLE08f48fSZO+yHjASkYmIrBXqRRUCGtgXZdagrrKgBVVAX3AdvpG0umWzAAAAAElFTkSuQmCC",
 
+    "erlang.svg": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDI1NiAxODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoyOyI+CiAgICA8Zz4KICAgICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjU2IiBoZWlnaHQ9IjE4MCIgc3R5bGU9ImZpbGw6d2hpdGU7Ii8+CiAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMSwwLDAsMSw2Ljg1NDk3LDEyLjcwNjcpIj4KICAgICAgICAgICAgPHBhdGggZD0iTTM4LjAwMywxNTMuOTU2QzE5LjIsMTM0LjAzMSA4LjE5OCwxMDYuNTA1IDguMjI2LDczLjY2MkM4LjIsNDQuNjE3IDE3LjMyNiwxOS42NTEgMzMuMDE1LDAuNjU0TDMyLjk5LDAuNjYzTDAuMDE0LDAuNjYzTDAuMDE0LDE1My45NTlMMzcuOTgsMTUzLjk1OUwzOC4wMDMsMTUzLjk1NloiIHN0eWxlPSJmaWxsOnJnYigxNjksNSw1MSk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0yMTEuNjczLDE1My45NjlDMjE5Ljc3MywxNDUuMjkzIDIyNy4wMzEsMTM1LjA3NiAyMzMuNjA4LDEyMy4zOTFMMTk3LjEwOSwxMDUuMTQyQzE4NC4yOSwxMjUuOTgxIDE2NS41NDUsMTQ1LjE2MyAxMzkuNjIzLDE0NS4yOTFDMTAxLjg5NiwxNDUuMTYzIDg3LjA3NCwxMTIuOTAzIDg3LjE1NSw3MS4zOEwyMjguMTMzLDcxLjM4QzIyOC4zMjEsNjYuNjkyIDIyOC4zMjEsNjQuNTEzIDIyOC4xMzMsNjIuMjU2QzIyOS4wNTMsMzcuNTUzIDIyMi41MDYsMTYuNzg4IDIxMC41OTYsMC42MThMMjEwLjUzNSwwLjY2NEwyNDIuMjc2LDAuNjY0TDI0Mi4yNzYsMTUzLjk2TDIxMS42MDQsMTUzLjk2TDIxMS42NzMsMTUzLjk2OVoiIHN0eWxlPSJmaWxsOnJnYigxNjksNSw1MSk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik04OS40MzcsMzUuNzk0QzkwLjk5OCwxNi45OTQgMTA1LjgyLDQuMzUxIDEyMy4xOTksNC4zMTNDMTQwLjY5Niw0LjM1MSAxNTMuMzM4LDE2Ljk5NCAxNTMuNzY3LDM1Ljc5NEw4OS40MzcsMzUuNzk0WiIgc3R5bGU9ImZpbGw6cmdiKDE2OSw1LDUxKTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPgo=",
+
+    "xslx.svg": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PCEtLSBHZW5lcmF0b3I6IEdyYXZpdC5pbyAtLT48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHN0eWxlPSJpc29sYXRpb246aXNvbGF0ZSIgdmlld0JveD0iMCAwIDQwIDYwIiB3aWR0aD0iNDBwdCIgaGVpZ2h0PSI2MHB0Ij48ZGVmcz48Y2xpcFBhdGggaWQ9Il9jbGlwUGF0aF92eGFsZGVsMXJrUmtWb29QYjZ0U1dxb0pUU0xvTzFTWiI+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjYwIi8+PC9jbGlwUGF0aD48L2RlZnM+PGcgY2xpcC1wYXRoPSJ1cmwoI19jbGlwUGF0aF92eGFsZGVsMXJrUmtWb29QYjZ0U1dxb0pUU0xvTzFTWikiPjxwYXRoIGQ9IiBNIDI4LjMzNiA3LjAzNCBMIDYuMzM2IDcuMDc3IEwgNi4zMzYgNTMuMDM1IEwgMzguMzM2IDUzLjAzNSBMIDM4LjMzNiAxNy4wMzUgTCAyOC4zMzYgNy4wMzQgTCAyOC4zMzYgNy4wMzQgTCAyOC4zMzYgNy4wMzQgWiAgTSAxMS4zIDQyLjMyNyBMIDE5LjI2OCAyOS45NzkgTCAxMS45NjcgMTcuNyBMIDE3Ljg0IDE3LjcgTCAyMS44MjUgMjUuNTUzIEMgMjIuMTkzIDI2LjI5OSAyMi40NDUgMjYuODUzIDIyLjU4MSAyNy4yMTggTCAyMi42MzMgMjcuMjE4IEMgMjIuODk0IDI2LjYyMyAyMy4xNyAyNi4wNDUgMjMuNDU5IDI1LjQ4NCBMIDI3LjcxOCAxNy43MDQgTCAzMy4xMSAxNy43MDQgTCAyNS42MjMgMjkuOTExIEwgMzMuMyA0Mi4zMjYgTCAyNy41NjMgNDIuMzI2IEwgMjIuOTYxIDMzLjcwNyBDIDIyLjc0NSAzMy4zNCAyMi41NjEgMzIuOTU1IDIyLjQxMiAzMi41NTYgTCAyMi4zNDMgMzIuNTU2IEMgMjIuMjA5IDMyLjk0NyAyMi4wMyAzMy4zMjEgMjEuODEgMzMuNjcyIEwgMTcuMDcyIDQyLjMyNyBMIDExLjMgNDIuMzI3IFogIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9InJnYigyNTUsMjU1LDI1NSkiLz48L2c+PC9zdmc+Cg==",
+
     "ui_toast.png": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAG7AAABuwBHnU4NQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADeSURBVEiJ7ZKxCQJBFERnRQ5BUCzAxEB7sAB7EGzB6EJzE0OLsAGbMDW0AROTM9E70GcyyiknihiI3MDn/52dP8vuX6lEiT9EkCQg+4pZCFHFdfoFv1SSroYdSRNJW69PbxicnXeSZpK6tx0gBlpABAyBFZABB+d8XLmVtZF747xhBiTAHOiZ6wMLG6SOg7m+NT33JHdzyJ1+dOMSGAABaANTR9vcwJrUPdkzw8drbYAxUAdqwAhYP3sO6fW3wZq966aHUSkShxCi6otJBudGjis0e2vzE/y+YYkSf4kLDcYTu4mDJeQAAAAASUVORK5CYII=",
 
     "flowhub.svg": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgaWQ9InN2ZzgiCiAgIHZlcnNpb249IjEuMSIKICAgdmlld0JveD0iMCAwIDEwLjU4MzMzMiAxNS44NzUiCiAgIGhlaWdodD0iNjAiCiAgIHdpZHRoPSI0MCI+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTY0LjA2NzMzNywtMTkxLjc1MDI2KSI+CiAgICA8ZwogICAgICAgdHJhbnNmb3JtPSJtYXRyaXgoMC4wNjg3NTQ3MywwLDAsMC4wNjg3NTQ3Myw2MC43MzM2NzgsMTg5Ljc2MTEyKSIKICAgICAgIGlkPSJnOTIwIj4KICAgICAgPHBhdGgKICAgICAgICAgaW5rc2NhcGU6bGFiZWw9InBhdGg4MzMiCiAgICAgICAgIGlkPSJwYXRoODMzIgogICAgICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmU7ZmlsbDpub25lO3N0cm9rZTojZmVmZmZmO3N0cm9rZS13aWR0aDoxMi41MDI5O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgICAgICBkPSJtIDY4Ljc5MTY2OCwxNDQuMzg2OSBjIDMuNzcxNTksLTkuMzYwMTIgMS41NDQxODUsLTE0Ljg3ODEyIDQuMzM2Njc0LC0yMS40ODAzMSBNIDExMC4zODAzMyw5Mi40NzQxNyBjIDYuOTI1MjMsLTMuNDMzMzk0IDMuODQ4MzYsLTIuMTAxMDU2IDE0LjQ2NjIzLC03LjA0MzM3OSAzNy41MzY0MywtMTcuNDcyMTc4IDY4Ljk1NjY4LC0xLjA3MDQxOSA1NC4zMTQxNSw1OC45NTYxMDkgLTEuODA1NjgsNy40MDIzNCAtMS41NDQxOCwxNC44NzgxMiAtNC4zMzY2NywyMS40ODAzMSBtIC0zMy43Njg0NCwzMS4yNDM5MyBjIC0xNi42NTkyNiw1LjkyNDcyIC0wLjg4MTIzLDAuMzI4NiAtMTUuMDQ4NTUsNS45NDE3NSAtNDQuNzMxMDE5LDE3LjcyMjYyIC03Ny4zOTAxNDUsMC40ODM2MiAtNTcuMjE1MzgyLC01OC42NjU5OSIKICAgICAgICAgLz4KICAgICAgPHBhdGgKICAgICAgICAgc3R5bGU9ImZpbGw6I2ZlZmZmZjtmaWxsLW9wYWNpdHk6MTtzdHJva2U6I2ZlZmZmZjtzdHJva2Utd2lkdGg6MS4wODtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICAgICAgaWQ9InBhdGg4MzYiCiAgICAgICAgIGQ9Im0gODMuMjk4MDg0LDEyNC40ODc4MyAtNy44NjQ0NDYsLTEwLjk3MDQgMTMuNDMyODc1LC0xLjMyNTYxIHoiCiAgICAgICAgIHRyYW5zZm9ybT0ibWF0cml4KDIuNzI1NzAxMywwLjA0NDc0MTk5LDAuMTY1NDI4OTIsMi44NDIwNDIzLC0xNzIuNzgwMDYsLTIxNS4zNjYxMykiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHRyYW5zZm9ybT0ibWF0cml4KC0yLjg0MTU1OTMsMC4xMjQ4OTk0NywtMC40MzcwNTM1MywtMi40MjcxMzc1LDQ2My44MzAwOSw0MzkuNzA2NDkpIgogICAgICAgICBkPSJtIDgzLjI5ODA4NCwxMjQuNDg3ODMgLTcuODY0NDQ2LC0xMC45NzA0IDEzLjQzMjg3NSwtMS4zMjU2MSB6IgogICAgICAgICBpZD0icGF0aDgzNi0zIgogICAgICAgICBzdHlsZT0iZmlsbDojZmVmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojZmVmZmZmO3N0cm9rZS13aWR0aDoxLjA4O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgICAgICAvPgogICAgICA8ZwogICAgICAgICBzdHlsZT0iZmlsbDojZmVmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojZmVmZmZmO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgICAgIGlkPSJnODk0IgogICAgICAgICB0cmFuc2Zvcm09Im1hdHJpeCgxLjIyMTgxMTcsLTEuMzMzMTk4LDEuMjUyMDg1NSwxLjMwMDM4OTgsLTIzMC42NjA2MywxMDYuNDEyNzYpIgogICAgICAgICA+CiAgICAgICAgPHBhdGgKICAgICAgICAgICBkPSJtIDE1My4yMzEyNywxNTIuOTg0NzYgaCAtOS41MDU1NiBjIC01LjZlLTQsNC45MjA1NSAxLjNlLTQsNC42NjAxOCAwLDkuNzM4MzkgaCA5LjE1NzY1IGMgMS41NTQ1OCwwIDIuNDE3NjgsLTEuMjcwMjIgMi40MTc2OCwtMi44NDgwMyB2IC00LjA0MjMzIGMgMCwtMS41Nzc4IC0wLjYwMjE3LC0yLjg0ODAzIC0yLjA2OTc3LC0yLjg0ODAzIHoiCiAgICAgICAgICAgc3R5bGU9ImZpbGw6I2ZlZmZmZjtmaWxsLW9wYWNpdHk6MTtzdHJva2U6I2ZlZmZmZjtzdHJva2Utd2lkdGg6MC41ODk0Njc7c3Ryb2tlLWxpbmVjYXA6c3F1YXJlO3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgICAgICAgIGlkPSJyZWN0ODcwIiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgICAgaWQ9InJlY3Q4NzAtMCIKICAgICAgICAgICBzdHlsZT0iZmlsbDojZmVmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojZmVmZmZmO3N0cm9rZS13aWR0aDowLjg5NjgyMjtzdHJva2UtbGluZWNhcDpzcXVhcmU7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1taXRlcmxpbWl0OjQ7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgICAgICAgZD0ibSAxMzguNDk5NzIsMTUzLjIwMjU0IGMgMC4wMDEsNC43MzIzNCAtMy4xZS00LDQuNDgxOTMgMCw5LjM2NTg5IGwgLTI2LjY3NjMsMC4xODk1OCBjIC00LjIxNDMxLC0xLjkxNTIzIC04LjI2MDk5LC0yLjQyNDQ1IC0xNS40MTcxNTMsLTQuNjQxNDYgNi4xMzk2OTMsLTMuMDA3ODIgMTAuNTQ0MjgzLC0zLjc3NjIgMTQuNjkwNTkzLC01LjYwNjY3IDExLjE5MDQ3LC0wLjEyNTc2IDE2LjUxMzE4LDAuNzIwMDQgMjcuNDAyODYsMC42OTI2NiB6IgogICAgICAgICAgIC8+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPgo=",
@@ -486,35 +553,43 @@ var clrByType = {
     'PubMedium':    _hshClr("#ddee44"),
 
     "Topic": _hshClr('#d0c9f6'),
+
     "Observation": _hshClr('#f4adf3'),
-    "Question": _hshClr('#e0a4f3'),
-    "Thought": _hshClr('#cb9cf3'),
-    "Idea": _hshClr('#88baff'),
-    "Analogy": _hshClr('#86bfff'),
-    "Aphorism": _hshClr('#84c3ff'),
-    "Poesie": _hshClr('#82C6FF'),
-    "Humour": _hshClr('#81C9FF'),
-    "Treasure": _hshClr('#80CCFF'),
-    "Consequence": _hshClr('#f6c1cc'),
-    "Advantage": _hshClr('#efacbf'),
-    "Disadvantage": _hshClr('#e796b1'),
+    "Question": _hshClr('#E6A7F3'),
+    "Idea": _hshClr('#D8A1F3'),
+    "Comment": _hshClr('#CB9CF3'),    
+    "Thought": _hshClr('#BD96F3'),
+
+    "Dream": _hshClr('#86BCFF'),
+    "Metaphor": _hshClr('#8CC0FD'),
+    "Analogy": _hshClr('#92C5FC'),
+    "Aphorism": _hshClr('#98C9FB'),
+    "Poesie": _hshClr('#9ECEFA'),
+    "Humour": _hshClr('#A4D2F9'),
+    "Synopsis": _hshClr('#AAD7F8'),
+    "Task-mm": _hshClr('#B1DCF7'),
+    "Treasure": _hshClr('#B7E0F5'),
+
+    "Disadvantage": _hshClr('#e67f56'),
+    "Learning": _hshClr('#e69c56'),
+    "Consequence": _hshClr('#e6cc56'),
+    "Inspiration": _hshClr('#e4e656'),
+    "Advantage": _hshClr('#b4e656'),
+
     "Text": _hshClr('#c8ffb5'),
-    "Blog-Post": _hshClr('#CDFEBC'),
-    "Comment": _hshClr('#D2FDC3'),
-    "Code-Base": _hshClr('#D7FCCB'),
-    "Sketch": _hshClr('#e1fbda'),
-    "Inspiration": _hshClr('#dfdfb6'),
+    "Blog-Post": _hshClr('#CCFEBB'),
+    "Image": _hshClr('#D0FDC1'),
+    "Video": _hshClr('#D4FDC7'),
+    "Audio": _hshClr('#D8FCCD'),
+    "Code-Base": _hshClr('#DCFBD3'),
+    "Art": _hshClr('#E1FBDA'),
+
+    "Keyword": _hshClr('#E2E2BB'),
     "Quote": _hshClr('#E3E3BE'),
     "Definition": _hshClr('#E7E8C6'),
+    "Bookmark": _hshClr('#ECECCE'),
     "Book": _hshClr('#F0F1D6'),
     "Author": _hshClr('#f5f6de'),
-    "Dream": _hshClr('#86BDFF'),
-    "Art": _hshClr('#DCFBD2'),
-    "Image": _hshClr('#CDFEBC'),
-    "Metaphor": _hshClr('#85C0FF'),
-    "Learning": _hshClr('#e1fbda'),
-    "Keyword": _hshClr('#E2E2BB'),
-    "Bookmark": _hshClr('#ECECCE'),
     
     'nnb-input-node': _hshClr('#ffefef'),
     'nnb-layer-node': _hshClr('#ffffef'),
@@ -575,16 +650,16 @@ var clrByType = {
     "AIsBreaker": _hshClr('#1AE0F0'),
     
     "PipeStart": _hshClr('#e5e4ef'),
-    "FileStream": _hshClr('#D7D7A0'),
+    "PipeEnd": _hshClr('#e5e4ef'),
     "HttpRequestStream": _hshClr('#D7D7A0'),
-    "CsvStream": _hshClr('#FDD0A2'),
-    "JsonLStream": _hshClr('#FDD0A2'),
-    "LineStream": _hshClr('#FDD0A2'),
-    "IconvStream": _hshClr('#FDD0A2'),
-    "Chunk2Msg": _hshClr('#FDD0A2'),
+    "FileStream": _hshClr('#D7D7A0'),
     "DeCompStream": _hshClr('#FDF0C2'),
     "ArchiveStream": _hshClr('#FDF0C2'),
-    "PipeEnd": _hshClr('#e5e4ef'),
+    "JsonLStream": _hshClr('#FDD0A2'),
+    "LineStream": _hshClr('#FDD0A2'),
+    "CsvStream": _hshClr('#FDD0A2'),
+    "Chunk2Msg": _hshClr('#FDD0A2'),
+    "IconvStream": _hshClr('#FDD0A2'),
 
     "Yaml2Flow": _hshClr('#e5e4ef'),
 
@@ -602,9 +677,11 @@ var clrByType = {
     "ut-assert-debug": _hshClr('#D8BFD8'),
 
     "erlsupervisor": _hshClr('#E9967A'),
-    "erlmodule": _hshClr("#fdd0a2"),
     "erlstatemachine": _hshClr("#FFCC66"),
+    "elxmodule": _hshClr("rgb(166,131,187)"),
+    "erlmodule": _hshClr("rgb(232,8,8)"),
     "erleventhandler": _hshClr("#FFCC66"),
+    "erlgenserver": _hshClr("#FFCC66"),
 
     "mermaid-flowchart": _hshClr("#C7E9C0"),
 
@@ -620,6 +697,8 @@ var clrByType = {
     "ollama-show": _hshClr("rgb(186, 230, 253)"),
     "ollama-ps": _hshClr("rgb(186, 230, 253)"),
     "ollama-abort": _hshClr("rgb(186, 230, 253)"),    
+
+    "xlsx": _hshClr("#DEBD5C"),
 
     "_default": _hshClr("rgb(243, 181, 103)")
 };
@@ -1803,26 +1882,29 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     var lblFunct = renderOpts.labels ? (labelByFunct[obj.type] || labelByFunct["_default"]) : emptyLabelFunct;
                     var subflowObj = subflows[obj.type] || {};
                     var textLabels = getLabelParts(lblFunct(obj, subflowObj, flowdata), "node-text-label");
+                    var hideLabel = obj.hasOwnProperty('l') && !obj.l
 
                     var grpText = document.createElementNS("http://www.w3.org/2000/svg", 'g');
                     grpText.setAttributeNS(null, "id", grpTextId);
                     grpText.setAttributeNS(null, "transform", "translate(38," + (textLabels.lines.length > 1 ? 16 : 14) + ")");
 
-                    var ypos = 0;
-                    textLabels.lines.forEach(function (lne) {
-                        var textElem = getNode('text', {
-                            y: ypos,
-                            class: 'node-text-label'
+                    // obj has an 'l' attribute IFF the label shown't be shown!
+                    if (!hideLabel) {
+                        var ypos = 0;
+                        textLabels.lines.forEach(function (lne) {
+                            var textElem = getNode('text', {
+                                y: ypos,
+                                class: 'node-text-label'
+                            });
+                            textElem.textContent = lne;
+                            grpText.appendChild(textElem);
+                            ypos += 20;
                         });
-                        textElem.textContent = lne;
-                        grpText.appendChild(textElem);
-                        ypos += 20;
-                    });
+                    }
 
                     var grpId = "grp" + Math.random().toString().substring(2);
                     $(svgObj).append(getNode('g', { id: grpId, }));
                     var grpObj = $('#' + grpId);
-
                     $(grpObj).append(grpText);
 
                     var txtBBox = document.getElementById(grpTextId).getBBox();
@@ -1830,6 +1912,14 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     var txtHeight = txtBBox.height + 13.5;
                     var rectWidth = (dimensions.width > txtWidth ? dimensions.width : txtWidth);
                     var rectHeight = (dimensions.height > txtHeight ? dimensions.height : txtHeight);
+
+                    // show no label, resize to icon only.
+                    if (hideLabel) {
+                        txtWidth = 30;
+                        txtHeight = 30;
+                        rectWidth = txtWidth;
+                        rectHeight = txtHeight;
+                    }
 
                     if ((obj.wires || []).length > 2) {
                         /* if more than 2 outputs, the node "grows" but the node might already be bigger enough. The base

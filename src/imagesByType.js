@@ -42,6 +42,8 @@ var imgByType = {
     "mqtt in":       "bridge.svg",
     "mqtt out":      "bridge.svg",
 
+    "xml": "parser-xml.svg",
+
     ui_button: "ui_button.png",
     ui_template: "ui_template.png",
     ui_toast: "ui_toast.png",
@@ -66,9 +68,9 @@ var imgByType = {
 
     "cronplus": "timer.svg",
     
-    /* custom, my own private collection */
     "Thought": "alert.svg",
     "Idea": "light.svg",
+    
     "ClientCode": "subflow.svg",
     "GetFlows": "subflow.svg",
     "SendFlow": "subflow.svg",
@@ -88,13 +90,9 @@ var imgByType = {
     "udp in": "bridge-dash.svg",
     "udp out": "bridge-dash.svg",
 
-    // "ut-assert-failure": _hshClr("#FFAAAA"),
     "ut-assert-values": "alert.svg",
-    // "ut-assert-success": _hshClr('#addb7b'),
-    // "ut-assert-status": _hshClr('#C0DEED'),
     "ut-assert-debug": "debug.svg",
 
-    // "erlsupervisor": _hshClr('#E9967A'),
     "mermaid-flowchart": "flowhub.svg",
     "base64": "parser-base64.png",
 
@@ -110,5 +108,15 @@ var imgByType = {
     "ollama-show": "arrow-in.svg",
     "ollama-ps": "arrow-in.svg",
     "ollama-abort": "arrow-in.svg",
+
+    "xlsx": "xslx.svg",
+
+    'nnb-input-node': "subflow.svg",
+    'nnb-layer-node': "subflow.svg",
+    'nnb-output-node': "subflow.svg",
+    'nnb-backprop': "subflow.svg",
+    'nnb-trainer': "subflow.svg", 
+
+    "erlmodule": "erlang.svg",   
  };
  
