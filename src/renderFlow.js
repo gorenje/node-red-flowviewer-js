@@ -1,6 +1,7 @@
 function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
     "arrows": false,
     "gridlines": true,
+    "gridlines8000": false,
     "zoom": false,
     "images": true,
     "linklines": false,
@@ -52,7 +53,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
     
     svgObj = $(svgjQueryObj.find('.flowGridlines')[0]);
 
-    if (renderOpts["gridlines"]) {
+    if (renderOpts["gridlines"] && !renderOpts["gridlines8000"]) {
         for (var idx = 0; idx < 250; idx++) {
             svgObj.append(getNode('line', {
                 x1: 0,
@@ -73,6 +74,29 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
             }));
         }
     }
+
+    if (renderOpts["gridlines8000"]) {
+        for (var idx = 0; idx < 400; idx++) {
+            svgObj.append(getNode('line', {
+                x1: 0,
+                x2: 8000,
+                y1: 20 * idx,
+                y2: 20 * idx,
+                class: 'grid-line'
+            }));
+        }
+
+        for (var idx = 0; idx < 400; idx++) {
+            svgObj.append(getNode('line', {
+                x1: 20 * idx,
+                x2: 20 * idx,
+                y1: 0,
+                y2: 8000,
+                class: 'grid-line'
+            }));
+        }
+    }
+
 
     /*  this is used to define which nodes get input decoration, this is not clear from the json data so
      *  we make a guessimate which nodes have inputs by the wiring within the flow 
