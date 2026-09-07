@@ -88,9 +88,10 @@ var imgByType = {
     "link in":       "link-out.svg",
     "link out":      "link-out.svg",
     /* since I add the mode of the link to the type, there are multiple types for link nodes */
-    "link inundefined": "link-out.svg",
-    "link outlink":     "link-out.svg",
-    "link outreturn":   "link-return.svg",
+    "link inundefined":  "link-out.svg",
+    "link outlink":      "link-out.svg",
+    "link outreturn":    "link-return.svg",
+    "link outundefined": "link-out.svg", /* mode isn't set - can happen */
     
     "link call":     "link-call.svg",
     "markdown":      "parser-markdown.png",
