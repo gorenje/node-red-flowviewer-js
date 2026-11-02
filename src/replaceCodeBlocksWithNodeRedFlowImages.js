@@ -154,6 +154,7 @@ function parseLanguageOptions(optsStr) {
         "labels": !(optsStr.indexOf("no-labels") > -1),
         "linklines": optsStr.indexOf("with-linklines") > -1,
         "dllink": optsStr.indexOf("with-download-link") > -1,
+        "taskrender": optsStr.indexOf("with-taskrender") > -1,
     };
 
     // with-XXXX overrides previous no-XXXX setting

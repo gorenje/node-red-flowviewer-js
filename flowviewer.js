@@ -1110,6 +1110,7 @@ function parseLanguageOptions(optsStr) {
         "labels": !(optsStr.indexOf("no-labels") > -1),
         "linklines": optsStr.indexOf("with-linklines") > -1,
         "dllink": optsStr.indexOf("with-download-link") > -1,
+        "taskrender": optsStr.indexOf("with-taskrender") > -1,
     };
 
     // with-XXXX overrides previous no-XXXX setting
@@ -1992,8 +1993,6 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     obj.bbox.y = obj.y - rectHeight / 2;
 
                     if (renderOpts.taskrender && obj.type == "Task-mm") {
-
-
                         let lkp = { "done": 12, "progress": 31, "broken": 49 }
                         $(grpObj).prepend(getNode('circle', {
                             ...clr,
@@ -2003,7 +2002,6 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                             stroke: "blue",
                             r: 4
                         }));
-
 
                         $(grpObj).prepend(getNode('circle', {
                             ...clr,
@@ -2041,9 +2039,6 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                             r: 7
                         }));
 
-
-
-
                         $(grpObj).prepend(getNode('rect', {
                             ...clr,
                             rx: 5,
@@ -2053,8 +2048,6 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                             height: 40,
                             class: `task-status-${obj.taskStatus || 'none'}`
                         }));
-
-
                     }
 
                     /* Add image - if requested - by type - some types have no image */
