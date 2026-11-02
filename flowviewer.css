@@ -112,3 +112,20 @@ body {
     fill: white;
     stroke: none;
 }
+
+/* task node for the various states it might have */
+.task-status-done {
+    fill: rgba(223, 255, 201, 1) !important;
+}
+
+.task-status-progress {
+    fill: rgba(255, 231, 51, 1) !important;
+}
+
+.task-status-broken {
+    fill: rgba(249, 155, 127, 1) !important;
+}
+
+.task-status-none {
+    fill: white !important;
+}

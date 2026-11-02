@@ -7,6 +7,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
     "linklines": false,
     "dllink": false,
     "labels": true,
+    "taskrender": false
 }) {
     var nodes = {};
     var subflows = {};
@@ -458,6 +459,7 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                         }
                     }
 
+
                     $(grpObj).prepend(getNode('rect', {
                         ...clr,
                         rx: 5,
@@ -484,9 +486,76 @@ function renderFlow(flowId, flowdata, svgjQueryObj, renderOpts = {
                     }));
 
                     $(grpObj).attr("transform", "translate(" + (obj.x - rectWidth / 2) + "," + (obj.y - rectHeight / 2) + ")");
+
                     obj.bbox = document.getElementById(grpId).getBBox();
                     obj.bbox.x = obj.x - rectWidth / 2;
                     obj.bbox.y = obj.y - rectHeight / 2;
+
+                    if (renderOpts.taskrender && obj.type == "Task-mm") {
+
+
+                        let lkp = { "done": 12, "progress": 31, "broken": 49 }
+                        $(grpObj).prepend(getNode('circle', {
+                            ...clr,
+                            cy: 59,
+                            cx: lkp[obj.taskStatus] || 67,
+                            fill: "blue",
+                            stroke: "blue",
+                            r: 4
+                        }));
+
+
+                        $(grpObj).prepend(getNode('circle', {
+                            ...clr,
+                            cy: 59,
+                            cx: 12,
+                            fill: "white",
+                            stroke: obj.taskStatus == "done" ? "blue" : "grey",
+                            r: 7
+                        }));
+
+                        $(grpObj).prepend(getNode('circle', {
+                            ...clr,
+                            cy: 59,
+                            cx: 31,
+                            fill: "white",
+                            stroke: obj.taskStatus == "progress" ? "blue" : "grey",
+                            r: 7
+                        }));
+
+                        $(grpObj).prepend(getNode('circle', {
+                            ...clr,
+                            cy: 59,
+                            cx: 49,
+                            fill: "white",
+                            stroke: obj.taskStatus == "broken" ? "blue" : "grey",
+                            r: 7
+                        }));
+                        
+                        $(grpObj).prepend(getNode('circle', {
+                            ...clr,
+                            cy: 59,
+                            cx: 67,
+                            fill: "white",
+                            stroke: !obj.taskStatus ? "blue" : "grey",
+                            r: 7
+                        }));
+
+
+
+
+                        $(grpObj).prepend(getNode('rect', {
+                            ...clr,
+                            rx: 5,
+                            ry: 5,
+                            y: 39,
+                            width: 81,
+                            height: 40,
+                            class: `task-status-${obj.taskStatus || 'none'}`
+                        }));
+
+
+                    }
 
                     /* Add image - if requested - by type - some types have no image */
                     if (renderOpts.images) {
